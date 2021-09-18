@@ -34,6 +34,7 @@ execute as @a[tag=JoinSpec] run tp @s 136 106 23 -180 40
 tag @a remove JoinSpec
 execute as @e[tag=LeaveSpec] at @s run particle dust 1 0 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
 execute as @e[tag=LeaveSpec] at @s run particle dust 0 1 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
+execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run title @s actionbar [""]
 execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is no longer spectating.","color":"gold"}]
 execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run tag @s remove JoinedGame
 

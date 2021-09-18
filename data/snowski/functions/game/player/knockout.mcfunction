@@ -23,7 +23,7 @@ execute as @a[tag=Knocked,scores={Health=1..}] run function snowski:game/player/
 execute as @a[tag=Knocked,scores={Health=1..}] run tag @s remove Knocked
 
 #> Actionbars and respawn
-execute as @a[scores={Health=1..},team=!Lobby,team=!Spectator] run title @s actionbar ["",{"text":"❤","color":"dark_red"},{"score":{"name":"@s","objective":"Health"},"color":"red"}]
+execute as @a[scores={Health=1..},team=!Lobby,team=!Spectator,team=!Developer] run title @s actionbar ["",{"text":"❤","color":"dark_red"},{"score":{"name":"@s","objective":"Health"},"color":"red"}]
 
 execute as @a[scores={knocktime=100}] run tellraw @a ["",{"selector":"@s","color":"aqua"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
 execute as @a[scores={knocktime=100}] run scoreboard players add @s deathcollect 1

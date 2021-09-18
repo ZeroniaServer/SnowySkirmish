@@ -43,13 +43,11 @@ scoreboard players set $elfCount CmdData 0
 scoreboard players set $elfMax CmdData 7
 scoreboard players set $keepCount CmdData 0
 
-
-
-
 team add Lobby
 team add Green
 team add Red
 team add Spectator
+team add Developer
 
 gamerule sendCommandFeedback false
 gamerule logAdminCommands false
@@ -66,6 +64,7 @@ team modify Lobby color gray
 team modify Spectator color blue
 team modify Green color green
 team modify Red color red
+team modify Developer color dark_green
 
 team modify Lobby collisionRule never
 team modify Red collisionRule never
