@@ -4,6 +4,8 @@ item replace entity @a[team=Lobby] hotbar.4 with written_book{display:{Name:'[{"
 
 execute as @a[team=Lobby,scores={bookpain=2..}] run clear @s written_book
 
+#> Failsafe for logging in with no team and JoinedGame tag
+execute as @a[team=] run tag @s remove JoinedGame
 
 #> Players joining (revoke tag for leavegame)
 execute as @a[tag=!JoinedGame] run tag @s remove JoinSpec
