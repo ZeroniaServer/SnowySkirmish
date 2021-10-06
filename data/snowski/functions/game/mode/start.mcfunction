@@ -1,3 +1,5 @@
+#TODO: Convert to trigger. We're currently relying on a sign to run commands for the player. Which on servers may not work without operator perms.
+
 execute if score $gamestate CmdData matches 0 run fill 102 81 7 102 82 7 blue_ice
 execute if score $gamestate CmdData matches 0 run fill 97 85 5 96 85 7 blue_ice replace air
 execute if score $gamestate CmdData matches 0 run fill 170 82 7 170 83 7 blue_ice
@@ -29,6 +31,7 @@ execute as @a[tag=JoinGreen] unless score $gamestate CmdData matches 0 unless sc
 execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:5439325},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinGreen] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
+execute as @a[tag=JoinGreen] at @s run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 1 1
 
 execute as @a[tag=JoinRed] run tp @s @s
 execute as @a[tag=JoinRed] run team join Red @s
@@ -43,7 +46,7 @@ execute as @a[tag=JoinRed] unless score $gamestate CmdData matches 0 unless scor
 execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:16722217},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinRed] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
-
+execute as @a[tag=JoinRed] at @s run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 1 1
 
 tag @a remove JoinGreen
 tag @a remove JoinRed

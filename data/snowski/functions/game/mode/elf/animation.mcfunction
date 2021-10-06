@@ -1,5 +1,3 @@
-execute as @e[tag=ElfSpawn] run function snowski:game/mode/elf/respawn
-
 scoreboard players add @e[tag=ElfAnim] elftime 1
 execute as @e[tag=ElfAnim,scores={elftime=1}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:1}
 execute as @e[tag=ElfAnim,scores={elftime=1}] at @s run particle block snow ~ ~0.7 ~ 0 0 0 0.1 29 force

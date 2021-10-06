@@ -25,6 +25,7 @@ scoreboard objectives add mvpscore dummy
 scoreboard objectives add giftcollect dummy
 scoreboard objectives add killscollect dummy
 scoreboard objectives add deathcollect dummy
+scoreboard objectives add leaveteam trigger
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000
