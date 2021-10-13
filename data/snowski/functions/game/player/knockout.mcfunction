@@ -28,43 +28,19 @@ execute as @a[scores={Health=1..},team=!Lobby,team=!Spectator,team=!Developer] r
 execute as @a[scores={knocktime=100}] run tellraw @a ["",{"selector":"@s","color":"aqua"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
 execute as @a[scores={knocktime=100}] run scoreboard players add @s deathcollect 1
 #> Fall countdown
-execute as @a[scores={knocktime=1}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Falling in: ","color":"dark_aqua"},{"text":"5","color":"blue"}]
-execute as @a[scores={knocktime=20}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Falling in: ","color":"dark_aqua"},{"text":"4","color":"blue"}]
-execute as @a[scores={knocktime=40}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Falling in: ","color":"dark_aqua"},{"text":"3","color":"blue"}]
-execute as @a[scores={knocktime=60}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Falling in: ","color":"dark_aqua"},{"text":"2","color":"blue"}]
-execute as @a[scores={knocktime=80}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Falling in: ","color":"dark_aqua"},{"text":"1","color":"blue"}]
-
-#> Fallfx
-execute as @a[team=Green,scores={knocktime=100}] at @s run summon armor_stand ~ ~ ~ {NoGravity:1b,Tags:["GreenBody","BodyDeco"],Invulnerable:1b,NoBasePlate:1b,ShowArms:1b,DisabledSlots:2096896,Pose:{Head:[46f,0f,0f],LeftLeg:[266f,348f,0f],RightLeg:[266f,13f,0f],LeftArm:[15f,0f,0f],RightArm:[297f,50f,24f]}}
-execute as @a[team=Red,scores={knocktime=100}] at @s run summon armor_stand ~ ~ ~ {NoGravity:1b,Tags:["RedBody","BodyDeco"],Invulnerable:1b,NoBasePlate:1b,ShowArms:1b,DisabledSlots:2096896,Pose:{Head:[46f,0f,0f],LeftLeg:[266f,348f,0f],RightLeg:[266f,13f,0f],LeftArm:[15f,0f,0f],RightArm:[297f,50f,24f]}}
-execute as @a[scores={knocktime=100}] at @s run tp @e[tag=BodyDeco,limit=1,sort=nearest,distance=..4] @s
-execute as @a[scores={knocktime=100}] at @s run tp @e[tag=BodyDeco,limit=1,sort=nearest,distance=..4] ~ ~ ~ ~350 ~
-execute as @a[scores={knocktime=100}] at @s run setblock ~ 100 ~ warped_wall_sign
-execute as @a[scores={knocktime=100}] at @s run data merge block ~ 100 ~ {Text1:"{\"selector\":\"@p[scores={knocktime=100}]\"}"}
-execute as @a[scores={knocktime=100}] at @s run summon area_effect_cloud ~ ~0.8 ~ {Tags:["BodyDeco","BodyAEC"],Duration:119,CustomNameVisible:1b}
-execute as @a[scores={knocktime=100}] at @s run data modify entity @e[tag=BodyAEC,limit=1,sort=nearest] CustomName set from block ~ 100 ~ Text1
-execute as @a[scores={knocktime=100}] at @s run fill ~1 100 ~1 ~-1 100 ~-1 air replace warped_wall_sign
-
-gamemode spectator @a[scores={knocktime=101}]
-execute as @a[scores={knocktime=101..}] at @s at @e[tag=BodyDeco,type=armor_stand,limit=1,sort=nearest] run spectate @e[tag=BodyDeco,type=armor_stand,limit=1,sort=nearest]
-
-scoreboard players add @e[tag=BodyDeco] knocktime 1
-execute as @e[tag=BodyDeco,scores={knocktime=1}] run item replace entity @s armor.head with snow_block
-execute as @e[tag=BodyDeco,scores={knocktime=2..7}] at @s run tp @s ~ ~-0.1 ~
-execute as @e[tag=GreenBody,scores={knocktime=1}] run item replace entity @s armor.chest with leather_chestplate{display:{color:5439325}}
-execute as @e[tag=RedBody,scores={knocktime=1}] run item replace entity @s armor.chest with leather_chestplate{display:{color:16722217}}
-execute as @e[tag=BodyDeco,scores={knocktime=1}] run item replace entity @s armor.legs with leather_leggings{display:{color:4868682}}
-execute as @e[tag=BodyDeco,scores={knocktime=1}] run item replace entity @s armor.feet with leather_boots{display:{color:4868682}}
-execute as @e[tag=BodyDeco,scores={knocktime=1}] run item replace entity @s weapon.mainhand with white_banner
-
-kill @e[tag=BodyDeco,scores={knocktime=79..}]
+execute as @a[scores={knocktime=1}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"8","color":"blue"}]
+execute as @a[scores={knocktime=20}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"7","color":"blue"}]
+execute as @a[scores={knocktime=40}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"6","color":"blue"}]
+execute as @a[scores={knocktime=60}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"5","color":"blue"}]
+execute as @a[scores={knocktime=80}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"4","color":"blue"}]
+execute as @a[scores={knocktime=100}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"3","color":"blue"}]
+execute as @a[scores={knocktime=120}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"2","color":"blue"}]
+execute as @a[scores={knocktime=140}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"1","color":"blue"}]
+execute as @a[scores={knocktime=160}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"0","color":"blue"}]
 
 #> Respawn countdown
-execute as @a[scores={knocktime=120}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning in: ","color":"dark_aqua"},{"text":"3","color":"blue"}]
 execute as @a[scores={knocktime=120}] at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 100 2
-execute as @a[scores={knocktime=140}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning in: ","color":"dark_aqua"},{"text":"2","color":"blue"}]
 execute as @a[scores={knocktime=140}] at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 100 2
-execute as @a[scores={knocktime=160}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning in: ","color":"dark_aqua"},{"text":"1","color":"blue"}]
 execute as @a[scores={knocktime=160}] at @s run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 100 1
 
 execute as @a[scores={knocktime=180}] at @s run particle block snow_block ~ ~1 ~ 0.2 0.5 0.2 0.1 100
