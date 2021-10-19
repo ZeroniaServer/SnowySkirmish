@@ -17,6 +17,7 @@ effect give @a[tag=Knocked,scores={knocktime=1}] glowing 1 0 true
 tag @a[tag=Knocked,scores={knocktime=1}] remove IceImpact
 clear @a[tag=Knocked] snowball
 clear @a[tag=Knocked] ghast_spawn_egg
+clear @a[tag=Knocked] golden_hoe
 execute unless score $gamestate CmdData matches 2 run clear @a[tag=Knocked] clay
 
 #> Remove knocked fx when HP is above 1

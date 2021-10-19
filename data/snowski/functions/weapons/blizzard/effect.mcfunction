@@ -4,15 +4,15 @@ execute as @e[tag=BlizzardCloud] at @s run particle minecraft:snowflake ~ ~4.5 ~
 
 execute as @e[tag=BlizzardCloud] at @s run tp @s ~ ~ ~ ~8 ~
 
-execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 1 ^ ^ ^3 0 0 0 0 1 force
-execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 1 ^ ^ ^-3 0 0 0 0 1 force
-execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 1 ^3 ^ ^ 0 0 0 0 1 force
-execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 1 ^-3 ^ ^ 0 0 0 0 1 force
+execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 2 ^ ^ ^3 0 0.3 0 0 4 force
+execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 2 ^ ^ ^-3 0 0.3 0 0 4 force
+execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 2 ^3 ^ ^ 0 0.3 0 0 4 force
+execute as @e[tag=GreenBlizzardCloud] at @s run particle dust 0 1 0 2 ^-3 ^ ^ 0 0.3 0 0 4 force
 
-execute as @e[tag=RedBlizzardCloud] at @s run particle dust 1 0 0 1 ^ ^ ^3 0 0 0 0 1 force
-execute as @e[tag=RedBlizzardCloud] at @s run particle dust 1 0 0 1 ^ ^ ^-3 0 0 0 0 1 force
-execute as @e[tag=RedBlizzardCloud] at @s run particle dust 1 0 0 1 ^3 ^ ^ 0 0 0 0 1 force
-execute as @e[tag=ReddBlizzardCloud] at @s run particle dust 1 0 0 1 ^-3 ^ ^ 0 0 0 0 1 force
+execute as @e[tag=RedBlizzardCloud] at @s run particle dust 1 0 0 2 ^ ^ ^3 0 0.3 0 0 4 force
+execute as @e[tag=RedBlizzardCloud] at @s run particle dust 1 0 0 2 ^ ^ ^-3 0 0.3 0 0 4 force
+execute as @e[tag=RedBlizzardCloud] at @s run particle dust 1 0 0 2 ^3 ^ ^ 0 0.3 0 0 4 force
+execute as @e[tag=ReddBlizzardCloud] at @s run particle dust 1 0 0 2 ^-3 ^ ^ 0 0.3 0 0 4 force
 
 
 
