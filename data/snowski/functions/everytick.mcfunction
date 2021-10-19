@@ -11,6 +11,10 @@ function snowski:game/mode/loop
 #> Loop functions for iceballs
 function snowski:weapons/iceball/throw
 
+#> Loop functions for blizzards
+function snowski:weapons/blizzard/throw
+function snowski:weapons/blizzard/effect
+
 #> Global player damage manager (part of the snowball functions folder)
 execute as @a[scores={sbdamage=1..}] at @s run function snowski:weapons/snowball/takedamage
 

@@ -66,7 +66,7 @@ tag @a remove deathchamp
 execute as @a run scoreboard players operation @s mvpscore = @s deathcollect
 function snowski:game/mode/mvpstuff/pogger_calculation
 tag @a[scores={mvpscore=0}] add deathchamp
-tellraw @a ["",{"selector":"@a[tag=deathchamp]","color":"light_purple"},{"text":" had serious issues with staying alive! ","color":"blue"},{"score":{"name":"@a[tag=deathchamp,limit=1]","objective":"deathcollect"},"color":"light_purple"},{"text":" deaths!","color":"blue"}]
+tellraw @a ["",{"selector":"@a[tag=deathchamp]","color":"light_purple"},{"text":" had serious issues with staying alive! ","color":"blue"},{"score":{"name":"@a[tag=deathchamp,limit=1]","objective":"deathcollect"},"color":"light_purple"},{"text":" knockouts!","color":"blue"}]
 
 
 tag @a[team=Green] remove JoinedGame

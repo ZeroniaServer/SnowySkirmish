@@ -98,6 +98,12 @@ execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenIBall,distance=..5]
 execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenIArrow,distance=..5]
 execute as @e[tag=GreenCampfire] at @s run kill @e[tag=RedIBall,distance=..5]
 execute as @e[tag=GreenCampfire] at @s run kill @e[tag=RedIArrow,distance=..5]
+execute as @e[tag=GreenCampfire] at @s run kill @e[tag=RedBBall,distance=..5]
+execute as @e[tag=GreenCampfire] at @s run kill @e[tag=RedBBArrow,distance=..5]
+execute as @e[tag=GreenCampfire] at @s run kill @e[tag=RedBlizzardCloud,distance=..5]
+execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenBBall,distance=..5]
+execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenBBArrow,distance=..5]
+execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenBlizzardCloud,distance=..5]
 execute as @e[tag=RedCampfire] at @s run scoreboard players set @e[tag=GreenSnowman,distance=..8] CmdData 280
 execute as @e[tag=GreenCampfire] at @s run scoreboard players set @e[tag=RedSnowman,distance=..8] CmdData 280
 execute unless score $gamestate CmdData matches 0 run fill 96 85 7 97 88 5 air replace clay

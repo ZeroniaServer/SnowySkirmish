@@ -64,3 +64,6 @@ execute as @a[team=Red,scores={knocktime=180..}] at @e[tag=RedCampfire] run play
 execute as @a[team=Red,scores={knocktime=1}] run summon firework_rocket 182 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 execute as @a[team=Red,scores={knocktime=1}] run scoreboard players add $GreenGifts CmdData 4
 execute as @a[team=Red,scores={knocktime=180..}] run scoreboard players set @s nnhealth_mod 40
+
+execute as @a[team=Green,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
+execute as @a[team=Red,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
