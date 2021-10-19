@@ -1,10 +1,7 @@
 #> Effects
 effect give @a saturation 1000000 100 true
-effect give @a instant_health 1000000 100 true
+effect give @a resistance 1000000 100 true
 effect give @a weakness 1000000 100 true
-
-#> Max 100 HP
-scoreboard players set @a[scores={Health=100..}] Health 100
 
 #> Scores
 scoreboard players reset @a[scores={throwsb=1..}] throwsb

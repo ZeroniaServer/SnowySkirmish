@@ -9,7 +9,6 @@ scoreboard objectives add giveblocks dummy
 scoreboard objectives add HasPowerup dummy
 scoreboard objectives add hatchange trigger
 scoreboard objectives add hatscore dummy
-scoreboard objectives add Health dummy
 scoreboard objectives add iceballammo dummy
 scoreboard objectives add knocktime dummy
 scoreboard objectives add LeaveGame minecraft.custom:minecraft.leave_game
@@ -25,7 +24,7 @@ scoreboard objectives add mvpscore dummy
 scoreboard objectives add giftcollect dummy
 scoreboard objectives add killscollect dummy
 scoreboard objectives add deathcollect dummy
-scoreboard objectives add leaveteam trigger
+scoreboard objectives add leavegame trigger
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000
@@ -81,5 +80,10 @@ team modify Lobby seeFriendlyInvisibles false
 team modify Red seeFriendlyInvisibles false
 team modify Green seeFriendlyInvisibles false
 team modify Spectator seeFriendlyInvisibles false
+
+# Gamerules
+gamerule naturalRegeneration false
+gamerule showDeathMessages false
+gamerule mobGriefing false
 
 tellraw @a ["",{"text":"[Zeronia]: ","bold":true,"color":"green"},{"text":"Successfully initialized team settings, game rules and scoreboard settings.","color":"gold"}]

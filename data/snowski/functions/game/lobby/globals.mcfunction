@@ -4,16 +4,23 @@ execute as @a[team=Lobby] unless entity @s[nbt={Inventory:[{id:"minecraft:writte
 #> Failsafe for logging in with no team and JoinedGame tag
 execute as @a[team=] run tag @s remove JoinedGame
 
+#> Spawnpoints
+spawnpoint @a 137 106 55 -180
+setworldspawn 137 106 55
+function nnhealth:tick
+
 #> Players joining (revoke tag for leavegame)
+execute as @a[tag=!JoinedGame] run scoreboard players set @s nnhealth_max 20
+execute as @a[tag=!JoinedGame] run scoreboard players set @s nnhealth_mod 20
 execute as @a[tag=!JoinedGame] run tag @s remove JoinSpec
 execute as @a[tag=!JoinedGame] run tag @s remove JoinGreen
 execute as @a[tag=!JoinedGame] run tag @s remove JoinRed
+execute as @a[tag=!JoinedGame] run tag @s remove IceImpact
 execute as @a[tag=!JoinedGame] run team join Lobby @s
 execute as @a[tag=!JoinedGame] run tp @s @s
 execute as @a[tag=!JoinedGame] run tp @s 137 106 55 180 0
 execute as @a[tag=!JoinedGame] run gamemode adventure @s
 execute as @a[tag=!JoinedGame] run clear @s
-execute as @a[tag=!JoinedGame] run scoreboard players set @s Health 100
 execute as @a[tag=!JoinedGame] run tag @s remove Knocked
 execute as @a[tag=!JoinedGame] run scoreboard players reset @s knocktime
 execute as @a[tag=!JoinedGame] run function snowski:game/player/playerdeco
@@ -22,18 +29,20 @@ execute as @a[tag=!JoinedGame] run tag @s add JoinedGame
 execute as @a[scores={LeaveGame=1..}] run tag @s remove JoinedGame
 scoreboard players reset @a LeaveGame
 
+#> Midgame leaving
+function snowski:game/mode/leavegame
+
 #> Spectate
 execute as @a[tag=JoinSpec] run gamemode spectator @s
-execute as @a[tag=JoinSpec] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is now spectating.","color":"gold"}]
+execute as @a[tag=JoinSpec] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is now spectating","color":"gold"}]
 execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by flying into the central particle cluster.","color":"gold"}
 team join Spectator @a[tag=JoinSpec]
 execute as @a[tag=JoinSpec] run tp @s 136 106 23 -180 40
+execute as @a[tag=JoinSpec] at @s run playsound block.beehive.enter master @s ~ ~ ~ 1 1
 tag @a remove JoinSpec
 execute as @e[tag=LeaveSpec] at @s run particle dust 1 0 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
 execute as @e[tag=LeaveSpec] at @s run particle dust 0 1 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
-execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run title @s actionbar [""]
-execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is no longer spectating.","color":"gold"}]
-execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run tag @s remove JoinedGame
+execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run trigger leavegame set 1
 
 
 

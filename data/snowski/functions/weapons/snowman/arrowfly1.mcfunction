@@ -1,4 +1,4 @@
-execute if entity @s[tag=GreenSnowman] facing entity @a[limit=1,sort=nearest,team=Red,distance=..10] eyes positioned 0.0 0 0.0 run summon arrow ^ ^ ^3 {life:10s,Tags:["BArrow","NewBArrow"],CustomName:"\"a Green Snow Turret\""}
-execute if entity @s[tag=RedSnowman] facing entity @a[limit=1,sort=nearest,team=Green,distance=..10] eyes positioned 0.0 0 0.0 run summon arrow ^ ^ ^3 {life:10s,Tags:["BArrow","NewBArrow"],CustomName:"\"a Red Snow Turret\""}
+execute if entity @s[tag=GreenSnowman] facing entity @a[limit=1,sort=nearest,team=Red,distance=..10] eyes positioned 0.0 0 0.0 run summon arrow ^ ^ ^3 {damage:0.1s,life:10s,Tags:["BArrow","NewBArrow"],CustomName:"\"a Green Snow Turret\""}
+execute if entity @s[tag=RedSnowman] facing entity @a[limit=1,sort=nearest,team=Green,distance=..10] eyes positioned 0.0 0 0.0 run summon arrow ^ ^ ^3 {damage:0.1s,life:10s,Tags:["BArrow","NewBArrow"],CustomName:"\"a Red Snow Turret\""}
 execute if entity @s[tag=Snowman] positioned 0.0 0 0.0 run data modify entity @e[tag=BArrow,limit=1,sort=nearest,distance=..3] Owner set from entity @s SBUUID
 execute as @e[type=arrow,tag=NewBArrow] run function snowski:weapons/snowman/arrowfly2

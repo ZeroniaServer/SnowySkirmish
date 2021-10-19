@@ -2,7 +2,10 @@
 #execute as @s[team=Red] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["SpawnRedSnowman","SnowmanSpawn"],Duration:100}
 #execute as @s[team=Green] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["SpawnGreenSnowman","SnowmanSpawn"],Duration:100}
 
-execute as @e[tag=SnowmanSpawn] at @s run particle block snow ~ ~1 ~ 0.6 0.6 0.6 0.1 50 force
+execute as @e[tag=SnowmanSpawn] at @s run playsound block.powder_snow.fall master @a ~ ~ ~ 1 0.7
+execute as @e[tag=SnowmanSpawn] at @s run playsound block.powder_snow.fall master @a ~ ~ ~ 1 1
+execute as @e[tag=SnowmanSpawn] at @s run playsound block.powder_snow.break master @a ~ ~ ~ 1 1.2
+execute as @e[tag=SnowmanSpawn] at @s run particle block snow ~ ~1 ~ 0.6 0.6 0.6 0.1 200 force
 execute as @e[tag=SnowmanSpawn] at @s run particle block ice ~ ~1 ~ 0.6 0.6 0.6 0.1 20 force
 
 execute as @e[tag=SpawnRedSnowman] at @s run summon armor_stand ~ ~ ~ {NoGravity:0b,Team:"Red",Silent:1b,ArmorItems:[{},{},{},{id:"golden_hoe",Count:1b,tag:{Unbreakable:1b,CustomModelData:11}}],Tags:["RedSnowman","Snowman"],Invisible:1b,Invulnerable:1b,DisabledSlots:2096896,Rotation:[-90f,0f]}
