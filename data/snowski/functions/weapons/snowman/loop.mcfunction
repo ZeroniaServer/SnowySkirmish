@@ -55,8 +55,8 @@ execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 run tag
 execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 run tag @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
 
 #> Snowman snowballs
-execute as @e[type=arrow,tag=!ThrownBall,tag=!SBArrow,tag=!IBArrow] at @s run particle falling_dust snow_block ~ ~ ~ 0.1 0.1 0.1 0.1 2 force
-execute as @e[type=arrow,tag=!ThrownBall,tag=!SBArrow,tag=!IBArrow] at @s run particle falling_dust ice ~ ~ ~ 0.1 0.1 0.1 0.1 1 force
+execute as @e[type=arrow,tag=!ThrownBall,tag=!SBArrow,tag=!IBArrow,tag=!BBArrow] at @s run particle falling_dust snow_block ~ ~ ~ 0.1 0.1 0.1 0.1 2 force
+execute as @e[type=arrow,tag=!ThrownBall,tag=!SBArrow,tag=!IBArrow,tag=!BBArrow] at @s run particle falling_dust ice ~ ~ ~ 0.1 0.1 0.1 0.1 1 force
 
 #> Spawn
 function snowski:weapons/snowman/spawn
