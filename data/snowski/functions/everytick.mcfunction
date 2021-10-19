@@ -15,6 +15,9 @@ function snowski:weapons/iceball/throw
 function snowski:weapons/blizzard/throw
 function snowski:weapons/blizzard/effect
 
+#> Loop functions for candy canes
+function snowski:weapons/candycane/smash
+
 #> Global player damage manager (part of the snowball functions folder)
 execute as @a[scores={sbdamage=1..}] at @s run function snowski:weapons/snowball/takedamage
 

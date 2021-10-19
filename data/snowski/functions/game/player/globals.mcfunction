@@ -1,7 +1,7 @@
 #> Effects
 effect give @a saturation 1000000 100 true
 effect give @a resistance 1000000 100 true
-effect give @a weakness 1000000 100 true
+effect give @a[tag=!HoldCane] weakness 1000000 100 true
 
 #> Scores
 scoreboard players reset @a[scores={throwsb=1..}] throwsb

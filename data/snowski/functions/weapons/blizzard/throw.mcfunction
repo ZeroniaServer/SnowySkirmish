@@ -21,6 +21,8 @@ tag @e[type=arrow,tag=BBottle,tag=!ThrownBall] add ThrownBall
 #> Kill the arrows that hit the ground, remove player tag
 execute as @e[type=arrow,tag=RedBBArrow] at @s unless entity @e[type=snowball,tag=RedBBottle,distance=..2,limit=1] run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","RedBlizzardCloud"]}
 execute as @e[type=arrow,tag=GreenBBArrow] at @s unless entity @e[type=snowball,tag=GreenBBottle,distance=..2,limit=1] run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","GreenBlizzardCloud"]}
+execute as @e[type=arrow,tag=RedBBArrow] at @s unless entity @e[type=snowball,tag=RedBBottle,distance=..2,limit=1] run kill @s
+execute as @e[type=arrow,tag=GreenBBArrow] at @s unless entity @e[type=snowball,tag=GreenBBottle,distance=..2,limit=1] run kill @s
 
 execute as @e[type=arrow,tag=RedBBArrow,nbt={inGround:1b}] at @s run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","RedBlizzardCloud"]}
 execute as @e[type=arrow,tag=GreenBBArrow,nbt={inGround:1b}] at @s run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","GreenBlizzardCloud"]}

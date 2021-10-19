@@ -15,12 +15,16 @@ execute as @a[scores={HasPowerup=1..}] unless data entity @s Inventory[{Slot:3b}
 execute as @a[scores={HasPowerup=1..}] unless data entity @s Inventory[{Slot:3b}] if data entity @s Inventory[{Slot:5b,id:"minecraft:potion",tag:{CustomModelData:2}}] run tag @s add SwapHC
 execute as @a[scores={HasPowerup=1..}] unless data entity @s Inventory[{Slot:3b}] if data entity @s Inventory[{Slot:5b,id:"minecraft:ghast_spawn_egg",tag:{CustomModelData:2}}] run tag @s add SwapST
 execute as @a[scores={HasPowerup=1..}] unless data entity @s Inventory[{Slot:3b}] if data entity @s Inventory[{Slot:5b,id:"minecraft:snowball",tag:{CustomModelData:3}}] run tag @s add SwapBB
+execute as @a[scores={HasPowerup=1..}] unless data entity @s Inventory[{Slot:3b}] if data entity @s Inventory[{Slot:5b,id:"minecraft:golden_hoe",tag:{CustomModelData:22}}] run tag @s add SwapCC
 
 execute as @a[tag=SwapIB] run item replace entity @s hotbar.5 with air
 execute as @a[tag=SwapIB] run item replace entity @s hotbar.3 with snowball{Powerup:1b,CustomModelData:2,display:{Name:'[{"text":"Ice Ball","italic":false,"color":"aqua","underlined":true}]',Lore:['[{"text":"A hard hitting ice ball","italic":false,"color":"gray"}]','[{"text":"It\'s like cheating in a","italic":false,"color":"gray"}]','[{"text":"snowball fight.","italic":false,"color":"gray"}]','[{"text":"","italic":false,"color":"gray"}]','[{"text":"Knocks out players in 1 hit.","italic":false,"color":"gray"}]','[{"text":"Has a limited short range.","italic":false,"color":"gray"}]']}} 1
 
 execute as @a[tag=SwapBB] run item replace entity @s hotbar.5 with air
 execute as @a[tag=SwapBB] run item replace entity @s hotbar.3 with snowball{Powerup:1b,CustomModelData:3,display:{Name:'[{"text":"Blizzard in a Bottle","italic":false,"color":"dark_purple","underlined":true}]',Lore:['[{"text":"Deploys a blizzard that damages enemies!","italic":false,"color":"gray"}]','[{"text":"Today\'s weather forecast: Snow.","italic":false,"color":"gray"}]']}} 1
+
+execute as @a[tag=SwapCC] run item replace entity @s hotbar.5 with air
+execute as @a[tag=SwapCC] run item replace entity @s hotbar.3 with golden_hoe{Powerup:1b,Unbreakable:1b,CustomModelData:22,display:{Name:'[{"text":"Candy Cane Smasher","italic":false,"color":"light_purple","underlined":true}]',Lore:['[{"text":"Knock some sugar-filled sense into your enemies!","italic":false,"color":"gray"}]','[{"text":"Don\'t eat it!","italic":false,"color":"gray"}]']},Enchantments:[{id:knockback,lvl:1},{id:sharpness,lvl:2}],HideFlags:1} 1
 
 execute as @a[tag=SwapHC] run item replace entity @s hotbar.5 with air
 execute as @a[tag=SwapHC] run item replace entity @s hotbar.3 with potion{Powerup:1b,CustomModelData:2,display:{Name:'[{"text":"Hot Chocolate","italic":false,"color":"#663333","underlined":true}]',Lore:['[{"text":"A refreshing mug of","italic":false,"color":"gray"}]','[{"text":"Hot Chocolate.","italic":false,"color":"gray"}]','[{"text":"","italic":false,"color":"gray"}]','[{"text":"Can be used to heal","italic":false,"color":"gray"}]','[{"text":"yourself for 50HP or","italic":false,"color":"gray"}]','[{"text":"to self-revive out of","italic":false,"color":"gray"}]','[{"text":"a Knocked Out state.","italic":false,"color":"gray"}]']}} 1
@@ -33,6 +37,7 @@ tag @a remove SwapIB
 tag @a remove SwapHC
 tag @a remove SwapST
 tag @a remove SwapBB
+tag @a remove SwapCC
 
 
 
@@ -42,7 +47,7 @@ execute as @a[team=!Spectator,team=!Lobby,tag=!Knocked,scores={HasPowerup=..1}] 
 execute as @a[team=!Spectator,team=!Lobby,tag=!Knocked,scores={HasPowerup=..1}] at @s if entity @e[tag=PowerGift,distance=..1,limit=1] run kill @e[tag=PowerGift,distance=..1,limit=1]
 
 execute as @a[tag=GrabPowerup] at @s run summon area_effect_cloud ~ ~ ~ {Tags:["RNGPowerup"],Duration:100}
-scoreboard players set @e[tag=RNGPowerup] RNGmax 4
+scoreboard players set @e[tag=RNGPowerup] RNGmax 5
 
 execute as @e[tag=RNGPowerup,type=area_effect_cloud] store result score @s RNGscore run data get entity @s UUID[0]
 execute as @e[tag=RNGPowerup,type=area_effect_cloud] store result score @s RNGscore run scoreboard players operation @s RNGscore %= @s RNGmax
@@ -60,6 +65,8 @@ execute as @a[tag=GrabPowerup,scores={RNGscore=2}] at @s unless entity @s[scores
 execute as @a[tag=GrabPowerup,scores={RNGscore=2}] at @s if entity @s[scores={HasPowerup=1..}] unless entity @s[scores={HasPowerup=2..}] run item replace entity @s[team=Green] hotbar.5 with ghast_spawn_egg{Powerup:1b,HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"],CustomModelData:2,display:{Name:'[{"text":"Snowball Turret","italic":false,"color":"#dddddd","underlined":true}]',Lore:['[{"text":"A friendly snowman that","italic":false,"color":"gray"}]','[{"text":"fires bursts of snowballs","italic":false,"color":"gray"}]','[{"text":"at nearby enemy with players.","italic":false,"color":"gray"}]']},EntityTag:{id:"minecraft:area_effect_cloud",Radius:0f,RadiusPerTick:-1f,Duration:1,Tags:['SpawnGreenSnowman','SnowmanSpawn']}} 1
 execute as @a[tag=GrabPowerup,scores={RNGscore=3}] at @s unless entity @s[scores={HasPowerup=1..}] run item replace entity @s hotbar.3 with snowball{Powerup:1b,CustomModelData:3,display:{Name:'[{"text":"Blizzard in a Bottle","italic":false,"color":"dark_purple","underlined":true}]',Lore:['[{"text":"Deploys a blizzard that damages enemies!","italic":false,"color":"gray"}]','[{"text":"Today\'s weather forecast: Snow.","italic":false,"color":"gray"}]']}} 1
 execute as @a[tag=GrabPowerup,scores={RNGscore=3}] at @s if entity @s[scores={HasPowerup=1..}] unless entity @s[scores={HasPowerup=2..}] run item replace entity @s hotbar.5 with snowball{Powerup:1b,CustomModelData:3,display:{Name:'[{"text":"Blizzard in a Bottle","italic":false,"color":"dark_purple","underlined":true}]',Lore:['[{"text":"Deploys a blizzard that damages enemies!","italic":false,"color":"gray"}]','[{"text":"Today\'s weather forecast: Snow.","italic":false,"color":"gray"}]']}}
+execute as @a[tag=GrabPowerup,scores={RNGscore=4}] at @s unless entity @s[scores={HasPowerup=1..}] run item replace entity @s hotbar.3 with golden_hoe{Powerup:1b,Unbreakable:1b,CustomModelData:22,display:{Name:'[{"text":"Candy Cane Smasher","italic":false,"color":"light_purple","underlined":true}]',Lore:['[{"text":"Knock some sugar-filled sense into your enemies!","italic":false,"color":"gray"}]','[{"text":"Don\'t eat it!","italic":false,"color":"gray"}]']},Enchantments:[{id:knockback,lvl:1},{id:sharpness,lvl:2}],HideFlags:1} 1
+execute as @a[tag=GrabPowerup,scores={RNGscore=4}] at @s if entity @s[scores={HasPowerup=1..}] unless entity @s[scores={HasPowerup=2..}] run item replace entity @s hotbar.5 with golden_hoe{Powerup:1b,Unbreakable:1b,CustomModelData:22,display:{Name:'[{"text":"Candy Cane Smasher","italic":false,"color":"light_purple","underlined":true}]',Lore:['[{"text":"Knock some sugar-filled sense into your enemies!","italic":false,"color":"gray"}]','[{"text":"Don\'t eat it!","italic":false,"color":"gray"}]']},Enchantments:[{id:knockback,lvl:1},{id:sharpness,lvl:2}],HideFlags:1}
 execute as @a[tag=GrabPowerup] at @s run playsound block.note_block.bit master @s ~ ~ ~ 1 2
 
 scoreboard players reset @a[team=!Red,tag=!Green] HasPowerup

@@ -25,6 +25,8 @@ scoreboard objectives add giftcollect dummy
 scoreboard objectives add killscollect dummy
 scoreboard objectives add deathcollect dummy
 scoreboard objectives add leavegame trigger
+scoreboard objectives add blizzsound dummy
+scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000

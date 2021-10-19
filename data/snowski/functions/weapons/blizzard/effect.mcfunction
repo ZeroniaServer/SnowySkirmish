@@ -34,3 +34,17 @@ execute as @e[tag=RedBlizzardCloud] at @s as @a[team=Green,distance=..2] at @s a
 
 
 scoreboard players reset @e[tag=BlizzardCloud,scores={CmdData=10..}] CmdData
+
+#> Blizzard sound
+scoreboard players add @e[tag=BlizzardCloud] blizzsound 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=1}] at @s run playsound blizz1 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=20}] at @s run playsound blizz2 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=40}] at @s run playsound blizz3 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=60}] at @s run playsound blizz4 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=80}] at @s run playsound blizz5 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=100}] at @s run playsound blizz6 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=120}] at @s run playsound blizz7 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=140}] at @s run playsound blizz8 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=160}] at @s run playsound blizz9 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=180}] at @s run playsound blizz10 master @a ~ ~ ~ 1 1
+execute as @e[tag=BlizzardCloud,scores={blizzsound=200}] at @s run playsound blizz11 master @a ~ ~ ~ 1 1
