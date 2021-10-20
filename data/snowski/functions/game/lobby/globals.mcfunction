@@ -9,6 +9,10 @@ spawnpoint @a 137 106 55 -180
 setworldspawn 137 106 55
 function nnhealth:tick
 
+#> Set health
+scoreboard players reset @a[team=Lobby] sbdamage
+scoreboard players set @a[team=Lobby,scores={nnhealth=..19}] nnhealth_mod 20
+
 #> Players joining (revoke tag for leavegame)
 execute as @a[tag=!JoinedGame] run scoreboard players set @s nnhealth_max 20
 execute as @a[tag=!JoinedGame] run scoreboard players set @s nnhealth_mod 20
