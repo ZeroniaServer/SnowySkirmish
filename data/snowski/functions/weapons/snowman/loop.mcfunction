@@ -3,28 +3,28 @@ scoreboard players add @e[tag=Snowman] CmdData 1
 
 execute as @e[tag=!MS1,tag=RedSnowman,scores={CmdData=150..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:14}
 execute as @e[tag=!MS1,tag=GreenSnowman,scores={CmdData=150..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:15}
-execute as @e[tag=!MS1,tag=Snowman,scores={CmdData=150..}] at @s run playsound minecraft:block.powder_snow.fall master @a ~ ~ ~ 1 1
+execute as @e[tag=!MS1,tag=Snowman,scores={CmdData=150..}] at @s run playsound minecraft:entity.snow_golem.hurt master @a ~ ~ ~ 1 1
 execute as @e[tag=!MS1,tag=Snowman,scores={CmdData=150..}] at @s run particle block powder_snow ~ ~1 ~ 0 0.5 0 0.1 100
 execute as @e[tag=!MS1,tag=Snowman,scores={CmdData=150..}] at @s run particle splash ~ ~1 ~ 0 0.5 0 0.1 20
 execute as @e[tag=!MS1,tag=Snowman,scores={CmdData=150..}] at @s run tag @s add MS1
 
 execute as @e[tag=!MS2,tag=RedSnowman,scores={CmdData=200..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:16}
 execute as @e[tag=!MS2,tag=GreenSnowman,scores={CmdData=200..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:17}
-execute as @e[tag=!MS2,tag=Snowman,scores={CmdData=200..}] at @s run playsound minecraft:block.powder_snow.fall master @a ~ ~ ~ 1 1
+execute as @e[tag=!MS2,tag=Snowman,scores={CmdData=200..}] at @s run playsound minecraft:entity.snow_golem.hurt master @a ~ ~ ~ 1 1
 execute as @e[tag=!MS2,tag=Snowman,scores={CmdData=200..}] at @s run particle block powder_snow ~ ~1 ~ 0 0.5 0 0.1 100
 execute as @e[tag=!MS2,tag=Snowman,scores={CmdData=200..}] at @s run particle splash ~ ~1 ~ 0 0.5 0 0.1 20
 execute as @e[tag=!MS2,tag=Snowman,scores={CmdData=200..}] at @s run tag @s add MS2
 
 execute as @e[tag=!MS3,tag=RedSnowman,scores={CmdData=250..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:18}
 execute as @e[tag=!MS3,tag=GreenSnowman,scores={CmdData=250..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:19}
-execute as @e[tag=!MS3,tag=Snowman,scores={CmdData=250..}] at @s run playsound minecraft:block.powder_snow.fall master @a ~ ~ ~ 1 1
+execute as @e[tag=!MS3,tag=Snowman,scores={CmdData=250..}] at @s run playsound minecraft:entity.snow_golem.hurt master @a ~ ~ ~ 1 1
 execute as @e[tag=!MS3,tag=Snowman,scores={CmdData=250..}] at @s run particle block powder_snow ~ ~0.6 ~ 0 0.4 0 0.1 100
 execute as @e[tag=!MS3,tag=Snowman,scores={CmdData=250..}] at @s run particle splash ~ ~0.6 ~ 0 0.4 0 0.1 20
 execute as @e[tag=!MS3,tag=Snowman,scores={CmdData=250..}] at @s run tag @s add MS3
 
 execute as @e[tag=!MS4,tag=RedSnowman,scores={CmdData=280..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:20}
 execute as @e[tag=!MS4,tag=GreenSnowman,scores={CmdData=280..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:21}
-execute as @e[tag=!MS4,tag=Snowman,scores={CmdData=280..}] at @s run playsound minecraft:block.powder_snow.fall master @a ~ ~ ~ 1 1
+execute as @e[tag=!MS4,tag=Snowman,scores={CmdData=280..}] at @s run playsound minecraft:entity.snow_golem.death master @a ~ ~ ~ 1 1
 execute as @e[tag=!MS4,tag=Snowman,scores={CmdData=280..}] at @s run particle block powder_snow ~ ~0.6 ~ 0 0.3 0 0.1 100
 execute as @e[tag=!MS4,tag=Snowman,scores={CmdData=280..}] at @s run particle splash ~ ~0.6 ~ 0.2 0.1 0.2 0.1 100
 execute as @e[tag=!MS4,tag=Snowman,scores={CmdData=280..}] at @s run data merge entity @s {Marker:1b}
