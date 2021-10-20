@@ -8,4 +8,4 @@ item replace entity @s[scores={hatscore=2}] armor.head with diamond_hoe{CustomMo
 item replace entity @s[scores={hatscore=3}] armor.head with diamond_hoe{CustomModelData:3,display:{Name:'[{"text":"Light Blue Scarf","italic":false,"color":"aqua"}]',Lore:['[{"text":"Nice and warm.","italic":false,"color":"gray"}]']},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3} 1
 
 #> Red Nosed Reindeer: 4
-item replace entity @s[scores={hatscore=4}] armor.head with diamond_hoe{CustomModelData:4,display:{Name:'[{"text":"Red Nosed Reindeer","italic":false,"color":"dark_red"}]',Lore:['[{"text":"Don\'t ask how we acquired these.","italic":false,"color":"gray"}]']},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3} 1
+item replace entity @s[scores={hatscore=4}] armor.head with diamond_hoe{CustomModelData:4,display:{Name:'[{"text":"Reindeer","italic":false,"color":"dark_red"}]',Lore:['[{"text":"Don\'t ask how we acquired these.","italic":false,"color":"gray"}]']},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3} 1
