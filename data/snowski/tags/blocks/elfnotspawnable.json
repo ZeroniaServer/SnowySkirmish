@@ -7,6 +7,7 @@
             "minecraft:snow_block",
             "minecraft:lime_concrete",
             "minecraft:red_concrete",
-            "minecraft:white_concrete"
+            "minecraft:white_concrete",
+            "minecraft:light"
     ]
 }

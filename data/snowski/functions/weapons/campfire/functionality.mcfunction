@@ -1,10 +1,12 @@
-execute as @e[tag=GreenCRP] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @e[tag=GreenCRP] at @s if entity @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
-execute as @e[tag=GreenCRP] at @s run scoreboard players add @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $RedGifts CmdData 4
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s if entity @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s run scoreboard players add @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
 
-execute as @e[tag=RedCRP] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @e[tag=RedCRP] at @s if entity @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
-execute as @e[tag=RedCRP] at @s run scoreboard players add @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
+execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $GreenGifts CmdData 4
+execute as @e[tag=RedCRP,tag=!KillFire] at @s if entity @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
+execute as @e[tag=RedCRP,tag=!KillFire] at @s run scoreboard players add @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
 
 scoreboard players add @e[tag=CRP] CmdData 1
 scoreboard players add @e[tag=CRPCircle] CmdData 1
@@ -15,7 +17,6 @@ execute as @e[tag=CRPCircle,scores={CmdData=1}] at @s as @e[tag=CRP,tag=!KillFir
 execute as @e[tag=CRP,scores={CmdData=850..},tag=!KillFire] run item replace entity @s armor.head with blaze_spawn_egg{CustomModelData:2}
 execute as @e[tag=CRP,scores={CmdData=850..},tag=!KillFire] at @s run playsound block.fire.extinguish master @a ~ ~ ~ 1 1.7
 execute as @e[tag=CRP,scores={CmdData=850..},tag=!KillFire] at @s run particle smoke ~ ~ ~ 0.1 0 0.1 0.1 7 force
-execute as @e[tag=CRP,scores={CmdData=850..},tag=!KillFire] at @s run particle heart ~ ~ ~ 1 1 1 0.1 10 force
 execute as @e[tag=CRP,scores={CmdData=850..},tag=!KillFire] at @s run fill ~ ~ ~ ~ ~ ~ air replace light
 execute as @e[tag=CRP,scores={CmdData=850..},tag=!KillFire] at @s run kill @e[tag=CRPCircle,distance=..2,limit=1,sort=nearest]
 tag @e[tag=CRP,scores={CmdData=850..}] add KillFire

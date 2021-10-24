@@ -21,17 +21,15 @@ tag @e[type=arrow,tag=BBottle,tag=!ThrownBall] add ThrownBall
 #> Kill the arrows that hit the ground, remove player tag
 execute as @e[type=arrow,tag=RedBBArrow] at @s unless entity @e[type=snowball,tag=RedBBottle,distance=..2,limit=1] run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","RedBlizzardCloud"]}
 execute as @e[type=arrow,tag=GreenBBArrow] at @s unless entity @e[type=snowball,tag=GreenBBottle,distance=..2,limit=1] run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","GreenBlizzardCloud"]}
-execute as @e[type=arrow,tag=RedBBArrow] at @s unless entity @e[type=snowball,tag=RedBBottle,distance=..2,limit=1] run playsound bottlehit master @a ~ ~ ~ 1.5 1.3
-execute as @e[type=arrow,tag=GreenBBArrow] at @s unless entity @e[type=snowball,tag=GreenBBottle,distance=..2,limit=1] run playsound bottlehit master @a ~ ~ ~ 1.5 1.3
-
-execute as @e[type=arrow,tag=RedBBArrow] at @s unless entity @e[type=snowball,tag=RedBBottle,distance=..2,limit=1] run kill @s
-execute as @e[type=arrow,tag=GreenBBArrow] at @s unless entity @e[type=snowball,tag=GreenBBottle,distance=..2,limit=1] run kill @s
+execute as @e[type=arrow,tag=RedBBArrow] at @s unless entity @e[type=snowball,tag=RedBBottle,distance=..2,limit=1] run tag @s add BottleHit
+execute as @e[type=arrow,tag=GreenBBArrow] at @s unless entity @e[type=snowball,tag=GreenBBottle,distance=..2,limit=1] run tag @s add BottleHit
 
 execute as @e[type=arrow,tag=RedBBArrow,nbt={inGround:1b}] at @s run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","RedBlizzardCloud"]}
 execute as @e[type=arrow,tag=GreenBBArrow,nbt={inGround:1b}] at @s run summon area_effect_cloud ~ ~ ~ {Duration:200,Tags:["BlizzardCloud","GreenBlizzardCloud"]}
-execute as @e[type=arrow,tag=BBArrow,nbt={inGround:1b}] at @s run particle cloud ~ ~ ~ 0.1 0.1 0.1 0.1 20 force
-execute as @e[type=arrow,tag=BBArrow,nbt={inGround:1b}] at @s run particle block glass ~ ~ ~ 0.1 0.1 0.1 0.1 30 force
-execute as @e[type=arrow,tag=BBArrow,nbt={inGround:1b}] at @s run playsound bottlehit master @a ~ ~ ~ 1.5 1.3
-execute as @e[type=arrow,tag=BBArrow,nbt={inGround:1b}] at @s run kill @s
+execute as @e[type=arrow,tag=BBArrow,nbt={inGround:1b}] at @s run tag @s add BottleHit
+execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run particle cloud ~ ~ ~ 0.1 0.3 0.1 0.1 20 force
+execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run particle block glass ~ ~ ~ 0.3 0.3 0.3 0.1 30 force
+execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run playsound bottlehit master @a ~ ~ ~ 1.5 1.3
+execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run kill @s
 kill @e[type=arrow,tag=ThrownBall,nbt={inGround:1b}]
 tag @a[nbt=!{SelectedItem:{id:"minecraft:snowball",tag:{CustomModelData:3}}}] remove HoldBB
