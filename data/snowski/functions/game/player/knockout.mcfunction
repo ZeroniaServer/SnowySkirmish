@@ -17,7 +17,9 @@ effect give @a[tag=Knocked,scores={knocktime=1}] glowing 1 0 true
 tag @a[tag=Knocked,scores={knocktime=1}] remove IceImpact
 clear @a[tag=Knocked] snowball
 clear @a[tag=Knocked] ghast_spawn_egg
+clear @a[tag=Knocked] blaze_spawn_egg
 clear @a[tag=Knocked] golden_hoe
+clear @a[tag=Knocked] clay
 execute unless score $gamestate CmdData matches 2 run clear @a[tag=Knocked] clay
 
 #> Remove knocked fx when HP is above 1
@@ -29,7 +31,10 @@ execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove IceImpact
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove Knocked
 
 #> Actionbars and respawns
-execute as @a[scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"aqua"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
+execute as @a[team=Red,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
+execute as @a[team=Red,scores={knocktime=1}] run scoreboard players remove $GreenGifts CmdData 4
+execute as @a[team=Green,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
+execute as @a[team=Green,scores={knocktime=1}] run scoreboard players remove $RedGifts CmdData 4
 execute as @a[scores={knocktime=1}] run scoreboard players add @s deathcollect 1
 #> Fall countdown
 execute as @a[scores={knocktime=1}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"8","color":"blue"}]

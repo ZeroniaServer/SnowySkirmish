@@ -15,6 +15,10 @@ function snowski:weapons/iceball/throw
 function snowski:weapons/blizzard/throw
 function snowski:weapons/blizzard/effect
 
+#> Loop functions for campfire revive points
+function snowski:weapons/campfire/spawn
+function snowski:weapons/campfire/functionality
+
 #> Loop functions for candy canes
 function snowski:weapons/candycane/smash
 
