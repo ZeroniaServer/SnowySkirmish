@@ -9,7 +9,7 @@ spawnpoint @a 137 106 55 -180
 setworldspawn 137 106 55
 function nnhealth:tick
 
-#> Blonk
+#> Berry bushes
 execute unless block 135 114 56 minecraft:sweet_berry_bush[age=3] run setblock 135 114 56 minecraft:sweet_berry_bush[age=3]
 execute unless block 139 113 57 minecraft:sweet_berry_bush[age=3] run setblock 139 113 57 minecraft:sweet_berry_bush[age=3]
 execute unless block 133 114 58 minecraft:sweet_berry_bush[age=3] run setblock 133 114 58 minecraft:sweet_berry_bush[age=3]
