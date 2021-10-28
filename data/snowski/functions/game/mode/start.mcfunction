@@ -80,7 +80,10 @@ execute if score $gamestate CmdData matches 1 store result bossbar starttime val
 execute if score $gamestate CmdData matches 1 run bossbar set starttime name ["",{"text":"Game starting in: ","color":"white"},{"score":{"name":"$tensec","objective":"CmdData"},"color":"dark_aqua"}]
 execute if score $gamestate CmdData matches 1 run bossbar set starttime players @a 
 execute if score $countsec CmdData >= $onesec CmdData run scoreboard players remove $tensec CmdData 1
-execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 4..10 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 3 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.6
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 2 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.7
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 1 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.8
 execute if score $countsec CmdData >= $onesec CmdData run scoreboard players reset $countsec CmdData
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $gametime CmdData 2
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run bossbar remove starttime

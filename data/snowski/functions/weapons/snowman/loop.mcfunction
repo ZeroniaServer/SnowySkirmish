@@ -42,18 +42,18 @@ execute as @e[tag=GreenSnowman,tag=!Melted] at @s unless block ~ ~-0.1 ~ air run
 execute as @e[tag=RedSnowman,tag=!Melted] at @s unless block ~ ~-0.1 ~ air run tp @s ~ ~ ~ facing entity @a[team=Green,tag=!Knocked,limit=1,sort=nearest]
 
 #> Snowballs hitting the snowman
-execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 if entity @e[tag=GreenArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 60
-execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 if entity @e[tag=RedArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 60
-execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 run tag @e[tag=GreenArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
-execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 run tag @e[tag=RedArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
+execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 if entity @e[tag=GreenArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 60
+execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 if entity @e[tag=RedArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 60
+execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 run tag @e[tag=GreenArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
+execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 run tag @e[tag=RedArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
 
 #> Iceballs hitting the snowman
-execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run playsound iceball master @a ~ ~ ~ 1 1
-execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 if entity @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run playsound iceball master @a ~ ~ ~ 1 1
-execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 280
-execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 if entity @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 280
-execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 run tag @e[tag=GreenIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
-execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.8 ~ ~-0.8 run tag @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
+execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run playsound iceball master @a ~ ~ ~ 1 1
+execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 if entity @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run playsound iceball master @a ~ ~ ~ 1 1
+execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 280
+execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 if entity @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] run scoreboard players add @s CmdData 280
+execute as @e[tag=RedSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 run tag @e[tag=GreenIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
+execute as @e[tag=GreenSnowman,tag=!Melted] at @s positioned ~-0.7 ~ ~-0.7 run tag @e[tag=RedIArrow,tag=!HitSM,dx=1.4,dy=2,dz=1.4] add HitSM
 
 #> Snowman snowballs
 execute as @e[type=arrow,tag=!ThrownBall,tag=!SBArrow,tag=!IBArrow,tag=!BBArrow] at @s run particle falling_dust snow_block ~ ~ ~ 0.1 0.1 0.1 0.1 2 force
