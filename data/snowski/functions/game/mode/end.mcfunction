@@ -50,6 +50,8 @@ kill @e[tag=ElfSpawn]
 kill @e[tag=SnowmanSpawn]
 kill @e[tag=Snowman]
 kill @e[tag=SnowBlockHit]
+kill @e[tag=CRP]
+kill @e[tag=CRPCircle]
 
 bossbar remove minecraft:scorebar
 

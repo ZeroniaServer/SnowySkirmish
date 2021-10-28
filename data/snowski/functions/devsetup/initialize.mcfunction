@@ -1,7 +1,6 @@
 # The painful process of adding all scoreboards with a function
 scoreboard objectives add bookpain dummy
 scoreboard objectives add CmdData dummy
-scoreboard objectives add craftsnow dummy
 scoreboard objectives add dontsleep minecraft.custom:minecraft.sleep_in_bed
 scoreboard objectives add drinkchoco minecraft.used:minecraft.potion
 scoreboard objectives add elftime dummy
@@ -27,6 +26,7 @@ scoreboard objectives add deathcollect dummy
 scoreboard objectives add leavegame trigger
 scoreboard objectives add blizzsound dummy
 scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
+scoreboard objectives add craftblock minecraft.crafted:minecraft.snow_block
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000

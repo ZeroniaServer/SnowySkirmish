@@ -9,6 +9,11 @@ spawnpoint @a 137 106 55 -180
 setworldspawn 137 106 55
 function nnhealth:tick
 
+#> Blonk
+execute unless block 135 114 56 minecraft:sweet_berry_bush[age=3] run setblock 135 114 56 minecraft:sweet_berry_bush[age=3]
+execute unless block 139 113 57 minecraft:sweet_berry_bush[age=3] run setblock 139 113 57 minecraft:sweet_berry_bush[age=3]
+execute unless block 133 114 58 minecraft:sweet_berry_bush[age=3] run setblock 133 114 58 minecraft:sweet_berry_bush[age=3]
+
 #> Set health
 scoreboard players reset @a[team=Lobby] sbdamage
 scoreboard players set @a[team=Lobby,scores={nnhealth=..19}] nnhealth_mod 20

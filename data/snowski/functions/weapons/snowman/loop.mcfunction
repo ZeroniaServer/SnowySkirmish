@@ -1,4 +1,5 @@
-scoreboard players add @e[tag=Snowman] CmdData 1
+execute as @e[tag=GreenSnowman] at @s unless entity @e[tag=GreenBlizzardCloud,distance=..2] run scoreboard players add @s CmdData 1
+execute as @e[tag=RedSnowman] at @s unless entity @e[tag=RedBlizzardCloud,distance=..2] run scoreboard players add @s CmdData 1
 
 
 execute as @e[tag=!MS1,tag=RedSnowman,scores={CmdData=150..}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:14}

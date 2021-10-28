@@ -20,7 +20,7 @@ tag @e[type=snowball,tag=Snowball,tag=!ThrownBall] add ThrownBall
 tag @e[type=arrow,tag=SBArrow,tag=!ThrownBall] add ThrownBall
 
 #> Store player's snowball/ammo score
-execute as @a[tag=!Knocked] store result score @s snowballammo run clear @s snowball{CustomModelData:1} 0
+execute as @a[tag=!Knocked,scores={throwsb=1..}] store result score @s snowballammo run clear @s snowball{CustomModelData:1} 0
 execute as @a[tag=HoldSB,scores={throwsb=1..}] run function snowski:game/player/ammomanage
 
 #> Kill the arrows that hit the ground, remove player tag

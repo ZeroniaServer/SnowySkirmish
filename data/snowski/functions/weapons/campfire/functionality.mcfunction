@@ -43,7 +43,7 @@ execute as @e[tag=CRPCircleRed] at @s run particle dust 1 0 0 1 ^-1.2 ^ ^ 0 0 0 
 execute as @e[tag=CRPCircleGreen] at @s run particle dust 0 1 0 1 ^-1.2 ^ ^ 0 0 0 0 1 force
 
 #> Snow and iceball impacts
-execute as @e[tag=CRPRed,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=GreenArrow,tag=!HitSM,dx=0.3,dy=0.5,dz=0.3] run scoreboard players add @s CmdData 200
-execute as @e[tag=CRPGreen,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=RedArrow,tag=!HitSM,dx=0.3,dy=0.5,dz=0.3] run scoreboard players add @s CmdData 200
-execute as @e[tag=CRPRed,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=0.3,dy=0.5,dz=0.3] run scoreboard players add @s CmdData 850
-execute as @e[tag=CRPGreen,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=RedIArrow,tag=!HitSM,dx=0.3,dy=0.5,dz=0.3] run scoreboard players add @s CmdData 850
+execute as @e[tag=CRPRed,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=GreenArrow,tag=!HitSM,dx=0.5,dy=0.5,dz=0.5] run scoreboard players add @s CmdData 200
+execute as @e[tag=CRPGreen,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=RedArrow,tag=!HitSM,dx=0.5,dy=0.5,dz=0.5] run scoreboard players add @s CmdData 200
+execute as @e[tag=CRPRed,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=0.5,dy=0.5,dz=0.5] run scoreboard players add @s CmdData 850
+execute as @e[tag=CRPGreen,tag=!KillFire] at @s positioned ~-0.25 ~ ~-0.25 if entity @e[tag=RedIArrow,tag=!HitSM,dx=0.5,dy=0.5,dz=0.5] run scoreboard players add @s CmdData 850

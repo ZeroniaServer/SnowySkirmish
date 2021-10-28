@@ -20,6 +20,7 @@ clear @a[tag=Knocked] ghast_spawn_egg
 clear @a[tag=Knocked] blaze_spawn_egg
 clear @a[tag=Knocked] golden_hoe
 clear @a[tag=Knocked] clay
+clear @a[tag=Knocked] rabbit_spawn_egg
 execute unless score $gamestate CmdData matches 2 run clear @a[tag=Knocked] clay
 
 #> Remove knocked fx when HP is above 1

@@ -38,6 +38,10 @@ function snowski:game/mode/powerup/pickup
 function snowski:weapons/snowman/loop
 function snowski:weapons/snowman/snoman_shoot_arrow
 
+#> Sleigh related loop
+function snowski:weapons/sleigh/functionality
+function snowski:weapons/sleigh/spawn
+
 #> Player related loop functions
 function snowski:game/player/globals
 function snowski:game/player/knockout
