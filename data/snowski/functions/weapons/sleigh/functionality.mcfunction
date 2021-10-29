@@ -1,3 +1,4 @@
+execute as @e[tag=SleighOffGround] at @s unless entity @p[predicate=snowski:in_sleigh] run function snowski:weapons/sleigh/pilot
 execute as @a[tag=!Knocked,predicate=snowski:in_sleigh] at @s as @e[type=minecart,tag=SleighCart,limit=1,sort=nearest] run tag @s add Occupied
 execute as @a[tag=!Knocked,predicate=snowski:in_sleigh] at @s as @e[type=minecart,tag=SleighCart,limit=1,sort=nearest] run function snowski:weapons/sleigh/pilot
 execute as @a[tag=Knocked,predicate=snowski:in_sleigh] at @s run tp @s @s

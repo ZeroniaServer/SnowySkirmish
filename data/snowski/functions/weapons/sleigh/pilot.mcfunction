@@ -1,7 +1,9 @@
 execute store result entity @s Motion[0] double 0.0075 run data get entity @p Motion[0] 10000
 execute store result entity @s Motion[2] double 0.0075 run data get entity @p Motion[2] 10000
 
-
+execute unless entity @s[tag=SleighOffGround] at @s unless entity @p[predicate=snowski:in_sleigh,nbt={Motion:[0.0d,0.0d,0.0d]}] run particle block snow ~ ~ ~ 0.1 0 0.1 0.1 5 force
+execute unless entity @s[tag=SleighOffGround] at @s unless entity @p[predicate=snowski:in_sleigh,nbt={Motion:[0.0d,0.0d,0.0d]}] run particle snowflake ~ ~ ~ 0.1 0 0.1 0.1 2 force
+execute unless entity @s[tag=SleighOffGround] at @s unless entity @p[predicate=snowski:in_sleigh,nbt={Motion:[0.0d,0.0d,0.0d]}] run playsound minecraft:block.powder_snow.place master @a ~ ~ ~ 1 1
 
 execute at @s unless block ^-1 ^ ^ air unless block ^ ^-1 ^ air unless block ^ ^-2 ^ air run tag @s add SleighJumpSmall
 execute at @s unless block ^1 ^ ^ air unless block ^ ^-1 ^ air unless block ^ ^-2 ^ air run tag @s add SleighJumpSmall
