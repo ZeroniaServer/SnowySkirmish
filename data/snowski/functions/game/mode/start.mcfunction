@@ -27,7 +27,7 @@ execute as @a[tag=JoinGreen] run scoreboard players set @s nnhealth_mod 40
 execute as @a[tag=JoinGreen] run tp @s 174 81 7 90 0
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
-execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 15
+execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
 execute as @a[tag=JoinGreen] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team. A late arrival, unfortunately","color":"dark_green"}]
 execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:5439325},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
@@ -43,7 +43,7 @@ execute as @a[tag=JoinRed] run scoreboard players set @s nnhealth_mod 40
 execute as @a[tag=JoinRed] run tp @s 98 81 7 -90 0
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team","color":"dark_red"}]
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team","color":"dark_red"}]
-execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 15
+execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
 execute as @a[tag=JoinRed] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team. A late arrival, unfortunately","color":"dark_red"}]
 execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:16722217},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
@@ -121,12 +121,19 @@ execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run kill @e[tag=ElfGift]
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run kill @e[tag=PowerGift]
 execute store result bossbar preptime value run scoreboard players get $gametime CmdData
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=Green] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 15
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=Red] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 15
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=Green] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=Red] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a title {"text":"Preparation time!","color":"dark_aqua"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a subtitle {"text":"Build some cover.","color":"blue"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.2
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run fill 136 59 31 136 89 -17 snow_block replace air
+#execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run fill 136 59 31 136 89 -17 snow_block replace air
+
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 57 -18 minecraft:structure_block[mode=load]{mode:"LOAD",name:"skirmishwall1"}
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 58 -18 redstone_block
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 57 30 minecraft:structure_block[mode=load]{mode:"LOAD",name:"skirmishwall2"}
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 58 30 redstone_block
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run fill 133 55 -18 141 60 -18 barrier
+
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $gamestate CmdData 2
 
 
@@ -134,7 +141,22 @@ execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run bossbar add scorebar ["",{"text":"Green: ","color":"green"},{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" || ","color":"dark_gray"},{"text":"Red: ","color":"red"},{"score":{"name":"$RedGifts","objective":"CmdData"},"color":"gold"}]
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run bossbar set scorebar max 1
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run bossbar set scorebar value 1
-execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 136 59 -17 136 89 31 air replace snow_block
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 135 57 -17 137 89 31 air replace snow_block
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 135 57 -17 137 89 31 air replace powder_snow
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 136 57 -17 136 89 31 air replace powder_snow
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 136 57 -17 136 89 31 air replace blue_ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 136 57 -17 136 89 31 air replace packed_ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run particle minecraft:block packed_ice 136 75 7 1 3 5 0 300
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run particle minecraft:snowflake 136 75 7 1 3 5 0 300
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 11 ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 9 ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 3 blue_ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 2 minecraft:packed_ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 1 blue_ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 132 84 32 140 92 32 barrier
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 132 82 -18 141 91 -18 barrier
+
+
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run clear @a clay
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run bossbar remove preptime
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run title @a title {"text":"Battle Time!","color":"dark_red"}
@@ -168,12 +190,16 @@ execute as @e[tag=ElfGift] at @s if block ~ ~-0.1 ~ air run kill @s
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add $GreenGifts CmdData 1
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add @s giftcollect 1
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
+execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block light_blue_wool ~ ~ ~ 0 0 0 0.1 5 force
+execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block yellow_wool ~ ~ ~ 0 0 0 0.1 2 force
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add $RedGifts CmdData 1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add @s giftcollect 1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
+execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block red_wool ~ ~ ~ 0 0 0 0.1 5 force
+execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block yellow_wool ~ ~ ~ 0 0 0 0.1 2 force
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 101 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
