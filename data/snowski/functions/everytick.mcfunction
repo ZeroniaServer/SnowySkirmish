@@ -46,3 +46,5 @@ function snowski:weapons/sleigh/spawn
 function snowski:game/player/globals
 function snowski:game/player/knockout
 function snowski:game/player/hotchoco
+
+scoreboard players reset @a[scores={dropsb=1..}] dropsb

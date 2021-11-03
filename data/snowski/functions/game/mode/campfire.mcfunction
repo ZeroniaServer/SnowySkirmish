@@ -1,3 +1,8 @@
 #> Heal when near a campfire
+execute as @a[team=Green,tag=Knocked,scores={nnhealth=..1}] at @s if entity @e[tag=GreenCampfire,distance=..3] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @a[team=Green,tag=Knocked,scores={nnhealth=..1}] at @s if entity @e[tag=GreenCampfire,distance=..3] run scoreboard players remove $RedGifts CmdData 4
 execute as @a[team=Green,scores={nnhealth=..39}] at @s if entity @e[tag=GreenCampfire,distance=..3] run scoreboard players add @s nnhealth_mod 1
+
+execute as @a[team=Red,tag=Knocked,scores={nnhealth=..1}] at @s if entity @e[tag=RedCampfire,distance=..3] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @a[team=Red,tag=Knocked,scores={nnhealth=..1}] at @s if entity @e[tag=RedCampfire,distance=..3] run scoreboard players remove $GreenGifts CmdData 4
 execute as @a[team=Red,scores={nnhealth=..39}] at @s if entity @e[tag=RedCampfire,distance=..3] run scoreboard players add @s nnhealth_mod 1

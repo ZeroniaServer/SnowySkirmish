@@ -126,7 +126,8 @@ execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a title {"text":"Preparation time!","color":"dark_aqua"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a subtitle {"text":"Build some cover.","color":"blue"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.2
-#execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run fill 136 59 31 136 89 -17 snow_block replace air
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run function snowski:game/tips/createset
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $SendTip Cmddata 900
 
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 57 -18 minecraft:structure_block[mode=load]{mode:"LOAD",name:"skirmishwall1"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 58 -18 redstone_block
@@ -153,6 +154,26 @@ execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 3 blue_ice
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 2 minecraft:packed_ice
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 73 1 blue_ice
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 63 26 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 63 25 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 63 24 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 137 62 25 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 62 26 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 135 62 25 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 62 24 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 62 25 minecraft:sea_lantern
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 61 25 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 60 25 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 64 25 minecraft:black_terracotta
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 64 -1 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 64 -2 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 64 0 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 63 -1 minecraft:sea_lantern
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 63 0 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 63 -2 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 62 -1 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 61 -1 minecraft:lime_stained_glass
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run setblock 136 65 -1 minecraft:black_terracotta
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 132 84 32 140 92 32 barrier
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run fill 132 82 -18 141 91 -18 barrier
 

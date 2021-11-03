@@ -27,6 +27,7 @@ scoreboard objectives add leavegame trigger
 scoreboard objectives add blizzsound dummy
 scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
 scoreboard objectives add craftblock minecraft.crafted:minecraft.snow_block
+scoreboard objectives add dropsb minecraft.dropped:minecraft.snowball
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000
