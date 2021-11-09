@@ -59,6 +59,7 @@ gamerule doDaylightCycle false
 gamerule doWeatherCycle false
 gamerule doImmediateRespawn true
 gamerule mobGriefing false
+gamerule announceAdvancements false
 
 time set 18000
 weather clear

@@ -8,4 +8,4 @@ kill @e[type=item]
 xp set @a 0 points
 xp set @a 0 levels
 
-function snowski:game/tips/tipsystem
+execute unless score $gamestate CmdData matches 0 run function snowski:game/tips/tipsystem

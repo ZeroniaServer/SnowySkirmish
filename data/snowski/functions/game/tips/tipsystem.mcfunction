@@ -14,6 +14,7 @@ execute as @e[tag=Tip7,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_
 execute as @e[tag=Tip8,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"You can revive yourself at the campfire at your base!","color":"gray"}]
 execute as @e[tag=Tip9,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"Reviving yourself will remove 4 points from the enemy team!","color":"gray"}]
 execute as @e[tag=Tip10,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"Falling out of the map while you are knocked out gives the enemy team bonus points!","color":"gray"}]
+execute as @e[tag=Tip11,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"You can drop a powerup item to quickly destroy it!","color":"gray"}]
 
 kill @e[tag=SelTip]
 execute unless entity @e[tag=Tip] run function snowski:game/tips/createset
