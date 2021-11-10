@@ -227,7 +227,7 @@ execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1
 #> Powerup spawning
 execute if score $gamestate CmdData matches 3 run scoreboard players reset $PowerGifts CmdData
 execute if score $gamestate CmdData matches 3 run execute as @e[tag=PowerGift] run scoreboard players add $PowerGifts CmdData 1
-execute if score $gamestate CmdData matches 3 run scoreboard players set $powerupspawn CmdData 200
+execute if score $gamestate CmdData matches 3 run scoreboard players set $powerupspawn CmdData 180
 execute unless score $PowerGifts CmdData matches 4 if score $gamestate CmdData matches 3 run scoreboard players add $powerupspawn2 CmdData 1
 execute if score $gamestate CmdData matches 3 run execute if score $powerupspawn2 CmdData >= $powerupspawn CmdData run function snowski:game/mode/powerup/spawn
 execute if score $gamestate CmdData matches 3 run execute if score $powerupspawn2 CmdData >= $powerupspawn CmdData run scoreboard players set $powerupspawn2 CmdData 0
