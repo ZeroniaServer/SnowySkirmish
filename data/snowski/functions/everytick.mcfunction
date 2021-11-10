@@ -2,8 +2,9 @@
 function snowski:weapons/snowball/throw
 function snowski:weapons/snowball/replenish
 
-#> Lobby Loop
+#> Lobby Loops
 function snowski:game/lobby/globals
+function snowski:game/lobby/credits
 
 #> Game loop
 function snowski:game/mode/loop

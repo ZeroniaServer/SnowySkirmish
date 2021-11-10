@@ -24,6 +24,7 @@ scoreboard objectives add giftcollect dummy
 scoreboard objectives add killscollect dummy
 scoreboard objectives add deathcollect dummy
 scoreboard objectives add leavegame trigger
+scoreboard objectives add joinspec trigger
 scoreboard objectives add blizzsound dummy
 scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
 scoreboard objectives add craftblock minecraft.crafted:minecraft.snow_block
