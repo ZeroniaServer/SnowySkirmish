@@ -52,7 +52,10 @@ kill @e[tag=Snowman]
 kill @e[tag=SnowBlockHit]
 kill @e[tag=CRP]
 kill @e[tag=CRPCircle]
+kill @e[tag=SleighSpawn]
 kill @e[tag=Sleigh]
+kill @e[tag=BlizzardSpawn]
+kill @e[tag=BlizzardCloud]
 
 bossbar remove minecraft:scorebar
 

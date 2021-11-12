@@ -29,6 +29,8 @@ scoreboard objectives add blizzsound dummy
 scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
 scoreboard objectives add craftblock minecraft.crafted:minecraft.snow_block
 scoreboard objectives add dropsb minecraft.dropped:minecraft.snowball
+scoreboard objectives add hittarget minecraft.custom:minecraft.target_hit
+scoreboard objectives add targettimer dummy
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000
@@ -91,4 +93,4 @@ gamerule naturalRegeneration false
 gamerule showDeathMessages false
 gamerule mobGriefing false
 
-tellraw @a ["",{"text":"[Zeronia]: ","bold":true,"color":"green"},{"text":"Successfully initialized team settings, game rules and scoreboard settings.","color":"gold"}]
+#tellraw @a ["",{"text":"[Zeronia]: ","bold":true,"color":"green"},{"text":"Successfully initialized team settings, game rules and scoreboard settings.","color":"gold"}]
