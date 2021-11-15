@@ -49,6 +49,8 @@ scoreboard players set $powerupspawn2 CmdData 9
 scoreboard players set $elfCount CmdData 0
 scoreboard players set $elfMax CmdData 7
 scoreboard players set $keepCount CmdData 0
+scoreboard players set $gametime CmdData 0
+scoreboard players set $gamestate CmdData 0
 
 team add Lobby
 team add Green
