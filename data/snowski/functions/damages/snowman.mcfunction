@@ -1,2 +1,2 @@
 scoreboard players add @s sbdamage 7
-advancement revoke @s only snowski:snowman
+advancement revoke @s only snowski:damages/snowman

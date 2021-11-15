@@ -10,10 +10,10 @@ setworldspawn 137 106 55
 function nnhealth:tick
 
 #> Revoke advancements
-advancement revoke @a only snowski:snowball
-advancement revoke @a only snowski:iceball
-advancement revoke @a only snowski:snowman
-advancement revoke @a only snowski:candycane
+advancement revoke @a only snowski:damages/snowball
+advancement revoke @a only snowski:damages/iceball
+advancement revoke @a only snowski:damages/snowman
+advancement revoke @a only snowski:damages/candycane
 
 #> Berry bushes
 execute unless block 135 114 56 minecraft:sweet_berry_bush[age=3] run setblock 135 114 56 minecraft:sweet_berry_bush[age=3]
