@@ -1,3 +1,5 @@
+function snowski:devsetup/delete
+
 # The painful process of adding all scoreboards with a function
 scoreboard objectives add bookpain dummy
 scoreboard objectives add CmdData dummy
