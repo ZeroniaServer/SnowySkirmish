@@ -6,7 +6,7 @@ execute as @e[tag=ElfAnim,scores={elftime=10}] at @s run item replace entity @s 
 execute as @e[tag=ElfAnim,scores={elftime=11}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:3}
 execute as @e[tag=ElfAnim,scores={elftime=12}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:4}
 execute as @e[tag=ElfAnim,scores={elftime=13}] at @s run item replace entity @s armor.head with golden_hoe{CustomModelData:5}
-execute as @e[tag=ElfAnim,scores={elftime=13}] at @s run summon armor_stand ~ ~ ~ {Tags:["ElfGift"],Marker:1b,Invisible:1b,Invulnerable:1b,NoGravity:1b}
+execute as @e[tag=ElfAnim,scores={elftime=13}] at @s run summon armor_stand ~ ~ ~ {Silent:1b,Tags:["ElfGift"],Marker:1b,Invisible:1b,Invulnerable:1b,NoGravity:1b}
 execute as @e[tag=ElfAnim,scores={elftime=13}] at @s run tp @e[tag=ElfGift,limit=1,sort=nearest] @s
 execute as @e[tag=ElfAnim,scores={elftime=16}] at @s run item replace entity @e[tag=ElfGift,limit=1,sort=nearest] armor.head with golden_hoe{CustomModelData:10}
 execute as @e[tag=ElfAnim,scores={elftime=16}] at @s run playsound entity.chicken.egg master @a ~ ~ ~ 1 2
