@@ -10,7 +10,7 @@ scoreboard objectives remove hatchange
 scoreboard objectives remove hatscore 
 scoreboard objectives remove iceballammo 
 scoreboard objectives remove knocktime 
-scoreboard objectives remove LeaveGame 
+#scoreboard objectives remove LeaveGame 
 scoreboard objectives remove repsb 
 scoreboard objectives remove RNGmax 
 scoreboard objectives remove RNGscore 

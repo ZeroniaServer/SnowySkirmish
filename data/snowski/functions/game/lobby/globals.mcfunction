@@ -9,10 +9,19 @@ spawnpoint @a 137 106 55 -180
 setworldspawn 137 106 55
 function nnhealth:tick
 
+#> Revoke advancements
+advancement revoke @a only snowski:snowball
+advancement revoke @a only snowski:iceball
+advancement revoke @a only snowski:snowman
+advancement revoke @a only snowski:candycane
+
 #> Berry bushes
 execute unless block 135 114 56 minecraft:sweet_berry_bush[age=3] run setblock 135 114 56 minecraft:sweet_berry_bush[age=3]
 execute unless block 139 113 57 minecraft:sweet_berry_bush[age=3] run setblock 139 113 57 minecraft:sweet_berry_bush[age=3]
 execute unless block 133 114 58 minecraft:sweet_berry_bush[age=3] run setblock 133 114 58 minecraft:sweet_berry_bush[age=3]
+
+#> GameID
+execute as @a[team=!Lobby,team=!Spectator,team=!Developer] unless score @s GameID = $GameID GameID run tag @s remove JoinedGame
 
 #> Set health
 scoreboard players reset @a[team=Lobby] sbdamage
@@ -35,7 +44,7 @@ execute as @a[tag=!JoinedGame] run scoreboard players reset @s knocktime
 execute as @a[tag=!JoinedGame] run function snowski:game/player/playerdeco
 execute as @a[tag=!JoinedGame] run tag @s add JoinedGame
 
-execute as @a[scores={LeaveGame=1..}] run tag @s remove JoinedGame
+#execute as @a[scores={LeaveGame=1..}] run tag @s remove JoinedGame
 scoreboard players reset @a LeaveGame
 
 #> Midgame leaving

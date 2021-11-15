@@ -33,6 +33,7 @@ scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
 scoreboard objectives add craftblock minecraft.crafted:minecraft.snow_block
 scoreboard objectives add dropsb minecraft.dropped:minecraft.snowball
 scoreboard objectives add hittarget minecraft.custom:minecraft.target_hit
+scoreboard objectives add GameID dummy
 #End of adding scores
 #Time to set all CmdData scores, hooray!
 scoreboard players set $gameEnd CmdData 12000
@@ -50,8 +51,9 @@ scoreboard players set $powerupspawn2 CmdData 9
 scoreboard players set $elfCount CmdData 0
 scoreboard players set $elfMax CmdData 7
 scoreboard players set $keepCount CmdData 0
-scoreboard players set $gametime CmdData 0
-scoreboard players set $gamestate CmdData 0
+execute unless score $gametime CmdData matches 0.. run scoreboard players set $gametime CmdData 0
+execute unless score $gamestate CmdData matches 0.. run scoreboard players set $gamestate CmdData 0
+execute unless score $GameID GameID matches -2147483648.. run scoreboard players set $GameID GameID 0
 
 team add Lobby
 team add Green
