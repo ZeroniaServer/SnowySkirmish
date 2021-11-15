@@ -20,11 +20,12 @@ data merge block 137 106 49 {Text1:'[{"text":"","clickEvent":{"action":"run_comm
 
 execute as @a[tag=JoinGreen] run tp @s @s
 execute as @a[tag=JoinGreen] run team join Green @s
+execute as @a[tag=JoinGreen] store result score @s GameID run scoreboard players get $GameID GameID
 execute as @a[tag=JoinGreen] run clear @s
 execute as @a[tag=JoinGreen] run function snowski:game/player/playerdeco
 execute as @a[tag=JoinGreen] run scoreboard players set @s nnhealth_max 40
 execute as @a[tag=JoinGreen] run scoreboard players set @s nnhealth_mod 40
-execute as @a[tag=JoinGreen] run tp @s 174 81 7 90 0
+execute as @a[tag=JoinGreen] run tp @s 174 82 7 90 0
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
@@ -36,6 +37,7 @@ execute as @a[tag=JoinGreen] at @s run playsound minecraft:block.beehive.enter m
 
 execute as @a[tag=JoinRed] run tp @s @s
 execute as @a[tag=JoinRed] run team join Red @s
+execute as @a[tag=JoinRed] store result score @s GameID run scoreboard players get $GameID GameID
 execute as @a[tag=JoinRed] run clear @s
 execute as @a[tag=JoinRed] run function snowski:game/player/playerdeco
 execute as @a[tag=JoinRed] run scoreboard players set @s nnhealth_max 40
@@ -56,6 +58,7 @@ tag @a remove JoinRed
 fill 184 84 -17 136 89 31 air replace clay
 fill 135 84 31 87 89 -17 air replace clay
 
+scoreboard players reset @a[team=!Red,team=!Green] GameID
 
 #> Actually start a game
 execute if score $gamestate CmdData matches 0 if entity @a[team=Green] if entity @a[team=Red] run scoreboard players set $gamestate CmdData 1

@@ -25,8 +25,6 @@ execute if score $RedGifts CmdData < $GreenGifts CmdData at @e[tag=GreenCampfire
 execute if score $RedGifts CmdData < $GreenGifts CmdData at @e[tag=GreenCampfire] run summon firework_rocket ~ ~ ~ {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 execute if score $RedGifts CmdData < $GreenGifts CmdData at @e[tag=GreenCampfire] run summon firework_rocket ~ ~ ~ {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 
-
-
 bossbar remove endtime
 bossbar remove preptime
 
@@ -77,3 +75,8 @@ tellraw @a ["",{"selector":"@a[tag=deathchamp]","color":"light_purple"},{"text":
 
 tag @a[team=Green] remove JoinedGame
 tag @a[team=Red] remove JoinedGame
+
+kill @e[tag=GameID]
+summon marker ~ ~ ~ {Tags:["GameID"]}
+execute store result score $GameID GameID run data get entity @e[tag=GameID,limit=1] UUID[0]
+kill @e[tag=GameID]
