@@ -16,7 +16,7 @@ scoreboard objectives add LeaveGame minecraft.custom:minecraft.leave_game
 scoreboard objectives add repsb dummy
 scoreboard objectives add RNGmax dummy
 scoreboard objectives add RNGscore dummy
-scoreboard objectives add sbdamage minecraft.custom:minecraft.damage_taken
+scoreboard objectives add sbdamage minecraft.custom:minecraft.damage_resisted
 scoreboard objectives add snowballammo dummy
 scoreboard objectives add snowmanarrow dummy
 scoreboard objectives add snowmanspray dummy
