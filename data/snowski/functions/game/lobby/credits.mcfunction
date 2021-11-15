@@ -1,4 +1,5 @@
 execute as @a[predicate=snowski:show_credits,limit=1,sort=random] run scoreboard players add $LobbyCred CmdData 1
+execute if score $LobbyCred CmdData matches 1.. unless entity @a[predicate=snowski:show_credits] run scoreboard players set $LobbyCred CmdData 69
 
 execute if score $LobbyCred CmdData matches 60 at @e[tag=Zeronia] run particle minecraft:explosion ~ ~1 ~ 0.2 0.4 0.2 0 5 force
 execute if score $LobbyCred CmdData matches 60 at @e[tag=CubeKrowd] run particle minecraft:explosion ~ ~1 ~ 0.2 0.4 0.2 0 5 force
@@ -54,10 +55,10 @@ execute if score $LobbyCred CmdData matches 60.. as @e[tag=CKCred] at @s run par
 
 #Undo
 
-execute if score $LobbyCred CmdData matches 60.. unless entity @a[predicate=snowski:show_credits] as @e[tag=Zeronia] at @s run particle minecraft:explosion ~ ~6 ~ 0.2 0.4 0.2 0 5 force
-execute if score $LobbyCred CmdData matches 60.. unless entity @a[predicate=snowski:show_credits] as @e[tag=CubeKrowd] at @s run particle minecraft:explosion ~ ~6 ~ 0.2 0.4 0.2 0 5 force
-execute if score $LobbyCred CmdData matches 60.. unless entity @a[predicate=snowski:show_credits] as @e[tag=Zeronia] at @s run playsound minecraft:entity.shulker_bullet.hit master @a ~ ~ ~ 1 1
-execute if score $LobbyCred CmdData matches 60.. unless entity @a[predicate=snowski:show_credits] as @e[tag=CubeKrowd] at @s run playsound minecraft:entity.shulker_bullet.hit master @a ~ ~ ~ 1 1.2
+execute if score $LobbyCred CmdData matches 60 unless entity @a[predicate=snowski:show_credits] as @e[tag=Zeronia] at @s run particle minecraft:explosion ~ ~6 ~ 0.2 0.4 0.2 0 5 force
+execute if score $LobbyCred CmdData matches 60 unless entity @a[predicate=snowski:show_credits] as @e[tag=CubeKrowd] at @s run particle minecraft:explosion ~ ~6 ~ 0.2 0.4 0.2 0 5 force
+execute if score $LobbyCred CmdData matches 60 unless entity @a[predicate=snowski:show_credits] as @e[tag=Zeronia] at @s run playsound minecraft:entity.shulker_bullet.hit master @a ~ ~ ~ 1 1
+execute if score $LobbyCred CmdData matches 60 unless entity @a[predicate=snowski:show_credits] as @e[tag=CubeKrowd] at @s run playsound minecraft:entity.shulker_bullet.hit master @a ~ ~ ~ 1 1.2
 execute if score $LobbyCred CmdData matches 60.. unless entity @a[predicate=snowski:show_credits] as @e[tag=Zeronia] at @s run tp @s ~ 106.4 ~
 execute if score $LobbyCred CmdData matches 60.. unless entity @a[predicate=snowski:show_credits] as @e[tag=CubeKrowd] at @s run tp @s ~ 106 ~
 

@@ -1,4 +1,4 @@
-function snowski:game/mode/end
+#function snowski:game/mode/end
 function snowski:devsetup/delete
 
 # The painful process of adding all scoreboards with a function
@@ -17,7 +17,7 @@ scoreboard objectives add LeaveGame minecraft.custom:minecraft.leave_game
 scoreboard objectives add repsb dummy
 scoreboard objectives add RNGmax dummy
 scoreboard objectives add RNGscore dummy
-scoreboard objectives add sbdamage minecraft.custom:minecraft.damage_resisted
+scoreboard objectives add sbdamage dummy
 scoreboard objectives add snowballammo dummy
 scoreboard objectives add snowmanarrow dummy
 scoreboard objectives add snowmanspray dummy
@@ -50,8 +50,8 @@ scoreboard players set $powerupspawn2 CmdData 9
 scoreboard players set $elfCount CmdData 0
 scoreboard players set $elfMax CmdData 7
 scoreboard players set $keepCount CmdData 0
-scoreboard players set $gametime CmdData 0
-scoreboard players set $gamestate CmdData 0
+#scoreboard players set $gametime CmdData 0
+#scoreboard players set $gamestate CmdData 0
 
 team add Lobby
 team add Green
