@@ -56,14 +56,14 @@ scoreboard players reset @a[team=Spectator] joinspec
 execute as @a[scores={joinspec=1..}] run tag @s add JoinSpec
 execute as @a[tag=JoinSpec] run gamemode spectator @s
 execute as @a[tag=JoinSpec] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is now spectating","color":"gold"}]
-execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by using /leave.","color":"gold"}
+execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by flying into the central particle cluster.","color":"gold"}
 team join Spectator @a[tag=JoinSpec]
 execute as @a[tag=JoinSpec] run tp @s 136 106 23 -180 40
 execute as @a[tag=JoinSpec] at @s run playsound block.beehive.enter master @s ~ ~ ~ 1 1
 tag @a remove JoinSpec
-#execute as @e[tag=LeaveSpec] at @s run particle dust 1 0 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
-#execute as @e[tag=LeaveSpec] at @s run particle dust 0 1 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
-#execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run trigger leavegame set 1
+execute as @e[tag=LeaveSpec] at @s run particle dust 1 0 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
+execute as @e[tag=LeaveSpec] at @s run particle dust 0 1 0 3 ~ ~ ~ 1 1 1 0 1 force @a[team=Spectator]
+execute as @a[team=Spectator] at @s if entity @e[tag=LeaveSpec,distance=..2,limit=1] run trigger leavegame set 1
 scoreboard players reset @a[scores={joinspec=1..}] joinspec
 
 
