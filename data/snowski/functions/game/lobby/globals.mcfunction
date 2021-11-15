@@ -39,6 +39,7 @@ execute as @a[tag=!JoinedGame] run tp @s @s
 execute as @a[tag=!JoinedGame] run tp @s 137 106 55 180 0
 execute as @a[tag=!JoinedGame] run gamemode adventure @s
 execute as @a[tag=!JoinedGame] run clear @s
+execute as @a[tag=!JoinedGame] run effect clear @s
 execute as @a[tag=!JoinedGame] run tag @s remove Knocked
 execute as @a[tag=!JoinedGame] run scoreboard players reset @s knocktime
 execute as @a[tag=!JoinedGame] run function snowski:game/player/playerdeco

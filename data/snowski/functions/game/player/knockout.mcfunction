@@ -12,9 +12,11 @@ execute as @a[scores={knocktime=1}] at @s run effect give @s blindness 1 100 tru
 execute as @a[tag=!IceImpact,scores={knocktime=1}] at @s run particle block snow_block ~ ~1.6 ~ 0.1 0.1 0.1 0.1 50
 execute as @a[tag=IceImpact,scores={knocktime=1}] at @s run particle block blue_ice ~ ~1.6 ~ 0.1 0.1 0.1 0.1 50
 execute as @a[scores={knocktime=1}] at @s run particle block ice ~ ~1.6 ~ 0.2 0.2 0.2 0.2 25
-effect give @a[tag=Knocked,scores={knocktime=1}] slowness 1 0 true
+effect give @a[tag=Knocked,scores={knocktime=1}] slowness 2 100 true
 effect give @a[tag=Knocked,scores={knocktime=1}] glowing 1 0 true
+effect give @a[tag=Knocked,scores={knocktime=1}] blindness 1 0 true
 tag @a[tag=Knocked,scores={knocktime=1}] remove IceImpact
+effect give @a[tag=Knocked] slowness 1000000 3 true
 clear @a[tag=Knocked] snowball
 clear @a[tag=Knocked] ghast_spawn_egg
 clear @a[tag=Knocked] blaze_spawn_egg
@@ -29,6 +31,7 @@ execute as @a[tag=Knocked,scores={nnhealth=2..}] run item replace entity @s armo
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run function snowski:game/player/ammomanage
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run function snowski:game/player/playerdeco
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove IceImpact
+execute as @a[tag=Knocked,scores={nnhealth=2..}] run effect clear @s slowness
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove Knocked
 
 #> Actionbars and respawns

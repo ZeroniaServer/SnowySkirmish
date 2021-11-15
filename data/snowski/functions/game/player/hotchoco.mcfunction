@@ -1,9 +1,9 @@
 #> Knocked players
 execute as @a[tag=Knocked,scores={drinkchoco=1..}] run scoreboard players set @s nnhealth_mod 8
-execute as @a[team=Red,tag=Knocked,scores={drinkchoco=1..}] at @s run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @a[team=Red,tag=Knocked,scores={drinkchoco=1..}] at @s run scoreboard players remove $GreenGifts CmdData 4
-execute as @a[team=Green,tag=Knocked,scores={drinkchoco=1..}] at @s run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @a[team=Green,tag=Knocked,scores={drinkchoco=1..}] at @s run scoreboard players remove $RedGifts CmdData 4
+execute as @a[team=Red,tag=Knocked,scores={drinkchoco=1..}] at @s run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"2 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @a[team=Red,tag=Knocked,scores={drinkchoco=1..}] at @s run scoreboard players remove $GreenGifts CmdData 2
+execute as @a[team=Green,tag=Knocked,scores={drinkchoco=1..}] at @s run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"2 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @a[team=Green,tag=Knocked,scores={drinkchoco=1..}] at @s run scoreboard players remove $RedGifts CmdData 2
 execute as @a[tag=Knocked,scores={drinkchoco=1..}] at @s run playsound minecraft:block.fire.extinguish master @a ~ ~ ~ 0.6 2
 execute as @a[tag=Knocked,scores={drinkchoco=1..}] at @s run playsound minecraft:item.honey_bottle.drink master @a ~ ~ ~ 1 2
 execute as @a[tag=Knocked,scores={drinkchoco=1..}] at @s run particle minecraft:cloud ~ ~0.5 ~ 0 0.3 0 0.1 10

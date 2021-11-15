@@ -1,10 +1,10 @@
-execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $RedGifts CmdData 4
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"2 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $RedGifts CmdData 2
 execute as @e[tag=GreenCRP,tag=!KillFire] at @s if entity @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
 execute as @e[tag=GreenCRP,tag=!KillFire] at @s run scoreboard players add @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
 
-execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $GreenGifts CmdData 4
+execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"2 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $GreenGifts CmdData 2
 execute as @e[tag=RedCRP,tag=!KillFire] at @s if entity @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
 execute as @e[tag=RedCRP,tag=!KillFire] at @s run scoreboard players add @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
 
