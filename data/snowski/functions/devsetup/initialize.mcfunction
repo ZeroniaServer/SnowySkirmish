@@ -1,3 +1,4 @@
+function snowski:game/mode/end
 function snowski:devsetup/delete
 
 # The painful process of adding all scoreboards with a function
