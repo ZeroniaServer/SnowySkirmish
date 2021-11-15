@@ -1,21 +1,22 @@
 {
-  "criteria": {
-    "requirement": {
-      "trigger": "minecraft:entity_hurt_player",
-      "conditions": {
-        "damage": {
-          "type": {
-            "is_projectile": true,
-            "direct_entity": {
-              "type": "minecraft:arrow",
-              "nbt": "{Tags:[\"IBArrow\"]}"
+    "criteria": {
+      "requirement": {
+        "trigger": "minecraft:entity_hurt_player",
+        "conditions": {
+          "damage": {
+            "type": {
+              "is_projectile": true,
+              "direct_entity": {
+                "type": "minecraft:arrow",
+                "nbt": "{Tags:[\"IBArrow\"]}"
+              }
             }
           }
         }
       }
+    },
+    "rewards": {
+      "function": "snowski:damages/iceball"
     }
-  },
-  "rewards": {
-    "function": "snowski:damages/iceball"
   }
-}
+  
