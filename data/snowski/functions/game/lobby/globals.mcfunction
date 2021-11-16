@@ -57,7 +57,7 @@ scoreboard players reset @a[team=Spectator] joinspec
 execute as @a[scores={joinspec=1..}] run tag @s add JoinSpec
 execute as @a[tag=JoinSpec] run gamemode spectator @s
 execute as @a[tag=JoinSpec] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is now spectating","color":"gold"}]
-execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by flying to the central particle cluster.","color":"gold"}
+execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by flying into the central particle cluster.","color":"gold"}
 team join Spectator @a[tag=JoinSpec]
 execute as @a[tag=JoinSpec] run tp @s 136 106 23 -180 40
 execute as @a[tag=JoinSpec] at @s run playsound block.beehive.enter master @s ~ ~ ~ 1 1
