@@ -10,10 +10,10 @@ setworldspawn 137 106 55
 function nnhealth:tick
 
 #> Revoke advancements
-advancement revoke @a only snowski:snowball
-advancement revoke @a only snowski:iceball
-advancement revoke @a only snowski:snowman
-advancement revoke @a only snowski:candycane
+advancement revoke @a only snowski:damages/snowball
+advancement revoke @a only snowski:damages/iceball
+advancement revoke @a only snowski:damages/snowman
+advancement revoke @a only snowski:damages/candycane
 
 #> Berry bushes
 execute unless block 135 114 56 minecraft:sweet_berry_bush[age=3] run setblock 135 114 56 minecraft:sweet_berry_bush[age=3]
@@ -57,7 +57,7 @@ scoreboard players reset @a[team=Spectator] joinspec
 execute as @a[scores={joinspec=1..}] run tag @s add JoinSpec
 execute as @a[tag=JoinSpec] run gamemode spectator @s
 execute as @a[tag=JoinSpec] run tellraw @a ["",{"selector":"@s","color":"yellow"},{"text":" is now spectating","color":"gold"}]
-execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by flying into the central particle cluster.","color":"gold"}
+execute as @a[team=Spectator] run title @s actionbar {"text":"You can quit spectating by flying to the central particle cluster.","color":"gold"}
 team join Spectator @a[tag=JoinSpec]
 execute as @a[tag=JoinSpec] run tp @s 136 106 23 -180 40
 execute as @a[tag=JoinSpec] at @s run playsound block.beehive.enter master @s ~ ~ ~ 1 1
