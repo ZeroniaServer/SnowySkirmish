@@ -21,7 +21,6 @@ clear @a[tag=Knocked] snowball
 clear @a[tag=Knocked] ghast_spawn_egg
 clear @a[tag=Knocked] blaze_spawn_egg
 clear @a[tag=Knocked] golden_hoe
-clear @a[tag=Knocked] clay
 clear @a[tag=Knocked] rabbit_spawn_egg
 execute unless score $gamestate CmdData matches 2 run clear @a[tag=Knocked] clay
 
@@ -35,8 +34,8 @@ execute as @a[tag=Knocked,scores={nnhealth=2..}] run effect clear @s slowness
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove Knocked
 
 #> Actionbars and respawns
-execute as @a[team=Red,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
-execute as @a[team=Green,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
+execute as @a[team=Red,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"gained ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @a[team=Green,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"gained ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
 execute as @a[scores={knocktime=1}] run scoreboard players add @s deathcollect 1
 #> Fall countdown
 execute as @a[scores={knocktime=1}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"8","color":"blue"}]
@@ -72,6 +71,8 @@ execute as @a[team=Red,scores={knocktime=180..}] at @e[tag=RedCampfire] run play
 execute as @a[team=Red,scores={knocktime=1}] run summon firework_rocket 182 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 execute as @a[team=Red,scores={knocktime=1}] run scoreboard players add $GreenGifts CmdData 4
 execute as @a[team=Red,scores={knocktime=180..}] run scoreboard players set @s nnhealth_mod 40
+
+execute as @a[scores={knocktime=180..}] at @s run tp @s @s
 
 execute as @a[team=Green,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
 execute as @a[team=Red,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}

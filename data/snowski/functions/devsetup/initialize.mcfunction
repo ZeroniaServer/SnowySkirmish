@@ -44,13 +44,13 @@ scoreboard players set $blocksgreen CmdData 75
 scoreboard players set $blocksred CmdData 75
 scoreboard players set $30sec CmdData 30
 scoreboard players set $onesec CmdData 20
-scoreboard players set $maxPlayers CmdData 12
 scoreboard players set $quickstart CmdData 10
 scoreboard players set $tensec CmdData 10
 scoreboard players set $powerupspawn2 CmdData 9
 scoreboard players set $elfCount CmdData 0
 scoreboard players set $elfMax CmdData 7
 scoreboard players set $keepCount CmdData 0
+
 execute unless score $gametime CmdData matches 0.. run scoreboard players set $gametime CmdData 0
 execute unless score $gamestate CmdData matches 0.. run scoreboard players set $gamestate CmdData 0
 execute unless score $GameID GameID matches -2147483648.. run scoreboard players set $GameID GameID 0

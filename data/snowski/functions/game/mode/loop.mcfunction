@@ -8,7 +8,7 @@ kill @e[type=item]
 xp set @a 0 points
 xp set @a 0 levels
 
-execute unless score $gamestate CmdData matches 0 run function snowski:game/tips/tipsystem
+execute unless score $gamestate CmdData matches 0..1 run function snowski:game/tips/tipsystem
 
 #> Meme trailer
 execute as @a[scores={hittarget=1..}] run tellraw @s ["","\n",{"text":"Hey nice! You have found our little secret! ","bold":true,"color":"blue"},"\n",{"text":"[CLICK HERE] ","bold":true,"color":"dark_red","clickEvent":{"action":"open_url","value":"https://youtu.be/a9EOyyyI4Ns"},"hoverEvent":{"action":"show_text","contents":["Super awesome stuff!!!"]}},{"text":"to watch some quality content!","bold":true,"color":"blue"},"\n",{"text":"Please put a comment under the video so we know you have found it! :)","italic":true,"color":"dark_aqua"},"\n"]
