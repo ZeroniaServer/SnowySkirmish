@@ -48,4 +48,5 @@ function snowski:game/player/globals
 function snowski:game/player/knockout
 function snowski:game/player/hotchoco
 
+tag @a remove sbdamaged
 scoreboard players reset @a[scores={dropsb=1..}] dropsb

@@ -5,7 +5,7 @@ execute if score $SendTip CmdData matches 900.. run scoreboard players set $Send
 
 
 execute as @e[tag=Tip1,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"Standing in a friendly Blizzard Cloud will make you replenish your snowballs quicker!","color":"gray"}]
-execute as @e[tag=Tip2,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"You can throw snow- or ice balls at Snowball Turrets to quickly destroy them!","color":"gray"}]
+execute as @e[tag=Tip2,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"You can throw snowballs or ice balls at Snowball Turrets to quickly destroy them!","color":"gray"}]
 execute as @e[tag=Tip3,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"You can craft more Snow Barricade blocks using snowballs!","color":"gray"}]
 execute as @e[tag=Tip4,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"Snowballs can be used to quickly destroy Snow Barricade blocks!","color":"gray"}]
 execute as @e[tag=Tip5,tag=SelTip] run tellraw @a ["",{"text":"<","color":"dark_aqua"},{"text":"TIP!","color":"#00E0BB"},{"text":"> ","color":"dark_aqua"},{"text":"Sleighs can perform a big jump when you ride them off of a height!","color":"gray"}]

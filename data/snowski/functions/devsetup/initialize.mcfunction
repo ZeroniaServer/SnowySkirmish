@@ -37,6 +37,7 @@ scoreboard objectives add GameID dummy
 scoreboard objectives add playerUUID dummy
 scoreboard objectives add UUIDtracker dummy
 scoreboard objectives add notnearsb dummy
+scoreboard objectives add spawnturret minecraft.used:minecraft.ghast_spawn_egg
 
 #End of adding scores
 #Time to set all CmdData scores, hooray!
