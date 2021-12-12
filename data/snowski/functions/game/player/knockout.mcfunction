@@ -34,9 +34,11 @@ execute as @a[tag=Knocked,scores={nnhealth=2..}] run effect clear @s slowness
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove Knocked
 
 #> Actionbars and respawns
-execute as @a[team=Red,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"gained ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
-execute as @a[team=Green,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"gained ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @a[team=Red,scores={knocktime=1}] run function snowski:game/player/komessagered
+execute as @a[team=Green,scores={knocktime=1}] run function snowski:game/player/komessagegreen
 execute as @a[scores={knocktime=1}] run scoreboard players add @s deathcollect 1
+tag @a remove justHit
+
 #> Fall countdown
 execute as @a[scores={knocktime=1}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"8","color":"blue"}]
 execute as @a[scores={knocktime=20}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"7","color":"blue"}]
