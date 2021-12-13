@@ -1,8 +1,8 @@
 #> Announce winning team
 execute if score $RedGifts CmdData > $GreenGifts CmdData run title @a title {"text":"Red won the game!","color":"red"}
 execute if score $RedGifts CmdData > $GreenGifts CmdData run tellraw @a ["",{"text":"Red won the game! ","color":"red","bold":true},{"text":"Final Score: ","color":"blue"},{"text":"Green: ","color":"green"},{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" || ","color":"dark_gray"},{"text":"Red: ","color":"red"},{"score":{"name":"$RedGifts","objective":"CmdData"},"color":"gold"}]
-execute if score $RedGifts CmdData > $GreenGifts CmdData run execute as @a[team=Red] positioned 137 105 55 run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 100 1.2
-execute if score $RedGifts CmdData > $GreenGifts CmdData run execute as @a[team=Green] positioned 137 105 55 run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 100 2
+execute if score $RedGifts CmdData > $GreenGifts CmdData as @a[team=Red] positioned 137 105 55 run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 100 1.2
+execute if score $RedGifts CmdData > $GreenGifts CmdData as @a[team=Green] positioned 137 105 55 run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 100 2
 execute if score $RedGifts CmdData > $GreenGifts CmdData run title @a subtitle ["",{"score":{"name":"$RedGifts","objective":"CmdData"},"color":"gold"},{"text":" points!","color":"blue"}]
 execute if score $RedGifts CmdData > $GreenGifts CmdData at @e[tag=RedCampfire] run summon firework_rocket ~ ~ ~ {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
 execute if score $RedGifts CmdData > $GreenGifts CmdData at @e[tag=RedCampfire] run summon firework_rocket ~ ~ ~ {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
@@ -15,8 +15,8 @@ execute if score $RedGifts CmdData > $GreenGifts CmdData at @e[tag=RedCampfire] 
 
 execute if score $RedGifts CmdData < $GreenGifts CmdData run title @a title {"text":"Green won the game!","color":"green"}
 execute if score $RedGifts CmdData < $GreenGifts CmdData run tellraw @a ["",{"text":"Green won the game! ","color":"green","bold":true},{"text":"Final Score: ","color":"blue"},{"text":"Green: ","color":"green"},{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" || ","color":"dark_gray"},{"text":"Red: ","color":"red"},{"score":{"name":"$RedGifts","objective":"CmdData"},"color":"gold"}]
-execute if score $RedGifts CmdData < $GreenGifts CmdData run execute as @a[team=Green] positioned 137 105 55 run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 100 1.2
-execute if score $RedGifts CmdData < $GreenGifts CmdData run execute as @a[team=Red] positioned 137 105 55 run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 100 2
+execute if score $RedGifts CmdData < $GreenGifts CmdData as @a[team=Green] positioned 137 105 55 run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 100 1.2
+execute if score $RedGifts CmdData < $GreenGifts CmdData as @a[team=Red] positioned 137 105 55 run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 100 2
 execute if score $RedGifts CmdData < $GreenGifts CmdData run title @a subtitle ["",{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" points!","color":"blue"}]
 execute if score $RedGifts CmdData < $GreenGifts CmdData at @e[tag=GreenCampfire] run summon firework_rocket ~ ~ ~ {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 execute if score $RedGifts CmdData < $GreenGifts CmdData at @e[tag=GreenCampfire] run summon firework_rocket ~ ~ ~ {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}

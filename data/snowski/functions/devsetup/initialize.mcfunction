@@ -36,7 +36,7 @@ scoreboard objectives add hittarget minecraft.custom:minecraft.target_hit
 scoreboard objectives add GameID dummy
 scoreboard objectives add playerUUID dummy
 scoreboard objectives add UUIDtracker dummy
-scoreboard objectives add notnearsb dummy
+scoreboard objectives add resettracker dummy
 scoreboard objectives add spawnturret minecraft.used:minecraft.ghast_spawn_egg
 
 #End of adding scores

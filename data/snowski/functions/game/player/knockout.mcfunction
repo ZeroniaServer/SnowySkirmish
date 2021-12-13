@@ -59,6 +59,7 @@ execute as @a[scores={knocktime=180}] at @s run particle block snow_block ~ ~1 ~
 execute as @a[scores={knocktime=180}] at @s run particle block ice ~ ~1 ~ 0.2 0.5 0.2 0.1 20
 execute as @a[scores={knocktime=180}] at @s run playsound minecraft:block.snow.break master @a ~ ~ ~ 1 0
 execute as @a[scores={knocktime=180}] at @s run gamemode adventure @s
+execute as @a[scores={knocktime=180}] at @s run scoreboard players set @s resettracker 50
 
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run tp @s ~ ~0.7 ~ 90 0
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run particle flame ~ ~ ~ 0 0 0 0.1 10 force
