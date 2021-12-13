@@ -1,6 +1,6 @@
-execute unless score $gamestate CmdData matches 2 run execute as @s[tag=!Knocked,tag=!InVoid] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" fell out of the map! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"gained ","color":"dark_aqua"},{"text":"4 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute unless score $gamestate CmdData matches 2 run execute as @s[tag=!Knocked,tag=!InVoid] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" fell out of the map! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"+4","color":"gold"}]
 execute unless score $gamestate CmdData matches 2 run execute as @s[tag=!InVoid] run scoreboard players add @s deathcollect 1
-execute unless score $gamestate CmdData matches 2 run execute as @s[tag=Knocked,tag=!InVoid] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" fell out of the map while being knocked out! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"gained ","color":"dark_aqua"},{"text":"6 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute unless score $gamestate CmdData matches 2 run execute as @s[tag=Knocked,tag=!InVoid] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" fell out of the map while being knocked out! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"+6","color":"gold"}]
 execute as @s[tag=!InVoid] run scoreboard players set @s nnhealth 40
 execute unless score $gamestate CmdData matches 2 run execute as @s[tag=!InVoid] run scoreboard players add $GreenGifts CmdData 4
 execute unless score $gamestate CmdData matches 2 run execute as @s[tag=!InVoid,tag=Knocked] run scoreboard players add $GreenGifts CmdData 6

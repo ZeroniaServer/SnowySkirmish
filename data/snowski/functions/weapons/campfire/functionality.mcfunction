@@ -1,9 +1,9 @@
-execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"lost ","color":"dark_aqua"},{"text":"2 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Red ","color":"red"},{"text":"-2","color":"gold"}]
 execute as @e[tag=GreenCRP,tag=!KillFire] at @s as @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $RedGifts CmdData 2
 execute as @e[tag=GreenCRP,tag=!KillFire] at @s if entity @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
 execute as @e[tag=GreenCRP,tag=!KillFire] at @s run scoreboard players add @a[team=Green,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
 
-execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"lost ","color":"dark_aqua"},{"text":"2 ","color":"gold"},{"text":"points!","color":"dark_aqua"}]
+execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was revived! ","color":"dark_aqua"},{"text":"Green ","color":"green"},{"text":"-2","color":"gold"}]
 execute as @e[tag=RedCRP,tag=!KillFire] at @s as @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players remove $GreenGifts CmdData 2
 execute as @e[tag=RedCRP,tag=!KillFire] at @s if entity @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] run scoreboard players set @s CmdData 850
 execute as @e[tag=RedCRP,tag=!KillFire] at @s run scoreboard players add @a[team=Red,tag=Knocked,distance=..1.5,scores={nnhealth=1}] nnhealth_mod 1
@@ -43,7 +43,9 @@ execute as @e[tag=CRPCircleRed] at @s run particle dust 1 0 0 1 ^-1.2 ^ ^ 0 0 0 
 execute as @e[tag=CRPCircleGreen] at @s run particle dust 0 1 0 1 ^-1.2 ^ ^ 0 0 0 0 1 force
 
 #> Snow and iceball impacts
-execute as @e[tag=CRPRed,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=GreenArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 200
-execute as @e[tag=CRPGreen,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=RedArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 200
-execute as @e[tag=CRPRed,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 850
-execute as @e[tag=CRPGreen,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=RedIArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 850
+execute as @e[tag=RedCRP,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=GreenArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 200
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=RedArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 200
+execute as @e[tag=RedCRP,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=GreenIArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 850
+execute as @e[tag=GreenCRP,tag=!KillFire] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=RedIArrow,tag=!HitSM,dx=1,dy=1,dz=1] run scoreboard players add @s CmdData 850
+execute as @e[tag=RedCRP,tag=!KillFire,scores={CmdData=..849}] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=GreenArrow,tag=!HitSM,dx=1,dy=1,dz=1] run playsound block.fire.extinguish master @a ~ ~ ~ 0.1 1.0
+execute as @e[tag=GreenCRP,tag=!KillFire,scores={CmdData=..849}] at @s positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[tag=RedArrow,tag=!HitSM,dx=1,dy=1,dz=1] run playsound block.fire.extinguish master @a ~ ~ ~ 0.1 1.0
