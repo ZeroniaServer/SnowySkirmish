@@ -49,4 +49,5 @@ function snowski:game/player/knockout
 function snowski:game/player/hotchoco
 
 tag @a remove sbdamaged
+tag @a remove bbdamaged
 scoreboard players reset @a[scores={dropsb=1..}] dropsb

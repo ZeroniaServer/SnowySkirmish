@@ -8,9 +8,9 @@ execute as @e[tag=SpawnRedSnowman] at @s run summon armor_stand ~ ~ ~ {Silent:1b
 execute as @e[tag=SpawnGreenSnowman] at @s run summon armor_stand ~ ~ ~ {Silent:1b,NoGravity:0b,Team:"Green",Silent:1b,ArmorItems:[{},{},{},{id:"golden_hoe",Count:1b,tag:{Unbreakable:1b,CustomModelData:12}}],Tags:["GreenSnowman","Snowman","NewSnowman"],Invisible:1b,Invulnerable:1b,DisabledSlots:2096896,Rotation:[90f,0f]}
 
 #name and store UUID
-setblock 0 -64 0 oak_sign
+setblock 0 0 0 oak_sign
 execute as @e[tag=SnowmanSpawn] at @s run function snowski:weapons/snowman/name
-setblock 0 -64 0 air
+setblock 0 0 0 air
 execute as @e[tag=NewSnowman] store result score @s playerUUID run data get entity @s UUID[0]
 
 scoreboard players reset @a spawnturret
