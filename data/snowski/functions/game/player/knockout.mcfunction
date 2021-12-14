@@ -17,12 +17,8 @@ effect give @a[tag=Knocked,scores={knocktime=1}] glowing 1 0 true
 effect give @a[tag=Knocked,scores={knocktime=1}] blindness 1 0 true
 tag @a[tag=Knocked,scores={knocktime=1}] remove IceImpact
 effect give @a[tag=Knocked] slowness 1000000 3 true
-clear @a[tag=Knocked] snowball
-clear @a[tag=Knocked] ghast_spawn_egg
-clear @a[tag=Knocked] blaze_spawn_egg
-clear @a[tag=Knocked] golden_hoe
-clear @a[tag=Knocked] rabbit_spawn_egg
-execute unless score $gamestate CmdData matches 2 run clear @a[tag=Knocked] clay
+clear @a[tag=Knocked,scores={knocktime=..179}] #snowski:powerups
+execute unless score $gamestate CmdData matches 2 unless score $keepinv CmdData matches 1 run clear @a[tag=Knocked] clay
 
 #> Remove knocked fx when HP is above 1
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run scoreboard players reset @s knocktime
@@ -77,5 +73,5 @@ execute as @a[team=Red,scores={knocktime=180..}] run scoreboard players set @s n
 
 execute as @a[scores={knocktime=180..}] at @s run tp @s @s
 
-execute as @a[team=Green,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
-execute as @a[team=Red,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
+execute unless score $keepinv CmdData matches 1 as @a[team=Green,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
+execute unless score $keepinv CmdData matches 1 as @a[team=Red,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}

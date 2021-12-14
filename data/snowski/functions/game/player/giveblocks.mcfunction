@@ -1,5 +1,7 @@
-execute as @s[scores={giveblocks=1..}] run give @s clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
-execute as @s[scores={giveblocks=1..}] run scoreboard players remove @s giveblocks 1
-execute as @s[scores={giveblocks=1..}] run function snowski:game/player/giveblocks
-
-scoreboard players reset @a[scores={giveblocks=-1000..0}] giveblocks
+scoreboard players set $4 CmdData 4
+execute if entity @s[scores={craftblock=1..}] run scoreboard players operation @s snowballammo -= $4 CmdData
+execute as @a[scores={craftblock=1..}] run loot give @s loot snowski:craftblock
+scoreboard players remove @s craftblock 1
+execute if entity @s[scores={craftblock=1..}] run function snowski:game/player/giveblocks
+execute unless entity @s[scores={craftblock=1..}] at @s run playsound minecraft:entity.item.pickup player @s ~ ~ ~ 0.25 2
+execute unless entity @s[scores={craftblock=1..}] run scoreboard players reset $4 CmdData

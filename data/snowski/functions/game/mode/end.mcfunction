@@ -40,6 +40,11 @@ scoreboard players set $gamestate CmdData 0
 scoreboard players set $gametime CmdData 0
 scoreboard players set $tensec CmdData 10
 scoreboard players set $gametime CmdData 0
+scoreboard players set $elfCount CmdData 0
+scoreboard players set $powerupspawn2 CmdData 9
+scoreboard players reset $PowerGifts CmdData
+schedule clear snowski:game/mode/powerup/spawn
+schedule clear snowski:game/mode/powerup/respawn
 
 scoreboard players set $RedGifts CmdData 0
 scoreboard players set $GreenGifts CmdData 0

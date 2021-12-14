@@ -44,17 +44,25 @@ scoreboard objectives add spawnturret minecraft.used:minecraft.ghast_spawn_egg
 scoreboard players set $gameEnd CmdData 12000
 scoreboard players set $fcountdown CmdData 11800
 scoreboard players set $gameMid CmdData 6000
-scoreboard players set $powerupspawn 200
-scoreboard players set $blocksgreen CmdData 75
-scoreboard players set $blocksred CmdData 75
+execute unless score $blocks CmdData matches -2147483648.. run scoreboard players set $blocks CmdData 20
+execute unless score $snowballs CmdData matches -2147483648.. run scoreboard players set $snowballs CmdData 4
+execute unless score $craftblock CmdData matches -2147483648.. run scoreboard players set $craftblock CmdData 5
 scoreboard players set $30sec CmdData 30
 scoreboard players set $onesec CmdData 20
 scoreboard players set $quickstart CmdData 10
 scoreboard players set $tensec CmdData 10
+scoreboard players add $keepinv CmdData 0
+execute unless score $powerupspawn CmdData matches -2147483648.. run scoreboard players set $powerupspawn CmdData 180
+execute unless score $elfspawn CmdData matches -2147483648.. run scoreboard players set $elfspawn CmdData 20
+execute unless score $powerupMax CmdData matches -2147483648.. run scoreboard players set $powerupMax CmdData 4
 scoreboard players set $powerupspawn2 CmdData 9
-scoreboard players set $elfCount CmdData 0
-scoreboard players set $elfMax CmdData 7
+execute unless score $elfCount CmdData matches -2147483648.. run scoreboard players set $elfCount CmdData 0
+execute unless score $elfMax CmdData matches -2147483648.. run scoreboard players set $elfMax CmdData 8
 scoreboard players set $keepCount CmdData 0
+execute unless score $maxTeam CmdData matches -2147483648.. run scoreboard players set $maxTeam CmdData 6
+
+scoreboard players reset $blocksred CmdData
+scoreboard players reset $blocksgreen CmdData
 
 execute unless score $gametime CmdData matches 0.. run scoreboard players set $gametime CmdData 0
 execute unless score $gamestate CmdData matches 0.. run scoreboard players set $gamestate CmdData 0
