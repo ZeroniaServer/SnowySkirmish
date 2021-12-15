@@ -5,7 +5,6 @@ execute if score $gamestate CmdData matches 3 as @a[team=Red] at @s unless score
 execute if score $gamestate CmdData matches 3 as @a[team=Green] at @s unless score @s snowballammo >= $snowballs CmdData unless entity @e[tag=GreenBlizzardCloud,distance=..2] run scoreboard players add @s repsb 1
 execute if score $gamestate CmdData matches 3 as @a[team=Green] at @s unless score @s snowballammo >= $snowballs CmdData if entity @e[tag=GreenBlizzardCloud,distance=..2] run scoreboard players add @s repsb 3
 
-execute as @a[scores={repsb=25..}] run scoreboard players add @s snowballammo 1
 execute as @a[scores={repsb=25..}] run function snowski:game/player/ammomanage
 execute as @a[scores={repsb=25..}] unless entity @s[scores={dropsb=1..}] at @s run playsound minecraft:block.snow.break master @s ~ ~ ~ 0.3 1
 execute as @a[scores={repsb=25..}] unless entity @s[scores={dropsb=1..}] at @s run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.2 1

@@ -3,7 +3,10 @@ function snowski:game/mode/start
 execute as @e[type=item] at @s run tp @s @p
 execute as @e[type=item,nbt={Item:{tag:{Powerup:1b}}}] at @s run title @p actionbar {"text":"Powerup Destroyed!","color":"red"}
 execute as @e[type=item,nbt={Item:{tag:{Powerup:1b}}}] at @s run playsound minecraft:entity.turtle.egg_break master @p ~ ~ ~ 0.6 2
-kill @e[type=item]
+tag @e[type=item,nbt={Item:{id:"minecraft:snowball",tag:{CustomModelData:1}}}] add snowball
+kill @e[type=item,tag=!snowball]
+execute as @e[type=item,tag=snowball] run data modify entity @s Owner set from entity @s Thrower
+execute as @e[type=item,tag=snowball] run data merge entity @s {PickupDelay:0s}
 
 xp set @a 0 points
 xp set @a 0 levels

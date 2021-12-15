@@ -49,19 +49,7 @@ schedule clear snowski:game/mode/powerup/respawn
 scoreboard players set $RedGifts CmdData 0
 scoreboard players set $GreenGifts CmdData 0
 
-kill @e[tag=PowerSpawn]
-kill @e[tag=PowerGift]
-kill @e[tag=ElfGift]
-kill @e[tag=ElfSpawn]
-kill @e[tag=SnowmanSpawn]
-kill @e[tag=Snowman]
-kill @e[tag=SnowBlockHit]
-kill @e[tag=CRP]
-kill @e[tag=CRPCircle]
-kill @e[tag=SleighSpawn]
-kill @e[tag=Sleigh]
-kill @e[tag=BlizzardSpawn]
-kill @e[tag=BlizzardCloud]
+function snowski:game/mode/killentities
 
 bossbar remove minecraft:scorebar
 

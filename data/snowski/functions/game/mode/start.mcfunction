@@ -70,6 +70,7 @@ execute if score $gamestate CmdData matches 0 if entity @a[team=Green] if entity
 execute if score $gamestate CmdData matches 1 if entity @a[team=Green] unless entity @a[team=Red] run scoreboard players set $gamestate CmdData 0
 execute if score $gamestate CmdData matches 1 unless entity @a[team=Green] if entity @a[team=Red] run scoreboard players set $gamestate CmdData 0
 
+execute if score $gamestate CmdData matches 0 run function snowski:game/mode/killentities
 execute if score $gamestate CmdData matches 0 run scoreboard players reset $gametime CmdData
 execute if score $gamestate CmdData matches 0 run bossbar set starttime players
 execute unless score $gamestate CmdData matches 0 run scoreboard players add $gametime CmdData 1
@@ -236,9 +237,9 @@ execute if score $gamestate CmdData matches 3 if score $powerupspawn2 CmdData >=
 execute if score $gamestate CmdData matches 3 if score $powerupspawn2 CmdData >= $powerupspawn CmdData run scoreboard players set $powerupspawn2 CmdData 0
 
 #> Void Fall
+tag @a remove InVoid
 execute as @a[team=Green] at @s if entity @s[y=50,dy=-255] run function snowski:game/player/voidgreen
 execute as @a[team=Red] at @s if entity @s[y=50,dy=-255] run function snowski:game/player/voidred
-tag @a remove InVoid
 
 #> Spread fireworks
 execute as @e[tag=PointsFW] at @s run spreadplayers ~ ~ 1 10 false @s
