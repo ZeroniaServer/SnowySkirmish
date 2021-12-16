@@ -11,12 +11,15 @@ execute if score $gamestate CmdData matches 0 run data merge block 171 83 7 {Tex
 
 
 #> Joining teams
-scoreboard players set $inGreen CmdData 0
-execute as @a[team=Green] run scoreboard players add $inGreen CmdData 1
-scoreboard players set $inRed CmdData 0
-execute as @a[team=Red] run scoreboard players add $inRed CmdData 1
-data merge block 139 106 49 {Text1:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inGreen CmdData <= $inRed CmdData unless score $inGreen CmdData matches 6 run tag @s add JoinGreen"}},{"text":"Join ","color":"#FFC106"},{"text":"Green","color":"#32FF79"}]',Text2:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inGreen CmdData > $inRed CmdData unless score $inGreen CmdData matches 6 run tellraw @s {\\"text\\":\\"Teams imbalanced. Please join the other team.\\",\\"color\\":\\"red\\"}"}},{"score":{"name":"$inGreen","objective":"CmdData"},"color":"#D4D4D4"},{"text":"/6","color":"#D4D4D4"}]',Text3:'{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inGreen CmdData matches 6 run tellraw @s {\\"text\\":\\"This team is full.\\",\\"color\\":\\"red\\"}"}}'}
-data merge block 137 106 49 {Text1:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inRed CmdData <= $inGreen CmdData unless score $inRed CmdData matches 6 run tag @s add JoinRed"}},{"text":"Join ","color":"#FFC106"},{"text":"Red","color":"#FF3C3A"}]',Text2:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inRed CmdData > $inGreen CmdData unless score $inRed CmdData matches 6 run tellraw @s {\\"text\\":\\"Teams imbalanced. Please join the other team.\\",\\"color\\":\\"red\\"}"}},{"score":{"name":"$inRed","objective":"CmdData"},"color":"#D4D4D4"},{"text":"/6","color":"#D4D4D4"}]',Text3:'{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inRed CmdData matches 6 run tellraw @s {\\"text\\":\\"This team is full.\\",\\"color\\":\\"red\\"}"}}'}
+execute store result score $inGreen CmdData if entity @a[team=Green]
+execute store result score $inRed CmdData if entity @a[team=Red]
+execute if score $maxTeam CmdData matches ..0 run scoreboard players set $maxTeam CmdData 6
+scoreboard players operation $maxPlayers CmdData = $maxTeam CmdData
+scoreboard players set $2 CmdData 2
+scoreboard players operation $maxPlayers CmdData *= $2 CmdData
+scoreboard players reset $2 CmdData
+data merge block 139 106 49 {Text1:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inGreen CmdData <= $inRed CmdData unless score $inGreen CmdData >= $maxTeam CmdData run tag @s add JoinGreen"}},{"text":"Join ","color":"#FFC106"},{"text":"Green","color":"#32FF79"}]',Text2:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inGreen CmdData > $inRed CmdData unless score $inGreen CmdData >= $maxTeam CmdData run tellraw @s {\\"text\\":\\"Teams imbalanced. Please join the other team.\\",\\"color\\":\\"red\\"}"}},{"score":{"name":"$inGreen","objective":"CmdData"},"color":"#D4D4D4"},{"text":"/","color":"#D4D4D4"},{"score":{"name":"$maxTeam","objective":"CmdData"},"color":"#D4D4D4"}]',Text3:'{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inGreen CmdData >= $maxTeam CmdData run tellraw @s {\\"text\\":\\"This team is full.\\",\\"color\\":\\"red\\"}"}}'}
+data merge block 137 106 49 {Text1:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inRed CmdData <= $inGreen CmdData unless score $inRed CmdData >= $maxTeam CmdData run tag @s add JoinRed"}},{"text":"Join ","color":"#FFC106"},{"text":"Red","color":"#FF3C3A"}]',Text2:'[{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inRed CmdData > $inGreen CmdData unless score $inRed CmdData >= $maxTeam CmdData run tellraw @s {\\"text\\":\\"Teams imbalanced. Please join the other team.\\",\\"color\\":\\"red\\"}"}},{"score":{"name":"$inRed","objective":"CmdData"},"color":"#D4D4D4"},{"text":"/","color":"#D4D4D4"},{"score":{"name":"$maxTeam","objective":"CmdData"},"color":"#D4D4D4"}]',Text3:'{"text":"","clickEvent":{"action":"run_command","value":"execute if score $inRed CmdData >= $maxTeam CmdData run tellraw @s {\\"text\\":\\"This team is full.\\",\\"color\\":\\"red\\"}"}}'}
 
 execute as @a[tag=JoinGreen] run tp @s @s
 execute as @a[tag=JoinGreen] run team join Green @s
@@ -28,7 +31,8 @@ execute as @a[tag=JoinGreen] run scoreboard players set @s nnhealth_mod 40
 execute as @a[tag=JoinGreen] run tp @s 174 82 7 90 0
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
-execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
+execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
+execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item modify entity @s hotbar.4 snowski:setblockcount
 execute as @a[tag=JoinGreen] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team. A late arrival, unfortunately","color":"dark_green"}]
 execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:5439325},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
@@ -45,7 +49,8 @@ execute as @a[tag=JoinRed] run scoreboard players set @s nnhealth_mod 40
 execute as @a[tag=JoinRed] run tp @s 98 81 7 -90 0
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team","color":"dark_red"}]
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team","color":"dark_red"}]
-execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
+execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
+execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item modify entity @s hotbar.4 snowski:setblockcount
 execute as @a[tag=JoinRed] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team. A late arrival, unfortunately","color":"dark_red"}]
 execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:16722217},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
 execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
@@ -62,14 +67,14 @@ scoreboard players reset @a[team=!Red,team=!Green] GameID
 
 #> Actually start a game
 execute if score $gamestate CmdData matches 0 if entity @a[team=Green] if entity @a[team=Red] run scoreboard players set $gamestate CmdData 1
+execute if score $gamestate CmdData matches 1 if entity @a[team=Green] unless entity @a[team=Red] run scoreboard players set $gamestate CmdData 0
+execute if score $gamestate CmdData matches 1 unless entity @a[team=Green] if entity @a[team=Red] run scoreboard players set $gamestate CmdData 0
 
+execute if score $gamestate CmdData matches 0 run function snowski:game/mode/killentities
 execute if score $gamestate CmdData matches 0 run scoreboard players reset $gametime CmdData
+execute if score $gamestate CmdData matches 0 run bossbar set starttime players
 execute unless score $gamestate CmdData matches 0 run scoreboard players add $gametime CmdData 1
 
-scoreboard players set $inTeams CmdData 0
-execute as @a[team=Red] run scoreboard players add $inTeams CmdData 1
-execute as @a[team=Green] run scoreboard players add $inTeams CmdData 1
-scoreboard players set $maxPlayers CmdData 12
 scoreboard players set $onesec CmdData 20
 scoreboard players set $quickstart CmdData 10
 execute if score $gamestate CmdData matches 1 run scoreboard players add $countsec CmdData 1
@@ -81,12 +86,12 @@ execute if score $gametime CmdData matches 1 run bossbar set starttime max 10
 execute if score $gametime CmdData matches 1 run bossbar set starttime style notched_10
 execute if score $gamestate CmdData matches 1 store result bossbar starttime value run scoreboard players get $tensec CmdData
 execute if score $gamestate CmdData matches 1 run bossbar set starttime name ["",{"text":"Game starting in: ","color":"white"},{"score":{"name":"$tensec","objective":"CmdData"},"color":"dark_aqua"}]
-execute if score $gamestate CmdData matches 1 run bossbar set starttime players @a 
+execute if score $gamestate CmdData matches 1 run bossbar set starttime players @a
 execute if score $countsec CmdData >= $onesec CmdData run scoreboard players remove $tensec CmdData 1
-execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 4..10 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0
-execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 3 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.6
-execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 2 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.7
-execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 1 run execute as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.8
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 4..10 as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 3 as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.6
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 2 as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.7
+execute if score $countsec CmdData >= $onesec CmdData unless score $tensec CmdData >= $quickstart CmdData if score $tensec CmdData matches 1 as @a at @s run playsound minecraft:block.note_block.cow_bell master @s ~ ~ ~ 1 0.8
 execute if score $countsec CmdData >= $onesec CmdData run scoreboard players reset $countsec CmdData
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $gametime CmdData 2
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run bossbar remove starttime
@@ -110,25 +115,26 @@ execute as @e[tag=GreenCampfire] at @s run kill @e[tag=RedBlizzardCloud,distance
 execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenBBall,distance=..5]
 execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenBBArrow,distance=..5]
 execute as @e[tag=RedCampfire] at @s run kill @e[tag=GreenBlizzardCloud,distance=..5]
-execute as @e[tag=RedCampfire] at @s run scoreboard players set @e[tag=GreenSnowman,distance=..8] CmdData 280
-execute as @e[tag=GreenCampfire] at @s run scoreboard players set @e[tag=RedSnowman,distance=..8] CmdData 280
+execute as @e[tag=RedCampfire] at @s run scoreboard players set @e[tag=GreenSnowman,distance=..8,scores={CmdData=..279}] CmdData 280
+execute as @e[tag=GreenCampfire] at @s run scoreboard players set @e[tag=RedSnowman,distance=..8,scores={CmdData=..279}] CmdData 280
 execute unless score $gamestate CmdData matches 0 run fill 96 85 7 97 88 5 air replace clay
 execute unless score $gamestate CmdData matches 0 run fill 104 81 7 100 82 7 air replace clay
 execute unless score $gamestate CmdData matches 0 run fill 176 86 7 175 88 9 air replace clay
 execute unless score $gamestate CmdData matches 0 run fill 168 82 7 172 83 7 air replace clay
 
 #> Preparation time
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run bossbar add preptime ["",{"text":"Preparation time!","color":"dark_aqua"}]
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run bossbar add preptime ["",{"text":"Preparation Time!","color":"dark_aqua"}]
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run bossbar set preptime max 650
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run bossbar set preptime players @a
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run kill @e[tag=ElfGift]
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run kill @e[tag=PowerGift]
 execute store result bossbar preptime value run scoreboard players get $gametime CmdData
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=Green] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=Red] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 20
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a title {"text":"Preparation time!","color":"dark_aqua"}
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=!Lobby,team=!Spectator,team=!Developer] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item modify entity @a[team=!Lobby,team=!Spectator,team=!Developer] hotbar.4 snowski:setblockcount
+
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a title {"text":"Preparation Time!","color":"dark_aqua"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a subtitle {"text":"Build some cover.","color":"blue"}
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.2
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.2
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run function snowski:game/tips/createset
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $SendTip Cmddata 900
 
@@ -185,7 +191,7 @@ execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run bossbar remove preptime
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run title @a title {"text":"Battle Time!","color":"dark_red"}
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run title @a subtitle {"text":"Collect gifts and eliminate enemies!","color":"red"}
-execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.4
+execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.4
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run scoreboard players set $spawnElfs CmdData 6
 execute if score $gamestate CmdData matches 2 if score $gametime CmdData matches 650 run scoreboard players set $gamestate CmdData 3
 
@@ -196,15 +202,12 @@ execute if score $gamestate CmdData matches 3 if score $RedGifts CmdData > $Gree
 execute if score $gamestate CmdData matches 3 if score $RedGifts CmdData < $GreenGifts CmdData run bossbar set scorebar color green
 
 #> Spawn elfs
-execute if score $gamestate CmdData matches 3 run scoreboard players set $elfCount CmdData 0
-execute if score $gamestate CmdData matches 3 run scoreboard players set $elfMax CmdData 7
-execute if score $gamestate CmdData matches 3 run execute as @e[tag=ElfGift] run scoreboard players add $elfCount CmdData 1
-execute if score $gamestate CmdData matches 3 run execute if score $elfCount CmdData <= $elfMax CmdData run scoreboard players set $spawnElfs CmdData 1
+execute if score $gamestate CmdData matches 3 store result score $elfCount CmdData if entity @e[tag=ElfGift]
+execute if score $gamestate CmdData matches 3 if score $elfCount CmdData < $elfMax CmdData run scoreboard players set $spawnElfs CmdData 1
 execute if score $gamestate CmdData matches 3 run scoreboard players add $keepCount CmdData 1
-execute if score $gamestate CmdData matches 3 run scoreboard players set 1 CmdData 1
-execute if score $gamestate CmdData matches 3 run execute if score $keepCount CmdData >= $onesec CmdData if score $spawnElfs CmdData >= 1 CmdData run function snowski:game/mode/elf/spawn
-execute if score $gamestate CmdData matches 3 run execute if score $keepCount CmdData >= $onesec CmdData if score $spawnElfs CmdData >= 1 CmdData run scoreboard players remove $spawnElfs CmdData 1
-execute if score $gamestate CmdData matches 3 run execute if score $keepCount CmdData >= $onesec CmdData run scoreboard players reset $keepCount CmdData
+execute if score $gamestate CmdData matches 3 if score $keepCount CmdData >= $elfspawn CmdData if score $spawnElfs CmdData matches 1 run function snowski:game/mode/elf/spawn
+execute if score $gamestate CmdData matches 3 if score $keepCount CmdData >= $elfspawn CmdData if score $spawnElfs CmdData matches 1 run scoreboard players set $spawnElfs CmdData 0
+execute if score $gamestate CmdData matches 3 if score $keepCount CmdData >= $elfspawn CmdData run scoreboard players reset $keepCount CmdData
 
 
 #> Gift collection
@@ -228,17 +231,15 @@ execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
 #> Powerup spawning
-execute if score $gamestate CmdData matches 3 run scoreboard players reset $PowerGifts CmdData
-execute if score $gamestate CmdData matches 3 run execute as @e[tag=PowerGift] run scoreboard players add $PowerGifts CmdData 1
-execute if score $gamestate CmdData matches 3 run scoreboard players set $powerupspawn CmdData 180
-execute unless score $PowerGifts CmdData matches 4 if score $gamestate CmdData matches 3 run scoreboard players add $powerupspawn2 CmdData 1
-execute if score $gamestate CmdData matches 3 run execute if score $powerupspawn2 CmdData >= $powerupspawn CmdData run function snowski:game/mode/powerup/spawn
-execute if score $gamestate CmdData matches 3 run execute if score $powerupspawn2 CmdData >= $powerupspawn CmdData run scoreboard players set $powerupspawn2 CmdData 0
+execute if score $gamestate CmdData matches 3 store result score $PowerGifts CmdData if entity @e[tag=PowerGift]
+execute unless score $PowerGifts CmdData = $powerupMax CmdData if score $gamestate CmdData matches 3 run scoreboard players add $powerupspawn2 CmdData 1
+execute if score $gamestate CmdData matches 3 if score $powerupspawn2 CmdData >= $powerupspawn CmdData run function snowski:game/mode/powerup/spawn
+execute if score $gamestate CmdData matches 3 if score $powerupspawn2 CmdData >= $powerupspawn CmdData run scoreboard players set $powerupspawn2 CmdData 0
 
 #> Void Fall
+tag @a remove InVoid
 execute as @a[team=Green] at @s if entity @s[y=50,dy=-255] run function snowski:game/player/voidgreen
 execute as @a[team=Red] at @s if entity @s[y=50,dy=-255] run function snowski:game/player/voidred
-tag @a remove InVoid
 
 #> Spread fireworks
 execute as @e[tag=PointsFW] at @s run spreadplayers ~ ~ 1 10 false @s
@@ -261,4 +262,4 @@ scoreboard players set $gameEnd CmdData 12000
 execute if score $gametime CmdData >= $gameEnd CmdData run function snowski:game/mode/end
 execute if score $gametime CmdData = $gameMid CmdData run title @a title {"text":" ","color":"light_purple"}
 execute if score $gametime CmdData = $gameMid CmdData run title @a subtitle {"text":"5 minutes remaining!","color":"light_purple"}
-execute if score $gametime CmdData = $gameMid CmdData run execute as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1
+execute if score $gametime CmdData = $gameMid CmdData as @a at @s run playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1

@@ -18,13 +18,17 @@ execute as @e[tag=IBArrow] at @s run data modify entity @s Motion set from entit
 tag @e[type=snowball,tag=IBall,tag=!ThrownBall] add ThrownBall
 tag @e[type=arrow,tag=IBall,tag=!ThrownBall] add ThrownBall
 
+#> Put out enemy mini campfires
+execute as @e[type=arrow,tag=IBArrow,tag=RedIArrow,nbt={inGround:1b}] at @s run scoreboard players add @e[tag=CRPGreen,tag=!KillFire,distance=..1] CmdData 850
+execute as @e[type=arrow,tag=IBArrow,tag=GreenIArrow,nbt={inGround:1b}] at @s run scoreboard players add @e[tag=CRPRed,tag=!KillFire,distance=..1] CmdData 850
+
 #> Kill the arrows that hit the ground, remove player tag
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run particle block ice ~ ~ ~ 0 0 0 0.1 20 force
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run particle block blue_ice ~ ~ ~ 0 0 0 0.1 5 force
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run particle splash ~ ~ ~ 0 0 0 0.1 20 force
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run playsound iceball master @a ~ ~ ~ 1 1.3
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run kill @s
-kill @e[type=arrow,tag=ThrownBall,nbt={inGround:1b}]
+kill @e[type=arrow,tag=IBArrow,tag=ThrownBall,nbt={inGround:1b}]
 tag @a[nbt=!{SelectedItem:{id:"minecraft:snowball",tag:{CustomModelData:2}}}] remove HoldIB
 
 #> Store player's snowball/ammo score

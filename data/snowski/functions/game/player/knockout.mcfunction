@@ -17,27 +17,30 @@ effect give @a[tag=Knocked,scores={knocktime=1}] glowing 1 0 true
 effect give @a[tag=Knocked,scores={knocktime=1}] blindness 1 0 true
 tag @a[tag=Knocked,scores={knocktime=1}] remove IceImpact
 effect give @a[tag=Knocked] slowness 1000000 3 true
-clear @a[tag=Knocked] snowball
-clear @a[tag=Knocked] ghast_spawn_egg
-clear @a[tag=Knocked] blaze_spawn_egg
-clear @a[tag=Knocked] golden_hoe
-clear @a[tag=Knocked] clay
-clear @a[tag=Knocked] rabbit_spawn_egg
-execute unless score $gamestate CmdData matches 2 run clear @a[tag=Knocked] clay
+clear @a[tag=Knocked,scores={knocktime=..179}] snowball
+clear @a[tag=Knocked,scores={knocktime=..179}] ghast_spawn_egg
+clear @a[tag=Knocked,scores={knocktime=..179}] golden_hoe
+clear @a[tag=Knocked,scores={knocktime=..179}] blaze_spawn_egg
+clear @a[tag=Knocked,scores={knocktime=..179}] rabbit_spawn_egg
+clear @a[tag=Knocked,scores={knocktime=..179}] clay
+execute unless score $gamestate CmdData matches 2 unless score $keepinv CmdData matches 1 run clear @a[tag=Knocked] clay
+
+scoreboard players set @a[tag=Knocked,scores={knocktime=1}] snowballammo 0
 
 #> Remove knocked fx when HP is above 1
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run scoreboard players reset @s knocktime
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run item replace entity @s armor.head with air
-execute as @a[tag=Knocked,scores={nnhealth=2..}] run function snowski:game/player/ammomanage
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run function snowski:game/player/playerdeco
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove IceImpact
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run effect clear @s slowness
 execute as @a[tag=Knocked,scores={nnhealth=2..}] run tag @s remove Knocked
 
 #> Actionbars and respawns
-execute as @a[team=Red,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"red"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
-execute as @a[team=Green,scores={knocktime=1}] run tellraw @a ["",{"selector":"@s","color":"green"},{"text":" was knocked out! ","color":"dark_aqua"},{"text":"+4","color":"gold"}]
+execute as @a[team=Red,scores={knocktime=1}] run function snowski:game/player/komessagered
+execute as @a[team=Green,scores={knocktime=1}] run function snowski:game/player/komessagegreen
 execute as @a[scores={knocktime=1}] run scoreboard players add @s deathcollect 1
+tag @a remove justHit
+
 #> Fall countdown
 execute as @a[scores={knocktime=1}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"8","color":"blue"}]
 execute as @a[scores={knocktime=20}] run title @s actionbar ["",{"text":"❆ ","color":"aqua"},{"text":"Respawning: ","color":"dark_aqua"},{"text":"7","color":"blue"}]
@@ -58,6 +61,7 @@ execute as @a[scores={knocktime=180}] at @s run particle block snow_block ~ ~1 ~
 execute as @a[scores={knocktime=180}] at @s run particle block ice ~ ~1 ~ 0.2 0.5 0.2 0.1 20
 execute as @a[scores={knocktime=180}] at @s run playsound minecraft:block.snow.break master @a ~ ~ ~ 1 0
 execute as @a[scores={knocktime=180}] at @s run gamemode adventure @s
+execute as @a[scores={knocktime=180}] at @s run scoreboard players set @s resettracker 50
 
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run tp @s ~ ~0.7 ~ 90 0
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run particle flame ~ ~ ~ 0 0 0 0.1 10 force
@@ -73,5 +77,9 @@ execute as @a[team=Red,scores={knocktime=1}] run summon firework_rocket 182 80 8
 execute as @a[team=Red,scores={knocktime=1}] run scoreboard players add $GreenGifts CmdData 4
 execute as @a[team=Red,scores={knocktime=180..}] run scoreboard players set @s nnhealth_mod 40
 
-execute as @a[team=Green,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
-execute as @a[team=Red,scores={knocktime=180..}] run clear @s #snowski:powerups{Powerup:1b}
+execute as @a[scores={knocktime=180..}] at @s run tp @s @s
+
+execute unless score $keepinv CmdData matches 1 run scoreboard players set @a[scores={knocktime=180..}] snowballammo 0
+execute if score $keepinv CmdData matches 1 run scoreboard players set @a[tag=!InVoid,scores={knocktime=180..}] snowballammo 0
+execute unless score $keepinv CmdData matches 1 as @a[team=Green,scores={knocktime=180..}] run clear @s #snowski:powerups
+execute unless score $keepinv CmdData matches 1 as @a[team=Red,scores={knocktime=180..}] run clear @s #snowski:powerups

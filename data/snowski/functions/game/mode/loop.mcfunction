@@ -3,12 +3,15 @@ function snowski:game/mode/start
 execute as @e[type=item] at @s run tp @s @p
 execute as @e[type=item,nbt={Item:{tag:{Powerup:1b}}}] at @s run title @p actionbar {"text":"Powerup Destroyed!","color":"red"}
 execute as @e[type=item,nbt={Item:{tag:{Powerup:1b}}}] at @s run playsound minecraft:entity.turtle.egg_break master @p ~ ~ ~ 0.6 2
-kill @e[type=item]
+tag @e[type=item,nbt={Item:{id:"minecraft:snowball",tag:{CustomModelData:1}}}] add snowball
+kill @e[type=item,tag=!snowball]
+execute as @e[type=item,tag=snowball] run data modify entity @s Owner set from entity @s Thrower
+execute as @e[type=item,tag=snowball] run data merge entity @s {PickupDelay:0s}
 
 xp set @a 0 points
 xp set @a 0 levels
 
-execute unless score $gamestate CmdData matches 0 run function snowski:game/tips/tipsystem
+execute unless score $gamestate CmdData matches 0..1 run function snowski:game/tips/tipsystem
 
 #> Meme trailer
 execute as @a[scores={hittarget=1..}] run tellraw @s ["","\n",{"text":"Hey nice! You have found our little secret! ","bold":true,"color":"blue"},"\n",{"text":"[CLICK HERE] ","bold":true,"color":"dark_red","clickEvent":{"action":"open_url","value":"https://youtu.be/a9EOyyyI4Ns"},"hoverEvent":{"action":"show_text","contents":["Super awesome stuff!!!"]}},{"text":"to watch some quality content!","bold":true,"color":"blue"},"\n",{"text":"Please put a comment under the video so we know you have found it! :)","italic":true,"color":"dark_aqua"},"\n"]

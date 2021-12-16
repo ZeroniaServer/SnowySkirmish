@@ -10,9 +10,9 @@
 summon area_effect_cloud 135 80 7 {Duration:20,Tags:["ElfSpawn"]}
 execute as @e[tag=ElfSpawn] at @s run spreadplayers ~ ~ 1 18 false @s
 
-execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless block ~ ~-1 ~ #snowski:elfnotspawnable unless block ~ ~ ~ #snowski:elfnotspawnable run tp @s 135 80 7
-execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless block ~ ~-1 ~ #snowski:elfnotspawnable unless block ~ ~ ~ #snowski:elfnotspawnable run spreadplayers ~ ~ 1 8 false @s
+execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless entity @e[tag=PowerGift,distance=..2] unless block ~ ~-1 ~ #snowski:giftnotspawnable unless block ~ ~ ~ #snowski:giftnotspawnable run tp @s 135 80 7
+execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless entity @e[tag=PowerGift,distance=..2] unless block ~ ~-1 ~ #snowski:giftnotspawnable unless block ~ ~ ~ #snowski:giftnotspawnable run spreadplayers ~ ~ 1 8 false @s
 
-execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless block ~ ~-1 ~ #snowski:elfnotspawnable unless block ~ ~ ~ #snowski:elfnotspawnable run summon armor_stand ~ ~-0.7 ~ {Silent:1b,Tags:["ElfAnim"],Invisible:1b,Marker:1b,Invulnerable:1b,NoGravity:1b}
+execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless entity @e[tag=PowerGift,distance=..2] unless block ~ ~-1 ~ #snowski:giftnotspawnable unless block ~ ~ ~ #snowski:giftnotspawnable run summon armor_stand ~ ~-0.7 ~ {Silent:1b,Tags:["ElfAnim"],Invisible:1b,Marker:1b,Invulnerable:1b,NoGravity:1b}
 
-execute as @e[tag=ElfSpawn] at @s unless entity @e[tag=ElfGift,distance=..2] unless block ~ ~-1 ~ #snowski:elfnotspawnable unless block ~ ~ ~ #snowski:elfnotspawnable run kill @s
+execute as @e[tag=ElfSpawn] at @s unless block ~ ~-1 ~ #snowski:giftnotspawnable unless block ~ ~ ~ #snowski:giftnotspawnable run kill @s
