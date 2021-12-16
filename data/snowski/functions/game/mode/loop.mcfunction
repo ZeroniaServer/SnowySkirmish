@@ -14,7 +14,7 @@ xp set @a 0 levels
 execute unless score $gamestate CmdData matches 0..1 run function snowski:game/tips/tipsystem
 
 #> Meme trailer
-execute as @a[scores={hittarget=1..}] run tellraw @s ["","\n",{"text":"Hey nice! You have found our little secret! ","bold":true,"color":"blue"},"\n",{"text":"[CLICK HERE] ","bold":true,"color":"dark_red","clickEvent":{"action":"open_url","value":"https://youtu.be/a9EOyyyI4Ns"},"hoverEvent":{"action":"show_text","contents":["Super awesome stuff!!!"]}},{"text":"to watch some quality content!","bold":true,"color":"blue"},"\n",{"text":"Please put a comment under the video so we know you have found it! :)","italic":true,"color":"dark_aqua"},"\n"]
+execute as @a[scores={hittarget=1..}] run tellraw @s ["","\n",{"text":"Hey, nice! You've found our little secret! ","bold":true,"color":"blue"},"\n",{"text":"[CLICK HERE] ","bold":true,"color":"dark_red","clickEvent":{"action":"open_url","value":"https://youtu.be/a9EOyyyI4Ns"},"hoverEvent":{"action":"show_text","contents":["Super awesome stuff!!!"]}},{"text":"to watch some quality content!","bold":true,"color":"blue"},"\n",{"text":"Please put a comment on the video so we know you found it! :)","italic":true,"color":"dark_aqua"},"\n"]
 execute as @a[scores={hittarget=1..}] at @s run playsound minecraft:block.note_block.xylophone master @s ~ ~ ~ 1 1.2
 execute as @a[scores={hittarget=1..}] run scoreboard players set @s targettimer 81
 scoreboard players reset @a[scores={hittarget=1..}] hittarget
