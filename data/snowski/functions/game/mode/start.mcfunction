@@ -225,7 +225,7 @@ execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=.
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add $RedGifts CmdData 1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add @s giftcollect 1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
-execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block red_wool ~ ~ ~ 0 0 0 0.1 5 force
+execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block light_blue_wool ~ ~ ~ 0 0 0 0.1 5 force
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block yellow_wool ~ ~ ~ 0 0 0 0.1 2 force
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 101 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
