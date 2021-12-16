@@ -95,6 +95,7 @@ execute as @a[tag=GrabPowerup] at @s run playsound block.chest.close master @s ~
 
 execute as @a[team=!Red] if entity @s[team=!Green] run scoreboard players reset @s HasPowerup
 
+execute as @a[tag=GrabPowerup] store result score @s snowballammo run clear @s snowball{CustomModelData:1} 0
 
 kill @e[tag=RNGPowerup]
 tag @a[scores={RNGscore=0..}] remove GrabPowerup
