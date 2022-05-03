@@ -1,3 +1,6 @@
+#> Modification changes
+function snowski:lobby/controller
+
 #> Loop functions for campfire revive points
 function snowski:weapons/campfire/spawn
 function snowski:weapons/campfire/functionality

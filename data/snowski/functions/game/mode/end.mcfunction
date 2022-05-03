@@ -34,6 +34,7 @@ execute if score $RedGifts CmdData = $GreenGifts CmdData run title @a title {"te
 execute if score $RedGifts CmdData = $GreenGifts CmdData run tellraw @a ["",{"text":"It's a tie! ","color":"gray","bold":true},{"text":"Final Score: ","color":"blue"},{"text":"Green: ","color":"green"},{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" || ","color":"dark_gray"},{"text":"Red: ","color":"red"},{"score":{"name":"$RedGifts","objective":"CmdData"},"color":"gold"}]
 execute if score $RedGifts CmdData = $GreenGifts CmdData run title @a subtitle ["",{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" points each!","color":"blue"}]
 
+function snowski:lobby/lock
 function snowski:game/arenaclear/start
 fill 136 59 31 136 89 -17 air replace snow_block
 scoreboard players set $gamestate CmdData 0

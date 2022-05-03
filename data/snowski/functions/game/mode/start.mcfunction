@@ -257,8 +257,6 @@ execute if score $gametime CmdData >= $fcountdown CmdData run bossbar set endtim
 execute if score $gametime CmdData >= $fcountdown CmdData run bossbar set endtime players @a
 execute store result bossbar endtime value run scoreboard players get $tensec CmdData
 
-scoreboard players set $gameMid CmdData 6000
-scoreboard players set $gameEnd CmdData 12000
 execute if score $gametime CmdData >= $gameEnd CmdData run function snowski:game/mode/end
 execute if score $gametime CmdData = $gameMid CmdData run title @a title {"text":" ","color":"light_purple"}
 execute if score $gametime CmdData = $gameMid CmdData run title @a subtitle {"text":"5 minutes remaining!","color":"light_purple"}
