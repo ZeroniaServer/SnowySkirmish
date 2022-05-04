@@ -1,3 +1,6 @@
+#> Game leaving
+function snowski:game/mode/leaveicon
+
 #> Modification changes
 function snowski:lobby/controller
 

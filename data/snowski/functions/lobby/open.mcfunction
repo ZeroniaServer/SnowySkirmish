@@ -13,5 +13,9 @@ scoreboard players operation $tempdata CmdData = $gameEnd CmdData
 scoreboard players operation $tempdata CmdData /= $60 CmdData
 scoreboard players operation $tempdata CmdData /= $onesec CmdData
 
+scoreboard players operation $ticks CmdData = $gameEnd CmdData
+
+scoreboard objectives add startgame trigger
+
 tellraw @a ["","\n",{"text":"The game is ready to play!","color":"green"},"\n",{"text":"Game time set to: ","color":"dark_aqua"},{"score":{"name":"$tempdata","objective":"CmdData"},"bold":true,"color":"aqua"},{"text":" Minutes","bold":true,"color":"aqua"},"\n"]
 execute as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 2

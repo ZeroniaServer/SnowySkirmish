@@ -38,12 +38,10 @@ scoreboard objectives add playerUUID dummy
 scoreboard objectives add UUIDtracker dummy
 scoreboard objectives add resettracker dummy
 scoreboard objectives add spawnturret minecraft.used:minecraft.ghast_spawn_egg
+scoreboard objectives add leavetimer dummy
 
 #End of adding scores
 #Time to set all CmdData scores, hooray!
-scoreboard players set $gameEnd CmdData 12000
-scoreboard players set $fcountdown CmdData 11800
-scoreboard players set $gameMid CmdData 6000
 execute unless score $blocks CmdData matches -2147483648.. run scoreboard players set $blocks CmdData 20
 execute unless score $snowballs CmdData matches -2147483648.. run scoreboard players set $snowballs CmdData 4
 execute unless score $craftblock CmdData matches -2147483648.. run scoreboard players set $craftblock CmdData 5

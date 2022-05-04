@@ -30,6 +30,7 @@ execute if score $RedGifts CmdData < $GreenGifts CmdData at @e[tag=GreenCampfire
 bossbar remove endtime
 bossbar remove preptime
 
+execute if score $RedGifts CmdData = $GreenGifts CmdData as @a[team=!Lobby,team=!Spectator] positioned 137 105 55 run playsound minecraft:entity.wither.hurt master @s ~ ~ ~ 1 0
 execute if score $RedGifts CmdData = $GreenGifts CmdData run title @a title {"text":"It's a tie!","color":"gray"}
 execute if score $RedGifts CmdData = $GreenGifts CmdData run tellraw @a ["",{"text":"It's a tie! ","color":"gray","bold":true},{"text":"Final Score: ","color":"blue"},{"text":"Green: ","color":"green"},{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" || ","color":"dark_gray"},{"text":"Red: ","color":"red"},{"score":{"name":"$RedGifts","objective":"CmdData"},"color":"gold"}]
 execute if score $RedGifts CmdData = $GreenGifts CmdData run title @a subtitle ["",{"score":{"name":"$GreenGifts","objective":"CmdData"},"color":"gold"},{"text":" points each!","color":"blue"}]
