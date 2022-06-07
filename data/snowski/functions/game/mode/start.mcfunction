@@ -155,10 +155,8 @@ execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run function snowski:game/tips/createset
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $SendTip Cmddata 900
 
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 57 -18 minecraft:structure_block[mode=load]{mode:"LOAD",name:"skirmishwall1"}
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 58 -18 redstone_block
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 57 30 minecraft:structure_block[mode=load]{mode:"LOAD",name:"skirmishwall2"}
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run setblock 135 58 30 redstone_block
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run place template skirmishwall1 135 57 -18
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run place template skirmishwall2 135 57 30
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run fill 133 55 -18 141 60 -18 barrier
 
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $gamestate CmdData 2
