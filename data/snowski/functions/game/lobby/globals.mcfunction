@@ -45,7 +45,7 @@ execute as @a[tag=!JoinedGame] run scoreboard players reset @s knocktime
 execute as @a[tag=!JoinedGame] run function snowski:game/player/playerdeco
 execute as @a[tag=!JoinedGame] run tag @s add JoinedGame
 
-#execute as @a[scores={LeaveGame=1..}] run tag @s remove JoinedGame
+execute as @a[scores={LeaveGame=1..}] run tag @s remove JoinedGame
 scoreboard players reset @a LeaveGame
 
 #> Midgame leaving
