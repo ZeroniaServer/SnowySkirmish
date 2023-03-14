@@ -12,5 +12,5 @@ team modify coloryellow color yellow
 
 scoreboard objectives remove startgame
 
-summon area_effect_cloud 138 106 49 {Tags:["SettingsInstruction"],Duration:2000000000,CustomName:"\"Confirm Settings Here!\"",CustomNameVisible:1b}
+summon area_effect_cloud 138 106 49 {Tags:["SettingsInstruction"],Duration:2000000000,CustomName:'"Confirm Settings Here!"',CustomNameVisible:1b}
 team join coloryellow @e[tag=SettingsInstruction]

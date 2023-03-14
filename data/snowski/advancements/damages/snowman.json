@@ -1,22 +1,26 @@
 {
-    "criteria": {
-      "requirement": {
-        "trigger": "minecraft:entity_hurt_player",
-        "conditions": {
-          "damage": {
-            "type": {
-              "is_projectile": true,
-              "direct_entity": {
-                "type": "minecraft:arrow",
-                "nbt": "{Tags:[\"BArrow\"]}"
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "type": {
+            "tags": [
+              {
+                "id": "minecraft:is_projectile",
+                "expected": "true"
               }
+            ],
+            "direct_entity": {
+              "type": "minecraft:arrow",
+              "nbt": "{Tags:[\"BArrow\"]}"
             }
           }
         }
       }
-    },
-    "rewards": {
-      "function": "snowski:damages/snowman"
     }
+  },
+  "rewards": {
+    "function": "snowski:damages/snowman"
   }
-  
+}

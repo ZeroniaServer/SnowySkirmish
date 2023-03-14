@@ -8,8 +8,8 @@ tag @e[tag=RedIBall] add IBall
 tag @e[tag=GreenIBall] add IBall
 
 #> Summon arrow at iceball's position and store thrower's uuid
-execute as @e[type=snowball,tag=GreenIBall,tag=!ThrownBall] at @s run summon arrow ~ ~ ~ {damage:10.0,Tags:["IBArrow","GreenIArrow"],Team:["Green"],inGround:0b}
-execute as @e[type=snowball,tag=RedIBall,tag=!ThrownBall] at @s run summon arrow ~ ~ ~ {damage:10.0,Tags:["IBArrow","RedIArrow"],Team:["Red"],inGround:0b}
+execute as @e[type=snowball,tag=GreenIBall,tag=!ThrownBall] at @s run summon arrow ~ ~ ~ {damage:10.0,Tags:["IBArrow","GreenIArrow"],inGround:0b}
+execute as @e[type=snowball,tag=RedIBall,tag=!ThrownBall] at @s run summon arrow ~ ~ ~ {damage:10.0,Tags:["IBArrow","RedIArrow"],inGround:0b}
 execute as @e[tag=GreenIArrow,tag=!ThrownBall] at @s run data modify entity @s Owner set from entity @a[team=Green,scores={throwsb=1..},limit=1,sort=nearest] UUID
 execute as @e[tag=RedIArrow,tag=!ThrownBall] at @s run data modify entity @s Owner set from entity @a[team=Red,scores={throwsb=1..},limit=1,sort=nearest] UUID
 

@@ -36,9 +36,9 @@ execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item modi
 execute as @a[tag=JoinGreen] run tellraw @s ["",{"text":"You may leave the game by clicking the ","italic":true,"color":"gold"},{"text":"icon in your inventory","italic":true,"underlined":true,"color":"yellow"},{"text":"!","italic":true,"color":"gold"},"\n"]
 execute as @a[tag=JoinGreen] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team. A late arrival, unfortunately","color":"dark_green"}]
 execute as @a[tag=JoinGreen] run item replace entity @s inventory.13 with diamond_hoe{CustomModelData:5,ExitIcon:1b,HideFlags:2,display:{Name:'[{"text":"[Leave Game]","italic":false,"color":"red"}]',Lore:['[{"text":"","italic":false}]','[{"text":"Click on this icon to leave the game!","italic":false,"color":"white"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']}}
-execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:5439325},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
-execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
-execute as @a[tag=JoinGreen] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
+execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:5439325},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3}
+execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3}
+execute as @a[tag=JoinGreen] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3}
 execute as @a[tag=JoinGreen] at @s run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 1 1
 
 execute as @a[tag=JoinRed] run tp @s @s
@@ -56,9 +56,9 @@ execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item modify
 execute as @a[tag=JoinRed] run tellraw @s ["",{"text":"You may leave the game by clicking the ","italic":true,"color":"gold"},{"text":"icon in your inventory","italic":true,"underlined":true,"color":"yellow"},{"text":"!","italic":true,"color":"gold"},"\n"]
 execute as @a[tag=JoinRed] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team. A late arrival, unfortunately","color":"dark_red"}]
 execute as @a[tag=JoinRed] run item replace entity @s inventory.13 with diamond_hoe{CustomModelData:5,ExitIcon:1b,HideFlags:2,display:{Name:'[{"text":"[Leave Game]","italic":false,"color":"red"}]',Lore:['[{"text":"","italic":false}]','[{"text":"Click on this icon to leave the game!","italic":false,"color":"white"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']}}
-execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:16722217},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
-execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
-execute as @a[tag=JoinRed] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:binding_curse,lvl:1}],HideFlags:3}
+execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate{Unbreakable:1b,display:{color:16722217},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3}
+execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3}
+execute as @a[tag=JoinRed] run item replace entity @s armor.feet with leather_boots{Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3}
 execute as @a[tag=JoinRed] at @s run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 1 1
 
 tag @a remove JoinGreen
@@ -237,7 +237,7 @@ execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=.
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block light_blue_wool ~ ~ ~ 0 0 0 0.1 5 force
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block yellow_wool ~ ~ ~ 0 0 0 0.1 2 force
-execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
+execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add $RedGifts CmdData 1
@@ -245,7 +245,7 @@ execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block light_blue_wool ~ ~ ~ 0 0 0 0.1 5 force
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle block yellow_wool ~ ~ ~ 0 0 0 0.1 2 force
-execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 101 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
+execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 101 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",Count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
 #> Powerup spawning
