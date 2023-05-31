@@ -13,10 +13,11 @@ function snowski:game/player/craftblock
 function snowski:game/player/sleepy
 
 #> Forced gamemodes & player items
-gamemode spectator @a[team=Spectator,gamemode=!spectator]
-gamemode adventure @a[team=Green,gamemode=!adventure,tag=!Knocked]
-gamemode adventure @a[team=Red,gamemode=!adventure,tag=!Knocked]
-gamemode adventure @a[team=Lobby,gamemode=!adventure]
+execute if score $forcedmodes CmdData matches 1 run gamemode spectator @a[team=Spectator,gamemode=!spectator]
+execute if score $forcedmodes CmdData matches 1 run gamemode adventure @a[team=Green,gamemode=!adventure,tag=!Knocked]
+execute if score $forcedmodes CmdData matches 1 run gamemode adventure @a[team=Red,gamemode=!adventure,tag=!Knocked]
+execute if score $forcedmodes CmdData matches 1 run gamemode adventure @a[team=Lobby,gamemode=!adventure]
+execute unless score $forcedmodes CmdData = $forcedmodes CmdData run scoreboard players set $forcedmodes CmdData 1
 
 #> Remove MVP stuff
 tag @a[team=!Red,team=!Green] remove giftchamp
