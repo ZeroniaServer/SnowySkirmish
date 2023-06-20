@@ -21,7 +21,7 @@ scoreboard players reset @a[scores={hittarget=1..}] hittarget
 
 #> Notification
 execute as @a[tag=!NotifRP] run title @s title [{"text":"Snowy","color":"#43c800","bold":true},{"text":" Skirmish","color":"#FF4E50","bold":true}]
-execute as @a[tag=!NotifRP] run title @s subtitle {"text":"v1.1.10","color":"dark_aqua"}
+execute as @a[tag=!NotifRP] run title @s subtitle {"text":"v1.1.11","color":"dark_aqua"}
 execute as @a[tag=!NotifRP] run tellraw @s ["",{"text":"Welcome to ","color":"dark_aqua"},{"text":"Snowy","bold":true,"color":"#43c800"},{"text":" Skirmish","bold":true,"color":"#FF4E50"},{"text":", ","color":"dark_aqua"},{"selector":"@s","color":"light_gray"},{"text":"!","color":"dark_aqua"},"\n",{"text":"The custom Resource Pack should be enabled automatically.","color":"dark_aqua"},"\n","\n",{"text":"Important: If you do not have the custom Resource Pack enabled yet, you can find the download link by clicking ","color":"red"},{"text":"[HERE]","bold":true,"color":"dark_red","clickEvent":{"action":"open_url","value":"https://drive.google.com/uc?export=download&id=1PN43JcVx6q_3iifsDcnMxYbALLxrb_So"}},"\n\n",{"text":"It is important to have this Resource Pack enabled!","color":"red"},"\n","\n",{"text":"Happy Holidays and thank you for playing! Enjoy the game!","color":"green"}]
 execute as @a[tag=!NotifRP] at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 2
 tag @a[tag=!NotifRP] add NotifRP
