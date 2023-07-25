@@ -3,7 +3,7 @@
     "block": [
       {
         "namespace": "^minecraft$",
-        "path": "recipes/.*"
+        "path": "recipes/(?!.*snow_block.json).*"
       },
       {
         "namespace": "^minecraft$",
