@@ -1,18 +1,19 @@
 {
-  "filter": {
-    "block": [
-      {
-        "namespace": "^minecraft$",
-        "path": "recipes/(?!.*snow_block.json).*"
-      },
-      {
-        "namespace": "^minecraft$",
-        "path": "advancements/.*"
-      }
-    ]
-  },
-  "pack": {
-    "pack_format": 15,
-    "description": "Made by Zeronia"
-  }
+    "filter": {
+        "block": [
+            {
+                "namespace": "^minecraft$",
+                "path": "recipes/(?!.*snow_block.json).*"
+            },
+            {
+                "namespace": "^minecraft$",
+                "path": "advancements/.*"
+            }
+        ]
+    },
+    "pack": {
+        "pack_format": 15,
+        "description": "Made by Zeronia",
+        "supported_formats": [15, 18]
+    }
 }
