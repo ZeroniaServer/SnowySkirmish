@@ -14,6 +14,6 @@
     "pack": {
         "pack_format": 15,
         "description": "Made by Zeronia",
-        "supported_formats": [15, 18]
+        "supported_formats": [15, 26]
     }
 }
