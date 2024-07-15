@@ -37,14 +37,14 @@ execute as @a[tag=JoinGreen] run scoreboard players set @s nnhealth_mod 40
 execute as @a[tag=JoinGreen] run tp @s 174 82 7 90 0
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team","color":"dark_green"}]
-execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
+execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay[custom_name='[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]',can_break={predicates:[{blocks:["minecraft:clay"]}],show_in_tooltip:0b},can_place_on={blocks:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]}] 1
 execute as @a[tag=JoinGreen] if score $gamestate CmdData matches 2 run item modify entity @s hotbar.4 snowski:setblockcount
 execute as @a[tag=JoinGreen] run tellraw @s ["",{"text":"You may leave the game by clicking the ","italic":true,"color":"gold"},{"text":"icon in your inventory","italic":true,"underlined":true,"color":"yellow"},{"text":"!","italic":true,"color":"gold"},"\n"]
 execute as @a[tag=JoinGreen] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Green team. A late arrival, unfortunately","color":"dark_green"}]
-execute as @a[tag=JoinGreen] run item replace entity @s inventory.13 with diamond_hoe{CustomModelData:5,ExitIcon:1b,HideFlags:2,display:{Name:'[{"text":"[Leave Game]","italic":false,"color":"red"}]',Lore:['[{"text":"","italic":false}]','[{"text":"Click on this icon to leave the game!","italic":false,"color":"white"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']}}
-execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate{Trim:{material:"minecraft:quartz",pattern:"minecraft:spire"},Unbreakable:1b,display:{color:5439325},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:131}
-execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings{Trim:{material:"minecraft:quartz",pattern:"minecraft:spire"},Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:131}
-execute as @a[tag=JoinGreen] run item replace entity @s armor.feet with leather_boots{Trim:{material:"minecraft:quartz",pattern:"minecraft:spire"},Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:131}
+execute as @a[tag=JoinGreen] run item replace entity @s inventory.13 with diamond_hoe[custom_name='[{"text":"[Leave Game]","italic":false,"color":"red"}]',lore=['[{"text":"","italic":false}]','[{"text":"Click on this icon to leave the game!","italic":false,"color":"white"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]'],custom_model_data=5,attribute_modifiers={modifiers:[],show_in_tooltip:0b},custom_data={ExitIcon:1b}]
+execute as @a[tag=JoinGreen] run item replace entity @s armor.chest with leather_chestplate[unbreakable={},enchantments={levels:{binding_curse:1},show_in_tooltip:0b},dyed_color=5439325,trim={material:"minecraft:quartz",pattern:"minecraft:spire"},attribute_modifiers={modifiers:[],show_in_tooltip:0b}]
+execute as @a[tag=JoinGreen] run item replace entity @s armor.legs with leather_leggings[unbreakable={},enchantments={levels:{binding_curse:1},show_in_tooltip:0b},dyed_color=4868682,trim={material:"minecraft:quartz",pattern:"minecraft:spire"},attribute_modifiers={modifiers:[],show_in_tooltip:0b}]
+execute as @a[tag=JoinGreen] run item replace entity @s armor.feet with leather_boots[unbreakable={},enchantments={levels:{binding_curse:1},show_in_tooltip:0b},dyed_color=4868682,trim={material:"minecraft:quartz",pattern:"minecraft:spire"},attribute_modifiers={modifiers:[],show_in_tooltip:0b}]
 execute as @a[tag=JoinGreen] at @s run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 1 1
 
 execute as @a[tag=JoinRed] run tp @s @s
@@ -57,14 +57,14 @@ execute as @a[tag=JoinRed] run scoreboard players set @s nnhealth_mod 40
 execute as @a[tag=JoinRed] run tp @s 98 81 7 -90 0
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 0 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team","color":"dark_red"}]
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team","color":"dark_red"}]
-execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
+execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item replace entity @s hotbar.4 with clay[custom_name='[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]',can_break={predicates:[{blocks:["minecraft:clay"]}],show_in_tooltip:0b},can_place_on={blocks:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]}] 1
 execute as @a[tag=JoinRed] if score $gamestate CmdData matches 2 run item modify entity @s hotbar.4 snowski:setblockcount
 execute as @a[tag=JoinRed] run tellraw @s ["",{"text":"You may leave the game by clicking the ","italic":true,"color":"gold"},{"text":"icon in your inventory","italic":true,"underlined":true,"color":"yellow"},{"text":"!","italic":true,"color":"gold"},"\n"]
 execute as @a[tag=JoinRed] unless score $gamestate CmdData matches 0 unless score $gamestate CmdData matches 1 run tellraw @a ["",{"selector":"@s"},{"text":" joined the Red team. A late arrival, unfortunately","color":"dark_red"}]
-execute as @a[tag=JoinRed] run item replace entity @s inventory.13 with diamond_hoe{CustomModelData:5,ExitIcon:1b,HideFlags:2,display:{Name:'[{"text":"[Leave Game]","italic":false,"color":"red"}]',Lore:['[{"text":"","italic":false}]','[{"text":"Click on this icon to leave the game!","italic":false,"color":"white"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]']}}
-execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate{Trim:{material:"minecraft:quartz",pattern:"minecraft:vex"},Unbreakable:1b,display:{color:16722217},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:131}
-execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings{Trim:{material:"minecraft:quartz",pattern:"minecraft:vex"},Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:131}
-execute as @a[tag=JoinRed] run item replace entity @s armor.feet with leather_boots{Trim:{material:"minecraft:quartz",pattern:"minecraft:vex"},Unbreakable:1b,display:{color:4868682},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:131}
+execute as @a[tag=JoinRed] run item replace entity @s inventory.13 with diamond_hoe[custom_name='[{"text":"[Leave Game]","italic":false,"color":"red"}]',lore=['[{"text":"","italic":false}]','[{"text":"Click on this icon to leave the game!","italic":false,"color":"white"},{"text":"","italic":false,"color":"dark_purple"}]','[{"text":"","italic":false,"color":"dark_purple"}]'],custom_model_data=5,attribute_modifiers={modifiers:[],show_in_tooltip:0b},custom_data={ExitIcon:1b}]
+execute as @a[tag=JoinRed] run item replace entity @s armor.chest with leather_chestplate[unbreakable={},enchantments={levels:{binding_curse:1},show_in_tooltip:0b},dyed_color=16722217,trim={material:"minecraft:quartz",pattern:"minecraft:vex"},attribute_modifiers={modifiers:[],show_in_tooltip:0b}]
+execute as @a[tag=JoinRed] run item replace entity @s armor.legs with leather_leggings[unbreakable={},enchantments={levels:{binding_curse:1},show_in_tooltip:0b},dyed_color=4868682,trim={material:"minecraft:quartz",pattern:"minecraft:vex"},attribute_modifiers={modifiers:[],show_in_tooltip:0b}]
+execute as @a[tag=JoinRed] run item replace entity @s armor.feet with leather_boots[unbreakable={},enchantments={levels:{binding_curse:1},show_in_tooltip:0b},dyed_color=4868682,trim={material:"minecraft:quartz",pattern:"minecraft:vex"},attribute_modifiers={modifiers:[],show_in_tooltip:0b}]
 execute as @a[tag=JoinRed] at @s run playsound minecraft:block.beehive.enter master @a ~ ~ ~ 1 1
 
 tag @a remove JoinGreen
@@ -152,14 +152,14 @@ execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run kill @e[tag=ElfGift]
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run kill @e[tag=PowerGift]
 execute store result bossbar preptime value run scoreboard players get $gametime CmdData
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=!Lobby,team=!Spectator,team=!Developer] hotbar.4 with clay{display:{Name:'[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]'},HideFlags:8,CanDestroy:["minecraft:clay"],CanPlaceOn:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]} 1
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item replace entity @a[team=!Lobby,team=!Spectator,team=!Developer] hotbar.4 with clay[custom_name='[{"text":"Snow Barricade","italic":false,"color":"dark_aqua","underlined":true}]',can_break={predicates:[{blocks:["minecraft:clay"]}],show_in_tooltip:0b},can_place_on={blocks:["minecraft:snow_block","minecraft:clay","minecraft:white_concrete_powder","minecraft:packed_ice","minecraft:ice","minecraft:blue_ice"]}] 1
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run item modify entity @a[team=!Lobby,team=!Spectator,team=!Developer] hotbar.4 snowski:setblockcount
 
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a title {"text":"Preparation Time!","color":"dark_aqua"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run title @a subtitle {"text":"Build some cover.","color":"blue"}
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 as @a at @s run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.2
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run function snowski:game/tips/createset
-execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $SendTip Cmddata 900
+execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run scoreboard players set $SendTip CmdData 900
 
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run place template skirmishwall1 135 57 -18
 execute if score $gamestate CmdData matches 1 if score $tensec CmdData matches 0 run place template skirmishwall2 135 57 30
@@ -243,7 +243,7 @@ execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=.
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle minecraft:block{block_state:"minecraft:light_blue_wool"} ~ ~ ~ 0 0 0 0.1 5 force
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle minecraft:block{block_state:"minecraft:yellow_wool"} ~ ~ ~ 0 0 0 0.1 2 force
-execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
+execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"small_ball",colors:[I;3887386],fade_colors:[I;4312372],has_trail:true,has_twinkle:false}],flight_duration:2}}}}
 execute as @a[team=Green,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run scoreboard players add $RedGifts CmdData 1
@@ -251,7 +251,7 @@ execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run playsound entity.experience_orb.pickup master @a ~ ~ ~ 1 2
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle minecraft:block{block_state:"minecraft:light_blue_wool"} ~ ~ ~ 0 0 0 0.1 5 force
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] at @e[tag=ElfGift,distance=..1] run particle minecraft:block{block_state:"minecraft:yellow_wool"} ~ ~ ~ 0 0 0 0.1 2 force
-execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 101 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:0,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
+execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run summon firework_rocket 101 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"small_ball",colors:[I;11743532],fade_colors:[I;15435844],has_trail:true,has_twinkle:false}],flight_duration:2}}}}
 execute as @a[team=Red,tag=!Knocked] at @s if entity @e[tag=ElfGift,distance=..1] run kill @e[tag=ElfGift,limit=1,distance=..1]
 
 #> Powerup spawning

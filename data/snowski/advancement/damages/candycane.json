@@ -1,18 +1,25 @@
 {
-  "criteria": {
-    "requirement": {
-      "trigger": "minecraft:entity_hurt_player",
-      "conditions": {
-        "damage": {
-          "source_entity": {
-            "type": "minecraft:player",
-            "nbt": "{Tags:[\"HoldCane\"]}"
-          }
+    "criteria": {
+        "requirement": {
+            "trigger": "minecraft:entity_hurt_player",
+            "conditions": {
+                "damage": {
+                    "source_entity": {
+                        "type": "minecraft:player",
+                        "slots": {
+                            "weapon.mainhand": {
+                                "items": "minecraft:golden_hoe",
+                                "components": {
+                                    "minecraft:custom_model_data": 22
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
+    },
+    "rewards": {
+        "function": "snowski:damages/candycane"
     }
-  },
-  "rewards": {
-    "function": "snowski:damages/candycane"
-  }
 }

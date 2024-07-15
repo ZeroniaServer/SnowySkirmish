@@ -8,14 +8,15 @@
           "name": "minecraft:snowball",
           "functions": [
             {
-              "function": "minecraft:set_custom_data",
-              "tag": "{CanDestroy:[\"minecraft:clay\"]}"
-            },
-            {
               "function": "minecraft:set_components",
               "components": {
                 "minecraft:custom_model_data": 1,
-                "minecraft:custom_name": "[{\"text\":\"Snowball\",\"italic\":false,\"color\":\"dark_aqua\",\"underlined\":true}]"
+                "minecraft:custom_name": "[{\"text\":\"Snowball\",\"italic\":false,\"color\":\"dark_aqua\",\"underlined\":true}]",
+                "minecraft:can_break": {
+                    "blocks": [
+                        "minecraft:clay"
+                    ]
+                }
               }
             }
           ]

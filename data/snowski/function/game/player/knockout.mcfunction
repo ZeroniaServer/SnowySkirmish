@@ -6,8 +6,8 @@ scoreboard players add @a[tag=Knocked] knocktime 1
 #> Knockfx
 execute as @a[tag=IceImpact,scores={knocktime=1}] at @s run playsound iceball master @a ~ ~ ~ 1.5 1
 execute as @a[tag=!IceImpact,scores={knocktime=1}] at @s run playsound minecraft:entity.arrow.hit master @a ~ ~ ~ 1.5 0
-execute as @a[tag=!IceImpact,scores={knocktime=1}] at @s run item replace entity @s armor.head with snow_block{tag:{Shame:1b},display:{Name:'[{"text":"Snow of Shame.","italic":false,"color":"red"}]',Lore:['[{"text":"Go warm up at a campfire to respawn.","italic":false,"color":"gray"}]','[{"text":"Oh also, try not get hit next time...","italic":false,"color":"gray"}]']},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3} 1
-execute as @a[tag=IceImpact,scores={knocktime=1}] at @s run item replace entity @s armor.head with packed_ice{tag:{Shame:1b},display:{Name:'[{"text":"Ice of Shame.","italic":false,"color":"red"}]',Lore:['[{"text":"Go warm up at a campfire to respawn.","italic":false,"color":"gray"}]','[{"text":"Iceballs are so unfair!","italic":false,"color":"gray"}]']},Enchantments:[{id:"binding_curse",lvl:1}],HideFlags:3} 1
+execute as @a[tag=!IceImpact,scores={knocktime=1}] at @s run item replace entity @s armor.head with snow_block[enchantments={levels:{binding_curse:1},show_in_tooltip:0b},custom_name='[{"text":"Snow of Shame.","italic":false,"color":"red"}]',lore=['[{"text":"Go warm up at a campfire to respawn.","italic":false,"color":"gray"}]','[{"text":"Oh also, try not get hit next time...","italic":false,"color":"gray"}]'],custom_data={Shame:1b}] 1
+execute as @a[tag=IceImpact,scores={knocktime=1}] at @s run item replace entity @s armor.head with packed_ice[enchantments={levels:{binding_curse:1},show_in_tooltip:0b},custom_name='[{"text":"Ice of Shame.","italic":false,"color":"red"}]',lore=['[{"text":"Go warm up at a campfire to respawn.","italic":false,"color":"gray"}]','[{"text":"Iceballs are so unfair!","italic":false,"color":"gray"}]'],custom_data={Shame:1b}] 1
 execute as @a[scores={knocktime=1}] at @s run effect give @s blindness 1 100 true
 execute as @a[tag=!IceImpact,scores={knocktime=1}] at @s run particle minecraft:block{block_state:"minecraft:snow_block"} ~ ~1.6 ~ 0.1 0.1 0.1 0.1 50
 execute as @a[tag=IceImpact,scores={knocktime=1}] at @s run particle minecraft:block{block_state:"minecraft:blue_ice"} ~ ~1.6 ~ 0.1 0.1 0.1 0.1 50
@@ -66,14 +66,14 @@ execute as @a[scores={knocktime=180}] at @s run scoreboard players set @s resett
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run tp @s ~ ~0.7 ~ 90 0
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run particle flame ~ ~ ~ 0 0 0 0.1 10 force
 execute as @a[team=Green,scores={knocktime=180..}] at @e[tag=GreenCampfire] run playsound entity.blaze.shoot master @a ~ ~ ~ 0.7 0
-execute as @a[team=Green,scores={knocktime=1}] run summon firework_rocket 106 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;11743532],FadeColors:[I;15435844]}]}}}}
+execute as @a[team=Green,scores={knocktime=1}] run summon firework_rocket 106 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"large_ball",colors:[I;11743532],fade_colors:[I;15435844],has_trail:true,has_twinkle:false}],flight_duration:2}}}}
 execute as @a[team=Green,scores={knocktime=1}] run scoreboard players add $RedGifts CmdData 4
 execute as @a[team=Green,scores={knocktime=180..}] run scoreboard players set @s nnhealth_mod 40
 
 execute as @a[team=Red,scores={knocktime=180..}] at @e[tag=RedCampfire] run tp @s ~ ~0.7 ~ -90 0
 execute as @a[team=Red,scores={knocktime=180..}] at @e[tag=RedCampfire] run particle flame ~ ~ ~ 0 0 0 0.1 10 force
 execute as @a[team=Red,scores={knocktime=180..}] at @e[tag=RedCampfire] run playsound entity.blaze.shoot master @a ~ ~ ~ 0.7 0
-execute as @a[team=Red,scores={knocktime=1}] run summon firework_rocket 182 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
+execute as @a[team=Red,scores={knocktime=1}] run summon firework_rocket 182 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"large_ball",colors:[I;3887386],fade_colors:[I;4312372],has_trail:true,has_twinkle:false}],flight_duration:2}}}}
 execute as @a[team=Red,scores={knocktime=1}] run scoreboard players add $GreenGifts CmdData 4
 execute as @a[team=Red,scores={knocktime=180..}] run scoreboard players set @s nnhealth_mod 40
 

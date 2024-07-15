@@ -39,6 +39,7 @@ scoreboard objectives add UUIDtracker dummy
 scoreboard objectives add resettracker dummy
 scoreboard objectives add spawnturret minecraft.used:minecraft.ghast_spawn_egg
 scoreboard objectives add leavetimer dummy
+scoreboard objectives add CmdData dummy
 
 #End of adding scores
 #Time to set all CmdData scores, hooray!

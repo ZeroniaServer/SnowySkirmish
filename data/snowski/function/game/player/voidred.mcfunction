@@ -13,8 +13,8 @@ execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid] run scorebo
 execute as @s[tag=!InVoid] run scoreboard players set @s nnhealth 40
 execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid] run scoreboard players add $GreenGifts CmdData 4
 execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid,tag=Knocked] run scoreboard players add $GreenGifts CmdData 6
-execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:1,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
-execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid,tag=Knocked] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,tag:{Fireworks:{Flight:2,Explosions:[{Type:2,Flicker:0,Trail:1,Colors:[I;3887386],FadeColors:[I;4312372]}]}}}}
+execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"large_ball",colors:[I;3887386],fade_colors:[I;4312372],has_trail:true,has_twinkle:false}],flight_duration:2}}}}
+execute unless score $gamestate CmdData matches 2 as @s[tag=!InVoid,tag=Knocked] run summon firework_rocket 177 80 8 {Tags:["PointsFW"],LifeTime:50,FireworksItem:{id:"firework_rocket",count:1,components:{"minecraft:fireworks":{explosions:[{shape:"star",colors:[I;3887386],fade_colors:[I;4312372],has_trail:true,has_twinkle:false}],flight_duration:2}}}}
 execute as @s[tag=!InVoid] run scoreboard players set @s knocktime 180
 execute as @s[tag=!InVoid] run scoreboard players set @s nnhealth 1
 execute as @s[tag=!InVoid] run tag @s add Knocked
