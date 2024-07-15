@@ -1,7 +1,5 @@
 #> Blizzard tag
-tag @a remove HoldBB
-execute as @a if items entity @s weapon.mainhand snowball[custom_model_data=3] run tag @s add HoldBB
-execute as @a if items entity @s weapon.offhand snowball[custom_model_data=3] unless items entity @s weapon.mainhand * run tag @s add HoldBB
+tag @a[predicate=snowski:holdbb] add HoldBB
 
 #> Thrower entity teams
 execute as @a[tag=HoldBB,team=Red,scores={throwsb=1..}] at @s run tag @e[type=snowball,tag=!ThrownBall,distance=..8,limit=1,sort=nearest] add RedBBottle
@@ -46,3 +44,4 @@ execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run particle minecraft
 execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run playsound bottlehit master @a ~ ~ ~ 1.5 1.3
 execute as @e[type=arrow,tag=BBArrow,tag=BottleHit] at @s run kill @s
 kill @e[type=arrow,tag=ThrownBall,nbt={inGround:1b}]
+tag @a[predicate=!snowski:holdbb] remove HoldBB

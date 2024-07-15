@@ -1,7 +1,5 @@
 #> Snowball tag
-tag @a remove HoldSB
-execute as @a if items entity @s weapon.mainhand snowball[custom_model_data=1] run tag @s add HoldSB
-execute as @a if items entity @s weapon.offhand snowball[custom_model_data=1] unless items entity @s weapon.mainhand * run tag @s add HoldSB
+tag @a[predicate=snowski:holdsb] add HoldSB
 
 #> Thrower entity teams
 execute as @a[tag=HoldSB,team=Red,scores={throwsb=1..}] at @s run tag @e[type=snowball,tag=!ThrownBall,distance=..8,limit=1,sort=nearest] add RedBall
@@ -29,3 +27,4 @@ execute as @e[type=arrow,tag=SBArrow,nbt={inGround:1b,inBlockState:{Name:"minecr
 execute as @e[type=arrow,tag=SBArrow,nbt={inGround:1b,inBlockState:{Name:"minecraft:clay"}}] at @s run particle minecraft:block{block_state:"minecraft:snow_block"} ^ ^ ^1 0 0 0 0.1 10
 
 kill @e[type=arrow,tag=SBArrow,nbt={inGround:1b}]
+tag @a[predicate=!snowski:holdsb] remove HoldSB

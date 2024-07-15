@@ -1,7 +1,5 @@
 #> Iceball tag
-tag @a remove HoldIB
-execute as @a if items entity @s weapon.mainhand snowball[custom_model_data=2] run tag @s add HoldIB
-execute as @a if items entity @s weapon.offhand snowball[custom_model_data=2] unless items entity @s weapon.mainhand * run tag @s add HoldIB
+tag @a[predicate=snowski:holdib] add HoldIB
 
 #> Thrower entity teams
 execute as @a[tag=HoldIB,team=Red,scores={throwsb=1..}] at @s run tag @e[type=snowball,tag=!ThrownBall,distance=..8,limit=1,sort=nearest] add RedIBall
@@ -31,6 +29,7 @@ execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run particle splas
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run playsound iceball master @a ~ ~ ~ 1 1.3
 execute as @e[type=arrow,tag=IBArrow,nbt={inGround:1b}] at @s run kill @s
 kill @e[type=arrow,tag=IBArrow,tag=ThrownBall,nbt={inGround:1b}]
+tag @a[predicate=!snowski:holdib] remove HoldIB
 
 #> Store player's snowball/ammo score
 execute as @a store result score @s iceballammo run clear @s snowball[custom_model_data=2] 0

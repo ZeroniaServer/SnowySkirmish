@@ -12,19 +12,29 @@
               "components": {
                 "minecraft:custom_name": "[{\"text\":\"Snow Barricade\",\"italic\":false,\"color\":\"dark_aqua\",\"underlined\":true}]",
                 "minecraft:can_break": {
-                    "blocks": [
-                        "minecraft:clay"
-                    ]
+                    "predicates": [
+                        {
+                            "blocks": [
+                                "minecraft:clay"
+                            ]
+                        }
+                    ],
+                    "show_in_tooltip": false
                 },
                 "minecraft:can_place_on": {
-                    "blocks": [
-                        "minecraft:snow_block",
-                        "minecraft:clay",
-                        "minecraft:white_concrete_powder",
-                        "minecraft:packed_ice",
-                        "minecraft:ice",
-                        "minecraft:blue_ice"
-                    ]
+                    "predicates": [
+                        {
+                            "blocks": [
+                                "minecraft:snow_block",
+                                "minecraft:clay",
+                                "minecraft:white_concrete_powder",
+                                "minecraft:packed_ice",
+                                "minecraft:ice",
+                                "minecraft:blue_ice"
+                            ]
+                        }
+                    ],
+                    "show_in_tooltip": false
                 }
               }
             },
