@@ -1,6 +1,5 @@
 scoreboard objectives remove bookpain
 #scoreboard objectives remove CmdData
-scoreboard objectives remove dontsleep
 scoreboard objectives remove drinkchoco
 scoreboard objectives remove elftime
 scoreboard objectives remove giveblocks

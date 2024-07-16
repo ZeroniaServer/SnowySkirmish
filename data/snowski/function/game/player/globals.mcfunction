@@ -6,12 +6,6 @@ effect give @a[tag=!HoldCane] weakness infinite 100 true
 #> Scores
 scoreboard players reset @a[scores={throwsb=1..}] throwsb
 
-#> Crafting snowblocks
-function snowski:game/player/craftblock
-
-#> Prevent sleeping in beds
-function snowski:game/player/sleepy
-
 #> Forced gamemodes & player items
 execute if score $forcedmodes CmdData matches 1 run gamemode spectator @a[team=Spectator,gamemode=!spectator]
 execute if score $forcedmodes CmdData matches 1 run gamemode adventure @a[team=Green,gamemode=!adventure,tag=!Knocked]

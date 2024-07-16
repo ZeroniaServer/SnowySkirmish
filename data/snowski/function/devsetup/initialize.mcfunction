@@ -4,7 +4,6 @@ function snowski:devsetup/delete
 # The painful process of adding all scoreboards with a function
 scoreboard objectives add bookpain dummy
 scoreboard objectives add CmdData dummy
-scoreboard objectives add dontsleep minecraft.custom:minecraft.sleep_in_bed
 scoreboard objectives add drinkchoco minecraft.used:minecraft.potion
 scoreboard objectives add elftime dummy
 scoreboard objectives add giveblocks dummy
@@ -30,7 +29,7 @@ scoreboard objectives add leavegame trigger
 scoreboard objectives add joinspec trigger
 scoreboard objectives add blizzsound dummy
 scoreboard objectives add canesmash minecraft.custom:minecraft.damage_dealt
-scoreboard objectives add craftblock minecraft.crafted:minecraft.snow_block
+scoreboard objectives add craftblock minecraft.crafted:minecraft.clay
 scoreboard objectives add dropsb minecraft.dropped:minecraft.snowball
 scoreboard objectives add hittarget minecraft.custom:minecraft.target_hit
 scoreboard objectives add GameID dummy
@@ -45,7 +44,7 @@ scoreboard objectives add CmdData dummy
 #Time to set all CmdData scores, hooray!
 execute unless score $blocks CmdData matches -2147483648.. run scoreboard players set $blocks CmdData 20
 execute unless score $snowballs CmdData matches -2147483648.. run scoreboard players set $snowballs CmdData 4
-execute unless score $craftblock CmdData matches -2147483648.. run scoreboard players set $craftblock CmdData 5
+# execute unless score $craftblock CmdData matches -2147483648.. run scoreboard players set $craftblock CmdData 5
 scoreboard players set $30sec CmdData 30
 scoreboard players set $onesec CmdData 20
 scoreboard players set $quickstart CmdData 10

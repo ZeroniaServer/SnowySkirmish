@@ -16,4 +16,3 @@ execute as @a[tag=!Knocked,scores={drinkchoco=1..}] at @s run particle minecraft
 
 #> Reset score & clear bottles
 scoreboard players reset @a[scores={drinkchoco=1..}] drinkchoco
-clear @a glass_bottle
