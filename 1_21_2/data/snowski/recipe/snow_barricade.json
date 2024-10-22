@@ -1,0 +1,43 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "category": "building",
+    "pattern": [
+        "##",
+        "##"
+    ],
+    "key": {
+        "#": "minecraft:snowball"
+    },
+    "result": {
+        "id": "minecraft:clay",
+        "count": 5,
+        "components": {
+            "minecraft:custom_name": "[{\"text\":\"Snow Barricade\",\"italic\":false,\"color\":\"dark_aqua\",\"underlined\":true}]",
+            "minecraft:can_break": {
+                "predicates": [
+                    {
+                        "blocks": [
+                            "minecraft:clay"
+                        ]
+                    }
+                ],
+                "show_in_tooltip": false
+            },
+            "minecraft:can_place_on": {
+                "predicates": [
+                    {
+                        "blocks": [
+                            "minecraft:snow_block",
+                            "minecraft:clay",
+                            "minecraft:white_concrete_powder",
+                            "minecraft:packed_ice",
+                            "minecraft:ice",
+                            "minecraft:blue_ice"
+                        ]
+                    }
+                ],
+                "show_in_tooltip": false
+            }
+        }
+    }
+}

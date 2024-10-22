@@ -1,6 +1,7 @@
 {
-  "replace": false,
-  "values": [
-    "snowski:devsetup/initialize"
-  ]
+    "replace": false,
+    "values": [
+        "snowski:devsetup/initialize",
+        "nnhealth:setup"
+    ]
 }
