@@ -4,8 +4,8 @@ execute on passengers if predicate snowski:forward if predicate snowski:right ro
 execute on passengers if predicate snowski:backward rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^ ^ ^-1.31094607"}
 execute on passengers if predicate snowski:backward if predicate snowski:left rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^1.31094607 ^ ^-1.31094607"}
 execute on passengers if predicate snowski:backward if predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^-1.31094607 ^ ^-1.31094607"}
-execute on passengers if predicate snowski:left rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^1.31094607 ^ ^"}
-execute on passengers if predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^-1.31094607 ^ ^"}
+execute on passengers if predicate snowski:left unless predicate snowski:forward unless predicate snowski:backward rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^1.31094607 ^ ^"}
+execute on passengers if predicate snowski:right unless predicate snowski:forward unless predicate snowski:backward rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^-1.31094607 ^ ^"}
 execute store result entity @s Motion[0] double 1 run data get storage snowski:sleigh Motion[0]
 execute store result entity @s Motion[2] double 1 run data get storage snowski:sleigh Motion[2]
 
