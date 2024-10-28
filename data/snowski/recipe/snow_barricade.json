@@ -6,9 +6,7 @@
         "##"
     ],
     "key": {
-        "#": {
-            "item": "minecraft:snowball"
-        }
+        "#": "minecraft:snowball"
     },
     "result": {
         "id": "minecraft:clay",
