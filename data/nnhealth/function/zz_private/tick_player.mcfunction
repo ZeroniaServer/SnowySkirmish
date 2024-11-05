@@ -2,7 +2,7 @@
 
 # workaround for "fake death glitch"
 effect clear @s health_boost
-execute store result score __tmp nnhealth_max run attribute @s minecraft:generic.max_health base get
+execute store result score __tmp nnhealth_max run attribute @s minecraft:max_health base get
 execute if score __tmp nnhealth_max matches 20.. if score @s nnhealth_max matches ..19 run effect give @s health_boost 1 3 true
 
 # reset max health in case of change from previous tick

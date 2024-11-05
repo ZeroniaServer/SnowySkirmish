@@ -1,5 +1,11 @@
-execute store result entity @s Motion[0] double 0.0075 run data get entity @p Motion[0] 10000
-execute store result entity @s Motion[2] double 0.0075 run data get entity @p Motion[2] 10000
+execute on passengers if predicate snowski:forward unless predicate snowski:backward unless predicate snowski:left unless predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^ ^ ^1.31094607"}
+execute on passengers if predicate snowski:forward unless predicate snowski:backward if predicate snowski:left unless predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^1.31094607 ^ ^1.31094607"}
+execute on passengers if predicate snowski:forward unless predicate snowski:backward unless predicate snowski:left if predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^-1.31094607 ^ ^1.31094607"}
+execute on passengers unless predicate snowski:forward if predicate snowski:backward unless predicate snowski:left unless predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^ ^ ^-1.31094607"}
+execute on passengers unless predicate snowski:forward if predicate snowski:backward if predicate snowski:left unless predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^1.31094607 ^ ^-1.31094607"}
+execute on passengers unless predicate snowski:forward if predicate snowski:backward unless predicate snowski:left if predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^-1.31094607 ^ ^-1.31094607"}
+execute on passengers unless predicate snowski:forward unless predicate snowski:backward if predicate snowski:left unless predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^1.31094607 ^ ^"}
+execute on passengers unless predicate snowski:forward unless predicate snowski:backward unless predicate snowski:left if predicate snowski:right rotated ~ 0 on vehicle run function snowski:weapons/sleigh/move {direction:"^-1.31094607 ^ ^"}
 
 execute unless entity @s[tag=SleighOffGround] at @s unless entity @p[predicate=snowski:in_sleigh,predicate=snowski:not_moving] run particle minecraft:block{block_state:"minecraft:snow"} ~ ~ ~ 0.1 0 0.1 0.1 5 force
 execute unless entity @s[tag=SleighOffGround] at @s unless entity @p[predicate=snowski:in_sleigh,predicate=snowski:not_moving] run particle snowflake ~ ~ ~ 0.1 0 0.1 0.1 2 force
@@ -11,7 +17,10 @@ execute at @s unless block ^1 ^ ^ air unless block ^ ^-1 ^ air unless block ^ ^-
 execute at @s[tag=!SleighOffGround] if block ~ ~ ~ air if block ~ ~-1 ~ air if block ~ ~-2 ~ air if block ~ ~-3 ~ air if block ~ ~-4 ~ air if block ~ ~-5 ~ air run tag @s add SleighJumpBig
 execute at @s[tag=!SleighOffGround] if block ~ ~ ~ air if block ~ ~-1 ~ air if block ~ ~-2 ~ air if block ~ ~-3 ~ air if block ~ ~-4 ~ air if block ~ ~-5 ~ air run tag @s add SleighJumpBig
 
-data modify entity @s[tag=SleighJumpSmall] Motion[1] set value 0.2d
+execute if entity @s[tag=!SleighJumpSmall] run data modify storage snowski:sleigh Motion[1] set from entity @s Motion[1]
+execute if entity @s[tag=SleighJumpSmall] run data modify storage snowski:sleigh Motion[1] set value 0.2d
+data modify entity @s Motion set from storage snowski:sleigh Motion
+
 tag @s remove SleighJumpSmall
 
 data modify entity @s[tag=SleighJumpBig,tag=!SleighOffGround] Motion[1] set value 1.3d
